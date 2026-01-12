@@ -4,7 +4,7 @@ import { IconBrandGithubFilled, IconBriefcaseFilled } from '@tabler/icons-react'
 // Component Imports.
 import Navbar from '@/components/navbar';
 import { Button } from '@/components/ui/button';
-import { Big, H1, H2, H3, P, Small } from '@/components/ui/typography';
+import { H1, H3, Big, Small, P } from '@/components/ui/typography';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import LivePulse from '@/components/ui/live-pulse';
 
@@ -12,10 +12,10 @@ import LivePulse from '@/components/ui/live-pulse';
 export default function Landing() {
   return (
     <>
-      <header className="flex h-auto min-h-dvh w-dvw flex-col items-center gap-12">
+      <header className="flex h-dvh w-full flex-col items-center gap-12">
         <Navbar />
 
-        <section className="flex w-full flex-col gap-16 px-4">
+        <section className="flex max-w-full flex-col gap-16 px-4 pb-4">
           <article className="flex flex-col gap-4">
             <H1>Pulse the Competition</H1>
 
