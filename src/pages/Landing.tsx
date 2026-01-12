@@ -1,10 +1,17 @@
 // Assets.
-import { IconBrandGithubFilled, IconBriefcaseFilled, IconCode } from '@tabler/icons-react';
+import {
+  IconBrandGithubFilled,
+  IconBriefcaseFilled,
+  IconCode,
+  IconCircleNumber1Filled,
+  IconCircleNumber2Filled,
+  IconCircleNumber3Filled,
+} from '@tabler/icons-react';
 
 // Component Imports.
 import Navbar from '@/components/navbar';
 import { Button } from '@/components/ui/button';
-import { H1, H3, Big, Small, P, H2 } from '@/components/ui/typography';
+import { H1, H2, H3, Big, Small, Muted } from '@/components/ui/typography';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import LivePulse from '@/components/ui/live-pulse';
 import ArenaCard from '@/components/ui/arena-card';
@@ -48,10 +55,10 @@ export default function Landing() {
           <article className="flex flex-col gap-4">
             <H1>Pulse the Competition</H1>
 
-            <P className="text-foreground/80">
+            <Muted>
               Real-time competitive testing that pushes your limits. Battle the best minds in your
               field and climb the percentile rankings.
-            </P>
+            </Muted>
 
             <div className="space-x-4">
               <Button>
@@ -105,12 +112,12 @@ export default function Landing() {
         </section>
       </header>
 
-      <main className="mt-24 flex flex-col gap-36 px-4">
+      <main className="mt-24 flex flex-col gap-16 px-4">
         <section className="space-y-8">
           <div className="space-y-2">
             <H2>Active Arenas</H2>
 
-            <P className="text-foreground/80">Choose your battlefields and prove your expertise.</P>
+            <Muted>Choose your battlefields and prove your expertise.</Muted>
           </div>
 
           <ul className="flex w-full flex-col gap-6">
@@ -120,6 +127,57 @@ export default function Landing() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section>
+          <article className="space-y-12">
+            <div className="space-y-2">
+              <H2>Proof of Knowledge</H2>
+
+              <Muted>
+                Our percentile-based ranking system ensures fair competition and accurate skill
+                assessment across all domains.
+              </Muted>
+            </div>
+
+            <ul className="flex flex-col gap-6">
+              <li className="flex gap-2">
+                <IconCircleNumber1Filled size={48} className="block max-h-fit" />
+
+                <div>
+                  <span className="font-semibold">Real-time Assessment</span>
+
+                  <Muted>
+                    Dynamic scoring based on speed, accuracy, and complexity of questions answered.
+                  </Muted>
+                </div>
+              </li>
+
+              <li className="flex gap-2">
+                <IconCircleNumber2Filled size={48} className="block max-h-fit" />
+
+                <div>
+                  <span className="font-semibold">Percentile Rankings</span>
+
+                  <Muted>
+                    Compare your performance against thousands of professionals in your field.
+                  </Muted>
+                </div>
+              </li>
+
+              <li className="flex gap-2">
+                <IconCircleNumber3Filled size={48} className="block max-h-fit" />
+
+                <div>
+                  <span className="font-semibold">Skill Verification</span>
+
+                  <Muted>
+                    Earn verified badges and certificates recognized by industry leaders.
+                  </Muted>
+                </div>
+              </li>
+            </ul>
+          </article>
         </section>
       </main>
     </>
