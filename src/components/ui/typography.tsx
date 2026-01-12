@@ -1,10 +1,12 @@
 // Utils.
 import { cn } from '@/lib/utils';
 
+// Types.
 type HeadingProps = React.HTMLAttributes<HTMLHeadingElement>;
 type ParagraphProps = React.HTMLAttributes<HTMLParagraphElement>;
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
 
+// Common Typography Components.
 export function H1({ children, className, ...props }: HeadingProps) {
   return (
     <h1
