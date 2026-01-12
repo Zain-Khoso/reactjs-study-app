@@ -26,7 +26,7 @@ export default function ArenaCard({
   startsAt,
 }: Props) {
   return (
-    <Card className="gap-6">
+    <Card className="h-full gap-6">
       <CardHeader className="flex w-full items-center justify-between">
         <div className="bg-muted rounded-lg p-2">
           <Icon size={32} />
@@ -35,7 +35,7 @@ export default function ArenaCard({
         <LivePulse isLive={isLive} />
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-2">
+      <CardContent className="flex flex-1 flex-col gap-2">
         <CardTitle>{title}</CardTitle>
 
         <CardDescription>{desc}</CardDescription>
