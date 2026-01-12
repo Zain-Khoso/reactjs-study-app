@@ -52,7 +52,7 @@ const arenas = [
 export default function Landing() {
   return (
     <>
-      <header className="flex h-dvh w-full flex-col items-center gap-12">
+      <header className="flex h-dvh min-h-fit w-full flex-col items-center gap-12">
         <Navbar />
 
         <section className="flex max-w-full flex-col gap-16 px-4 pb-4">
