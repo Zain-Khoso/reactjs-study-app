@@ -1,12 +1,41 @@
 // Assets.
-import { IconBrandGithubFilled, IconBriefcaseFilled } from '@tabler/icons-react';
+import { IconBrandGithubFilled, IconBriefcaseFilled, IconCode } from '@tabler/icons-react';
 
 // Component Imports.
 import Navbar from '@/components/navbar';
 import { Button } from '@/components/ui/button';
-import { H1, H3, Big, Small, P } from '@/components/ui/typography';
+import { H1, H3, Big, Small, P, H2 } from '@/components/ui/typography';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import LivePulse from '@/components/ui/live-pulse';
+import ArenaCard from '@/components/ui/arena-card';
+
+// Static Data.
+const arenas = [
+  {
+    icon: IconBriefcaseFilled,
+    isLive: true,
+    title: 'Algorithm Showdown',
+    desc: 'Test your algorithmic skills against top competitors.',
+    playersJoined: 1247,
+    startsAt: new Date('2024-07-15T14:00:00'),
+  },
+  {
+    icon: IconCode,
+    isLive: false,
+    title: 'Web Dev Wars',
+    desc: 'Compete in real-time web development challenges.',
+    playersJoined: 856,
+    startsAt: new Date('2024-07-15T16:00:00'),
+  },
+  {
+    icon: IconBrandGithubFilled,
+    isLive: true,
+    title: 'Data Science Duel',
+    desc: 'Showcase your data science expertise in competitive scenarios.',
+    playersJoined: 932,
+    startsAt: new Date('2024-07-15T18:00:00'),
+  },
+];
 
 // Page.
 export default function Landing() {
@@ -75,6 +104,24 @@ export default function Landing() {
           </Card>
         </section>
       </header>
+
+      <main className="mt-24 flex flex-col gap-36 px-4">
+        <section className="space-y-8">
+          <div className="space-y-2">
+            <H2>Active Arenas</H2>
+
+            <P className="text-foreground/80">Choose your battlefields and prove your expertise.</P>
+          </div>
+
+          <ul className="flex w-full flex-col gap-6">
+            {arenas.map((arena) => (
+              <li key={`arena-${arena.startsAt.toISOString()}`} className="w-full">
+                <ArenaCard {...arena} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
     </>
   );
 }
