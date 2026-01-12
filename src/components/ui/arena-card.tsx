@@ -1,5 +1,5 @@
 // Assets.
-import { type Icon, IconCode } from '@tabler/icons-react';
+import { type Icon } from '@tabler/icons-react';
 
 // Component Imports.
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from './card';
