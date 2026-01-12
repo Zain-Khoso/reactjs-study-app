@@ -1,3 +1,6 @@
+// Lib Imports.
+import { Link } from 'react-router';
+
 // Assets.
 import {
   IconBrandGithubFilled,
@@ -15,6 +18,7 @@ import { H1, H2, H3, Big, Small, Muted } from '@/components/ui/typography';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import LivePulse from '@/components/ui/live-pulse';
 import ArenaCard from '@/components/ui/arena-card';
+import BrandLogo from '@/components/ui/brand-logo';
 
 // Static Data.
 const arenas = [
@@ -112,7 +116,7 @@ export default function Landing() {
         </section>
       </header>
 
-      <main className="mt-24 flex flex-col gap-16 px-4">
+      <main className="my-24 flex flex-col gap-16 px-4">
         <section className="space-y-8">
           <div className="space-y-2">
             <H2>Active Arenas</H2>
@@ -180,6 +184,83 @@ export default function Landing() {
           </article>
         </section>
       </main>
+
+      <footer className="border-muted flex flex-col justify-between gap-8 border-t px-4 py-8">
+        <section className="border-muted flex flex-col justify-between gap-8 border-b pb-8">
+          <article className="space-y-4">
+            <BrandLogo />
+
+            <Muted>Real-time competitive testing platform for professionals worldwide.</Muted>
+          </article>
+
+          <ul className="flex flex-col gap-2">
+            <li>
+              <span>Platform</span>
+            </li>
+            <li>
+              <Muted>
+                <Link to="/arenas">Live Arenas</Link>
+              </Muted>
+            </li>
+            <li>
+              <Muted>
+                <Link to="/ranking">Ranking</Link>
+              </Muted>
+            </li>
+            <li>
+              <Muted>
+                <Link to="/leaderboard">Leaderboard</Link>
+              </Muted>
+            </li>
+          </ul>
+
+          <ul className="flex flex-col gap-2">
+            <li>
+              <span>Support</span>
+            </li>
+            <li>
+              <Muted>
+                <Link to="/help">Help Center</Link>
+              </Muted>
+            </li>
+            <li>
+              <Muted>
+                <Link to="/contact">Contact Us</Link>
+              </Muted>
+            </li>
+            <li>
+              <Muted>
+                <Link to="/community">Community</Link>
+              </Muted>
+            </li>
+          </ul>
+
+          <ul className="flex flex-col gap-2">
+            <li>
+              <span>Legal</span>
+            </li>
+            <li>
+              <Muted>
+                <Link to="/privacy-policy">Privacy Policy</Link>
+              </Muted>
+            </li>
+            <li>
+              <Muted>
+                <Link to="/terms-of-service">Terms of Service</Link>
+              </Muted>
+            </li>
+            <li>
+              <Muted>
+                <Link to="/cookie-policy">Cookie Policy</Link>
+              </Muted>
+            </li>
+          </ul>
+        </section>
+
+        <Muted className="text-center">
+          &copy; {new Date().getFullYear()} PrepPulse. All rights reserved.
+        </Muted>
+      </footer>
     </>
   );
 }
