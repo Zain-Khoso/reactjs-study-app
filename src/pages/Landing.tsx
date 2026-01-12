@@ -13,12 +13,12 @@ import {
 
 // Component Imports.
 import Navbar from '@/components/navbar';
-import { Button } from '@/components/ui/button';
-import { H1, H2, H3, Big, Small, Muted } from '@/components/ui/typography';
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
-import LivePulse from '@/components/ui/live-pulse';
-import ArenaCard from '@/components/ui/arena-card';
 import BrandLogo from '@/components/ui/brand-logo';
+import ArenaCard from '@/components/ui/arena-card';
+import LivePulse from '@/components/ui/live-pulse';
+import { H1, H2, H3, Big, Muted } from '@/components/ui/typography';
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 // Static Data.
 const arenas = [
@@ -81,42 +81,42 @@ export default function Landing() {
               <LivePulse />
             </CardHeader>
 
-            <CardContent className="flex flex-col gap-2">
-              <span className="block w-full text-center uppercase">Starting In</span>
+            <CardContent className="space-y-1">
+              <Muted className="text-center uppercase">Starting In</Muted>
 
               <ul className="flex w-full items-center gap-2">
-                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center gap-2 rounded-lg border-2 py-2">
+                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center rounded-lg border-2 py-2">
                   <Big>00</Big>
-                  <Small>Days</Small>
+                  <Muted className="uppercase">Days</Muted>
                 </li>
-                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center gap-2 rounded-lg border-2 py-2">
+                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center rounded-lg border-2 py-2">
                   <Big>00</Big>
-                  <Small>Hours</Small>
+                  <Muted className="uppercase">Hrs</Muted>
                 </li>
-                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center gap-2 rounded-lg border-2 py-2">
+                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center rounded-lg border-2 py-2">
                   <Big>00</Big>
-                  <Small>Minutes</Small>
+                  <Muted className="uppercase">Min</Muted>
                 </li>
-                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center gap-2 rounded-lg border-2 py-2">
+                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center rounded-lg border-2 py-2">
                   <Big>00</Big>
-                  <Small>Seconds</Small>
+                  <Muted className="uppercase">Sec</Muted>
                 </li>
               </ul>
             </CardContent>
 
-            <CardFooter className="flex flex-col items-start gap-6">
-              <div className="flex flex-col gap-2">
-                <Small>Computer Science</Small>
-                <H3>Price Pool: $10,000</H3>
+            <CardFooter className="flex-col items-start gap-2">
+              <div>
+                <Muted>Computer Science</Muted>
+                <Big>Price Pool: $10,000</Big>
               </div>
 
-              <span className="muted">2, 856 Registered Competitors</span>
+              <Muted>2,856 Registered Competitors</Muted>
             </CardFooter>
           </Card>
         </section>
       </header>
 
-      <main className="my-24 flex flex-col gap-16 px-4">
+      <main className="my-16 flex flex-col gap-16 px-4">
         <section className="space-y-8">
           <div className="space-y-2">
             <H2>Active Arenas</H2>
