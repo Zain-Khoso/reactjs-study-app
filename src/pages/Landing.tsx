@@ -16,7 +16,8 @@ import Navbar from '@/components/navbar';
 import BrandLogo from '@/components/ui/brand-logo';
 import ArenaCard from '@/components/ui/arena-card';
 import LivePulse from '@/components/ui/live-pulse';
-import { H1, H2, H3, Big, Muted } from '@/components/ui/typography';
+import { H1, H2, H3, Big, Muted, Small } from '@/components/ui/typography';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -52,11 +53,11 @@ const arenas = [
 export default function Landing() {
   return (
     <>
-      <header className="flex h-dvh min-h-fit w-full flex-col items-center gap-12">
+      <header className="mx-auto flex h-fit w-full max-w-7xl flex-col items-center gap-12">
         <Navbar />
 
-        <section className="flex max-w-full flex-col gap-16 px-4 pb-4">
-          <article className="flex flex-col gap-4">
+        <section className="flex max-w-full flex-col items-center gap-16 px-4 pb-4 md:flex-row md:py-12">
+          <article className="flex max-w-155 flex-1 flex-col gap-4">
             <H1>Pulse the Competition</H1>
 
             <Muted>
@@ -74,7 +75,7 @@ export default function Landing() {
             </div>
           </article>
 
-          <Card>
+          <Card className="w-full max-w-105 md:flex-2">
             <CardHeader className="flex w-full items-center justify-between">
               <H3>Next Big Battle</H3>
 
@@ -116,25 +117,27 @@ export default function Landing() {
         </section>
       </header>
 
-      <main className="my-16 flex flex-col gap-16 px-4">
+      <main className="mx-auto my-28 flex max-w-7xl flex-col gap-16 px-4 md:gap-24">
         <section className="space-y-8">
-          <div className="space-y-2">
-            <H2>Active Arenas</H2>
+          <div className="space-y-2 md:text-center">
+            <H2 className="md:text-center">Active Arenas</H2>
 
-            <Muted>Choose your battlefields and prove your expertise.</Muted>
+            <Muted className="md:text-center">
+              Choose your battlefields and prove your expertise.
+            </Muted>
           </div>
 
-          <ul className="flex w-full flex-col gap-6">
+          <ul className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] place-items-center gap-6">
             {arenas.map((arena) => (
-              <li key={`arena-${arena.startsAt.toISOString()}`} className="w-full">
+              <li key={`arena-${arena.startsAt.toISOString()}`} className="h-full w-full">
                 <ArenaCard {...arena} />
               </li>
             ))}
           </ul>
         </section>
 
-        <section>
-          <article className="space-y-12">
+        <section className="block items-center gap-8 md:flex lg:gap-16">
+          <article className="flex-1 space-y-12">
             <div className="space-y-2">
               <H2>Proof of Knowledge</H2>
 
@@ -146,10 +149,13 @@ export default function Landing() {
 
             <ul className="flex flex-col gap-6">
               <li className="flex gap-2">
-                <IconCircleNumber1Filled size={48} className="block max-h-fit" />
+                <IconCircleNumber1Filled
+                  size={48}
+                  className="fill-muted-foreground block max-h-fit"
+                />
 
                 <div>
-                  <span className="font-semibold">Real-time Assessment</span>
+                  <span>Real-time Assessment</span>
 
                   <Muted>
                     Dynamic scoring based on speed, accuracy, and complexity of questions answered.
@@ -158,10 +164,13 @@ export default function Landing() {
               </li>
 
               <li className="flex gap-2">
-                <IconCircleNumber2Filled size={48} className="block max-h-fit" />
+                <IconCircleNumber2Filled
+                  size={48}
+                  className="fill-muted-foreground block max-h-fit"
+                />
 
                 <div>
-                  <span className="font-semibold">Percentile Rankings</span>
+                  <span>Percentile Rankings</span>
 
                   <Muted>
                     Compare your performance against thousands of professionals in your field.
@@ -170,10 +179,13 @@ export default function Landing() {
               </li>
 
               <li className="flex gap-2">
-                <IconCircleNumber3Filled size={48} className="block max-h-fit" />
+                <IconCircleNumber3Filled
+                  size={48}
+                  className="fill-muted-foreground block max-h-fit"
+                />
 
                 <div>
-                  <span className="font-semibold">Skill Verification</span>
+                  <span>Skill Verification</span>
 
                   <Muted>
                     Earn verified badges and certificates recognized by industry leaders.
@@ -182,18 +194,71 @@ export default function Landing() {
               </li>
             </ul>
           </article>
+
+          <Card className="hidden max-h-fit flex-1 flex-col gap-6 md:flex">
+            <CardHeader>
+              <Big>Current Ranking</Big>
+            </CardHeader>
+
+            <CardContent className="flex flex-col gap-4">
+              <article className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4">
+                <Muted>1st</Muted>
+
+                <Avatar>
+                  <AvatarFallback>Dr</AvatarFallback>
+                </Avatar>
+
+                <span>Dr. Sarah Chen</span>
+
+                <div className="ml-auto">
+                  <span className="block text-end">99.7%</span>
+                  <Small className="text-muted-foreground block">Medicine</Small>
+                </div>
+              </article>
+
+              <article className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4">
+                <Muted>2nd</Muted>
+
+                <Avatar>
+                  <AvatarFallback>A</AvatarFallback>
+                </Avatar>
+
+                <span>Alex Rodriguez</span>
+
+                <div className="ml-auto">
+                  <span className="block text-end">98.9%</span>
+                  <Small className="text-muted-foreground block">Technology</Small>
+                </div>
+              </article>
+
+              <article className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4">
+                <Muted>3rd</Muted>
+
+                <Avatar>
+                  <AvatarFallback>M</AvatarFallback>
+                </Avatar>
+
+                <span>Maria Santos</span>
+
+                <div className="ml-auto">
+                  <span className="block text-end">99.7%</span>
+                  <Small className="text-muted-foreground block">Medicine</Small>
+                </div>
+              </article>
+            </CardContent>
+          </Card>
         </section>
       </main>
 
-      <footer className="border-muted flex flex-col justify-between gap-8 border-t px-4 py-8">
-        <section className="border-muted flex flex-col justify-between gap-8 border-b pb-8">
-          <article className="space-y-4">
+      <footer className="border-muted mx-auto flex max-w-7xl flex-col justify-between gap-8 border-t px-4 py-8">
+        <section className="border-muted flex flex-col justify-between gap-8 border-b pb-8 md:flex-row md:flex-wrap">
+          <article className="flex-2 space-y-4">
             <BrandLogo />
 
             <Muted>Real-time competitive testing platform for professionals worldwide.</Muted>
           </article>
 
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-1 flex-col gap-2">
             <li>
               <span>Platform</span>
             </li>
@@ -214,7 +279,7 @@ export default function Landing() {
             </li>
           </ul>
 
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-1 flex-col gap-2">
             <li>
               <span>Support</span>
             </li>
@@ -235,7 +300,7 @@ export default function Landing() {
             </li>
           </ul>
 
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-1 flex-col gap-2">
             <li>
               <span>Legal</span>
             </li>
