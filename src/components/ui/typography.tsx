@@ -58,3 +58,11 @@ export function P({ children, className, ...props }: ParagraphProps) {
     </p>
   );
 }
+
+export function Muted({ children, className, ...props }: ParagraphProps) {
+  return (
+    <p className={cn('text-muted-foreground text-justify leading-6', className)} {...props}>
+      {children}
+    </p>
+  );
+}
