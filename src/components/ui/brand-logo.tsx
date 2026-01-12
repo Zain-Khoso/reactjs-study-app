@@ -1,5 +1,7 @@
-// Component Imports.
+// Assets.
 import { IconBoltFilled } from '@tabler/icons-react';
+
+// Component Imports.
 import { H3 } from './typography';
 
 // Component.
