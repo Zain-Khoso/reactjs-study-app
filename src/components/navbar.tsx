@@ -1,6 +1,9 @@
 // Lib Imports.
 import { Link } from 'react-router';
 
+// Assets.
+import { IconArrowBigRightLinesFilled } from '@tabler/icons-react';
+
 // Component Imports.
 import BrandLogo from './ui/brand-logo';
 import { Button } from './ui/button';
@@ -13,28 +16,40 @@ export default function Navbar() {
 
       <ul className="hidden items-center gap-4 md:flex">
         <li>
-          <Link to="/arenas" className="text-muted-foreground">
-            Arena
+          <Link
+            to="https://linkedin.com/in/zain-khoso"
+            target="_blank"
+            className="text-muted-foreground"
+          >
+            Creator
           </Link>
         </li>
         <li>
-          <Link to="/leaderboard" className="text-muted-foreground">
-            Leaderboard
+          <Link
+            to="https://github.com/zain-khoso/reactjs-study-app"
+            target="_blank"
+            className="text-muted-foreground"
+          >
+            Source Code
           </Link>
         </li>
         <li>
-          <Link to="/ranking" className="text-muted-foreground">
-            Ranking
+          <Link to="/#arenas" className="text-muted-foreground">
+            Live Arenas
           </Link>
         </li>
         <li>
-          <Link to="/profile" className="text-muted-foreground">
-            Profile
+          <Link to="/#assessment" className="text-muted-foreground">
+            Assessment
           </Link>
         </li>
       </ul>
 
-      <Button>Login</Button>
+      <Button asChild>
+        <Link to="/signin">
+          Sign In <IconArrowBigRightLinesFilled />
+        </Link>
+      </Button>
     </nav>
   );
 }
