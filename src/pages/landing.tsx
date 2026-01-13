@@ -1,5 +1,6 @@
 // Lib Imports.
 import { Link } from 'react-router';
+import { Helmet } from 'react-helmet-async';
 
 // Assets.
 import {
@@ -53,6 +54,15 @@ const arenas = [
 export default function Landing() {
   return (
     <>
+      <Helmet>
+        <title>Preplus | The Ultimate Real-Time Testing Arena</title>
+        <meta name="title" content="Preplus | Pulse the Competition" />
+        <meta
+          name="description"
+          content="Dominate the arena with Preplus. High-concurrency live battles, real-time rankings, and elite performance analytics for competitive learners."
+        />
+      </Helmet>
+
       <header className="mx-auto flex w-full max-w-7xl flex-col items-center gap-16 px-4 pb-4 md:flex-row md:justify-between md:py-12 lg:gap-36">
         <article className="flex flex-1 flex-col gap-6 lg:gap-8">
           <H1>The Gold Standard of Knowledge.</H1>
