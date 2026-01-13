@@ -1,5 +1,6 @@
 // Lib Imports.
 import { Link } from 'react-router';
+import { HashLink } from 'react-router-hash-link';
 
 // Assets.
 import { IconArrowBigRightLinesFilled, IconSunFilled, IconMoonFilled } from '@tabler/icons-react';
@@ -39,14 +40,14 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/#arenas" className="text-muted-foreground">
+          <HashLink to="/#arenas" smooth className="text-muted-foreground">
             Live Arenas
-          </Link>
+          </HashLink>
         </li>
         <li>
-          <Link to="/#assessment" className="text-muted-foreground">
+          <HashLink to="/#assessment" smooth className="text-muted-foreground">
             Assessment
-          </Link>
+          </HashLink>
         </li>
       </ul>
 
