@@ -5,7 +5,9 @@ import { Link } from 'react-router';
 import {
   IconArrowBigRightLinesFilled,
   IconBadgesFilled,
-  IconCode,
+  IconSquareLetterEFilled,
+  IconEngineFilled,
+  IconGlobeFilled,
   IconCircleNumber1Filled,
   IconCircleNumber2Filled,
   IconCircleNumber3Filled,
@@ -24,28 +26,28 @@ import { Button } from '@/components/ui/button';
 // Static Data.
 const arenas = [
   {
-    icon: IconArrowBigRightLinesFilled,
+    icon: IconSquareLetterEFilled,
     isLive: true,
-    title: 'Algorithm Showdown',
-    desc: 'Test your algorithmic skills against top competitors.',
-    playersJoined: 1247,
-    startsAt: new Date('2024-07-15T14:00:00'),
+    title: 'English',
+    desc: 'Master syntax, vocabulary, and comprehension. Precision is everything when a single comma determines your global rank.',
+    playersJoined: 3728,
+    startsAt: new Date(Date.now() - 1000 * 60 * 60 * 0.5),
   },
   {
-    icon: IconCode,
+    icon: IconEngineFilled,
     isLive: false,
-    title: 'Web Dev Wars',
-    desc: 'Compete in real-time web development challenges.',
-    playersJoined: 856,
-    startsAt: new Date('2024-07-15T16:00:00'),
+    title: 'Physics',
+    desc: 'From mechanics to quantum theory. Apply complex formulas at lightning speed to dominate the high-velocity physics leaderboard.',
+    playersJoined: 235,
+    startsAt: new Date(Date.now() + 1000 * 60 * 60 * 5),
   },
   {
-    icon: IconBadgesFilled,
+    icon: IconGlobeFilled,
     isLive: true,
-    title: 'Data Science Duel',
-    desc: 'Showcase your data science expertise in competitive scenarios.',
-    playersJoined: 932,
-    startsAt: new Date('2024-07-15T18:00:00'),
+    title: 'World Current Affairs',
+    desc: 'The ultimate global awareness test. Track geopolitics and breaking news to prove you are the best-informed mind online.',
+    playersJoined: 83,
+    startsAt: new Date(Date.now() - 1000 * 60 * 60 * 0.25),
   },
 ];
 
@@ -122,13 +124,14 @@ export default function Landing() {
         </section>
       </header>
 
-      <main className="mx-auto my-28 flex max-w-7xl flex-col gap-16 px-4 md:gap-24">
-        <section className="space-y-8">
+      <main className="mx-auto my-24 flex max-w-7xl flex-col gap-24 px-4 md:my-32 md:gap-48">
+        <section id="arenas" className="space-y-12">
           <div className="space-y-2 md:text-center">
-            <H2 className="md:text-center">Active Arenas</H2>
+            <H2 className="md:text-center">Trending Arenas</H2>
 
             <Muted className="md:text-center">
-              Choose your battlefields and prove your expertise.
+              The most crowded lobbies on Preplus right now. Join thousands of players in our
+              highest-concurrency battles and test your skills under pressure.
             </Muted>
           </div>
 
@@ -144,56 +147,50 @@ export default function Landing() {
         <section className="block items-center gap-8 md:flex lg:gap-16">
           <article className="flex-1 space-y-12">
             <div className="space-y-2">
-              <H2>Proof of Knowledge</H2>
+              <H2>The Preplus Edge</H2>
 
               <Muted>
-                Our percentile-based ranking system ensures fair competition and accurate skill
-                assessment across all domains.
+                Our proprietary scoring engine analyzes more than just your answers. We measure the
+                three pillars of elite performance to determine your global rank.
               </Muted>
             </div>
 
             <ul className="flex flex-col gap-6">
               <li className="flex gap-2">
-                <IconCircleNumber1Filled
-                  size={48}
-                  className="fill-muted-foreground block max-h-fit"
-                />
+                <IconCircleNumber1Filled className="fill-muted-foreground block max-h-8 min-h-8 max-w-8 min-w-8" />
 
                 <div>
-                  <span>Real-time Assessment</span>
+                  <span>Speed is the ultimate tiebreaker</span>
 
                   <Muted>
-                    Dynamic scoring based on speed, accuracy, and complexity of questions answered.
+                    Points decay every second, rewarding those who can process complex information
+                    and react faster than the rest of the field.
                   </Muted>
                 </div>
               </li>
 
               <li className="flex gap-2">
-                <IconCircleNumber2Filled
-                  size={48}
-                  className="fill-muted-foreground block max-h-fit"
-                />
+                <IconCircleNumber2Filled className="fill-muted-foreground block max-h-8 min-h-8 max-w-8 min-w-8" />
 
                 <div>
-                  <span>Percentile Rankings</span>
+                  <span>Consistency is rewarded</span>
 
                   <Muted>
-                    Compare your performance against thousands of professionals in your field.
+                    Maintaining a "Perfect Streak" applies a score multiplier, separating casual
+                    players from those who have truly mastered the subject matter.
                   </Muted>
                 </div>
               </li>
 
               <li className="flex gap-2">
-                <IconCircleNumber3Filled
-                  size={48}
-                  className="fill-muted-foreground block max-h-fit"
-                />
+                <IconCircleNumber3Filled className="fill-muted-foreground block max-h-8 min-h-8 max-w-8 min-w-8" />
 
                 <div>
-                  <span>Skill Verification</span>
+                  <span>Not all questions are equal</span>
 
                   <Muted>
-                    Earn verified badges and certificates recognized by industry leaders.
+                    Harder questions—identified by real-time global fail rates—yield higher point
+                    rewards, ensuring your rank reflects true intellectual depth.
                   </Muted>
                 </div>
               </li>
@@ -202,13 +199,11 @@ export default function Landing() {
 
           <Card className="hidden max-h-fit flex-1 flex-col gap-6 md:flex">
             <CardHeader>
-              <Big>Current Ranking</Big>
+              <Big>Ranked Indivisuals</Big>
             </CardHeader>
 
             <CardContent className="flex flex-col gap-4">
               <article className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4">
-                <Muted>1st</Muted>
-
                 <Avatar>
                   <AvatarFallback>Dr</AvatarFallback>
                 </Avatar>
@@ -217,13 +212,11 @@ export default function Landing() {
 
                 <div className="ml-auto">
                   <span className="block text-end">99.7%</span>
-                  <Small className="text-muted-foreground block">Medicine</Small>
+                  <Small className="text-muted-foreground block">Biology</Small>
                 </div>
               </article>
 
               <article className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4">
-                <Muted>2nd</Muted>
-
                 <Avatar>
                   <AvatarFallback>A</AvatarFallback>
                 </Avatar>
@@ -232,13 +225,11 @@ export default function Landing() {
 
                 <div className="ml-auto">
                   <span className="block text-end">98.9%</span>
-                  <Small className="text-muted-foreground block">Technology</Small>
+                  <Small className="text-muted-foreground block">Maths</Small>
                 </div>
               </article>
 
               <article className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4">
-                <Muted>3rd</Muted>
-
                 <Avatar>
                   <AvatarFallback>M</AvatarFallback>
                 </Avatar>
@@ -247,7 +238,7 @@ export default function Landing() {
 
                 <div className="ml-auto">
                   <span className="block text-end">99.7%</span>
-                  <Small className="text-muted-foreground block">Medicine</Small>
+                  <Small className="text-muted-foreground block">Chemistry</Small>
                 </div>
               </article>
             </CardContent>
