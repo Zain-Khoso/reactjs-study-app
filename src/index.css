@@ -122,6 +122,10 @@
     @apply border-border outline-ring/50;
   }
 
+  *::selection {
+    @apply bg-primary text-white;
+  }
+
   html {
     @apply font-sans;
     @apply font-sans;
