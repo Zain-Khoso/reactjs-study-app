@@ -144,7 +144,7 @@ export default function Landing() {
           </ul>
         </section>
 
-        <section className="block items-center gap-8 md:flex lg:gap-16">
+        <section id="assessment" className="block items-center gap-8 md:flex lg:gap-16">
           <article className="flex-1 space-y-12">
             <div className="space-y-2">
               <H2>The Preplus Edge</H2>
@@ -247,17 +247,15 @@ export default function Landing() {
       </main>
 
       <footer className="border-muted mx-auto flex max-w-7xl flex-col justify-between gap-8 border-t px-4 py-8">
-        <section className="border-muted flex flex-col justify-between gap-8 border-b pb-8 md:flex-row md:flex-wrap">
-          <article className="flex-2 space-y-4">
+        <section className="border-muted flex flex-col justify-between gap-8 border-b pb-8 md:flex-row md:flex-wrap md:landscape:gap-16">
+          <article className="flex-[1.8] space-y-4">
             <BrandLogo />
 
             <Muted>Real-time competitive testing platform for professionals worldwide.</Muted>
           </article>
 
           <ul className="flex flex-1 flex-col gap-2">
-            <li>
-              <span>Platform</span>
-            </li>
+            <li>Platform</li>
             <li>
               <Muted>
                 <Link to="/arenas">Live Arenas</Link>
@@ -265,61 +263,71 @@ export default function Landing() {
             </li>
             <li>
               <Muted>
-                <Link to="/ranking">Ranking</Link>
-              </Muted>
-            </li>
-            <li>
-              <Muted>
-                <Link to="/leaderboard">Leaderboard</Link>
+                <Link to="/leaderboards">Leaderboards</Link>
               </Muted>
             </li>
           </ul>
 
           <ul className="flex flex-1 flex-col gap-2">
-            <li>
-              <span>Support</span>
-            </li>
+            <li>Support</li>
             <li>
               <Muted>
-                <Link to="/help">Help Center</Link>
+                <Link to="mailto:zain.khoso.dev@gmail.com" target="_blank">
+                  Contact Me
+                </Link>
               </Muted>
             </li>
             <li>
               <Muted>
-                <Link to="/contact">Contact Us</Link>
-              </Muted>
-            </li>
-            <li>
-              <Muted>
-                <Link to="/community">Community</Link>
+                <Link to="https://github.com/Zain-Khoso/reactjs-study-app/wiki" target="_blank">
+                  Community
+                </Link>
               </Muted>
             </li>
           </ul>
 
           <ul className="flex flex-1 flex-col gap-2">
+            <li>Legal</li>
             <li>
-              <span>Legal</span>
+              <Muted>
+                <Link to="/terms-and-conditions">Terms and Conditions</Link>
+              </Muted>
             </li>
             <li>
               <Muted>
                 <Link to="/privacy-policy">Privacy Policy</Link>
               </Muted>
             </li>
+          </ul>
+
+          <ul className="flex flex-1 flex-col gap-2">
+            <li>Creator</li>
             <li>
               <Muted>
-                <Link to="/terms-of-service">Terms of Service</Link>
+                <Link to="https://linkedin.com/zain-khoso" target="_blank">
+                  Linkedin
+                </Link>
               </Muted>
             </li>
             <li>
               <Muted>
-                <Link to="/cookie-policy">Cookie Policy</Link>
+                <Link to="https://github.com/zain-khoso" target="_blank">
+                  Github
+                </Link>
+              </Muted>
+            </li>
+            <li>
+              <Muted>
+                <Link to="https://fiverr.com/zainkhosodev" target="_blank">
+                  Fiverr
+                </Link>
               </Muted>
             </li>
           </ul>
         </section>
 
         <Muted className="text-center">
-          &copy; {new Date().getFullYear()} PrepPulse. All rights reserved.
+          &copy; {new Date().getFullYear()} Preplus. All rights reserved.
         </Muted>
       </footer>
     </>
