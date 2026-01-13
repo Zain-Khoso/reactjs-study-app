@@ -1,15 +1,62 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- UI Metadata -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#9336ea" />
 
-    <title>PrepPulse</title>
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/brand/favicon-dark.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/brand/favicon-light.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="apple-touch-icon" href="/assets/brand/favicon-dark.png" />
+
+    <!-- Page Specific Metadata -->
+    <title>Preplus | The Ultimate Real-Time Testing Arena</title>
+    <meta name="title" content="Preplus | Pulse the Competition" />
+    <meta
+      name="description"
+      content="Dominate the arena with Preplus. High-concurrency live battles, real-time rankings, and elite performance analytics for competitive learners."
+    />
+
+    <!-- Opengraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://preplus.vercel.app/" />
+    <meta property="og:title" content="Preplus | High-Stakes Competitive Testing" />
+    <meta
+      property="og:description"
+      content="Join 1000+ players in synchronized live battles. Prove your mastery and climb the global leaderboard."
+    />
+    <meta property="og:image" content="https://preplus.vercel.app/assets/brand/opengraph.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://preplus.vercel.app/" />
+    <meta property="twitter:title" content="Preplus | Join the Live Battle Arena" />
+    <meta
+      property="twitter:description"
+      content="Real-time speed, accuracy, and ranking. Are you ready for the Preplus pulse?"
+    />
+    <meta
+      property="twitter:image"
+      content="https://preplus.vercel.app/assets/brand/opengraph.png"
+    />
   </head>
+
+  <!-- Scripts -->
+  <script defer type="module" src="/src/main.tsx"></script>
+
   <body class="dark h-dvh w-dvw overflow-hidden">
     <div id="root" class="h-full w-full overflow-x-hidden overflow-y-auto"></div>
-
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
