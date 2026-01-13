@@ -14,7 +14,6 @@ import {
 } from '@tabler/icons-react';
 
 // Component Imports.
-import Navbar from '@/components/navbar';
 import ArenaCard from '@/components/ui/arena-card';
 import LivePulse from '@/components/ui/live-pulse';
 import { H1, H2, H3, Big, Muted, Small } from '@/components/ui/typography';
