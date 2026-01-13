@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className="border-b-muted flex w-full items-center justify-between border-b p-4">
       <BrandLogo />
 
-      <ul className="hidden items-center gap-4 md:flex">
+      <ul className="hidden items-center gap-6 md:flex">
         <li>
           <Link
             to="https://linkedin.com/in/zain-khoso"
