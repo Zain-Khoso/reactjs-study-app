@@ -9,10 +9,7 @@ type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
 // Common Typography Components.
 export function H1({ children, className, ...props }: HeadingProps) {
   return (
-    <h1
-      className={cn('font-heading text-primary-light text-[57px] leading-14', className)}
-      {...props}
-    >
+    <h1 className={cn('font-heading text-primary-light text-6xl leading-20', className)} {...props}>
       {children}
     </h1>
   );
