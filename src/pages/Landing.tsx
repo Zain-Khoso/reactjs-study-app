@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 
 // Assets.
 import {
-  IconBrandGithubFilled,
-  IconBriefcaseFilled,
+  IconArrowBigRightLinesFilled,
+  IconBadgesFilled,
   IconCode,
   IconCircleNumber1Filled,
   IconCircleNumber2Filled,
@@ -24,7 +24,7 @@ import { Button } from '@/components/ui/button';
 // Static Data.
 const arenas = [
   {
-    icon: IconBriefcaseFilled,
+    icon: IconArrowBigRightLinesFilled,
     isLive: true,
     title: 'Algorithm Showdown',
     desc: 'Test your algorithmic skills against top competitors.',
@@ -40,7 +40,7 @@ const arenas = [
     startsAt: new Date('2024-07-15T16:00:00'),
   },
   {
-    icon: IconBrandGithubFilled,
+    icon: IconBadgesFilled,
     isLive: true,
     title: 'Data Science Duel',
     desc: 'Showcase your data science expertise in competitive scenarios.',
@@ -56,50 +56,55 @@ export default function Landing() {
       <header className="mx-auto flex h-fit w-full max-w-7xl flex-col items-center gap-12">
         <Navbar />
 
-        <section className="flex max-w-full flex-col items-center gap-16 px-4 pb-4 md:flex-row md:py-12">
-          <article className="flex max-w-155 flex-1 flex-col gap-4">
-            <H1>Pulse the Competition</H1>
+        <section className="flex w-full flex-col items-center gap-16 px-4 pb-4 md:flex-row md:justify-between md:py-12 lg:gap-36">
+          <article className="flex flex-1 flex-col gap-6 lg:gap-8">
+            <H1>The Gold Standard of Knowledge.</H1>
 
             <Muted>
-              Real-time competitive testing that pushes your limits. Battle the best minds in your
-              field and climb the percentile rankings.
+              Static quizzes are dead. Preplus brings live, e-sports intensity to educational
+              content. Faster questions, deeper analytics, and total leaderboard dominance.
             </Muted>
 
-            <div className="space-x-4">
-              <Button>
-                Creator <IconBriefcaseFilled />
+            <div className="flex w-full gap-4">
+              <Button className="flex-1" asChild>
+                <Link to="/signin">
+                  Get Started <IconArrowBigRightLinesFilled />
+                </Link>
               </Button>
-              <Button variant="outline">
-                Source <IconBrandGithubFilled />
+
+              <Button variant="outline" className="flex-1" asChild>
+                <Link to="/leaderboard">
+                  Learderboard <IconBadgesFilled />
+                </Link>
               </Button>
             </div>
           </article>
 
-          <Card className="w-full max-w-105 md:flex-2">
+          <Card className="w-full md:flex-1">
             <CardHeader className="flex w-full items-center justify-between">
-              <H3>Next Big Battle</H3>
+              <H3>Monthly Arcane</H3>
 
               <LivePulse />
             </CardHeader>
 
-            <CardContent className="space-y-1">
-              <Muted className="text-center uppercase">Starting In</Muted>
+            <CardContent className="space-y-1 lg:space-y-4">
+              <Muted className="text-center uppercase">Starts In</Muted>
 
               <ul className="flex w-full items-center gap-2">
-                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center rounded-lg border-2 py-2">
-                  <Big>00</Big>
+                <li className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2">
+                  <Big>03</Big>
                   <Muted className="uppercase">Days</Muted>
                 </li>
-                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center rounded-lg border-2 py-2">
-                  <Big>00</Big>
+                <li className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2">
+                  <Big>08</Big>
                   <Muted className="uppercase">Hrs</Muted>
                 </li>
-                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center rounded-lg border-2 py-2">
-                  <Big>00</Big>
+                <li className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2">
+                  <Big>20</Big>
                   <Muted className="uppercase">Min</Muted>
                 </li>
-                <li className="bg-background border-muted flex aspect-square flex-1 flex-col items-center rounded-lg border-2 py-2">
-                  <Big>00</Big>
+                <li className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2">
+                  <Big>01</Big>
                   <Muted className="uppercase">Sec</Muted>
                 </li>
               </ul>
@@ -108,10 +113,10 @@ export default function Landing() {
             <CardFooter className="flex-col items-start gap-2">
               <div>
                 <Muted>Computer Science</Muted>
-                <Big>Price Pool: $10,000</Big>
+                <Big>Price Pool: {Number(1000).toLocaleString()}</Big>
               </div>
 
-              <Muted>2,856 Registered Competitors</Muted>
+              <Muted>{Number(347823).toLocaleString()} Registered Competitors</Muted>
             </CardFooter>
           </Card>
         </section>
