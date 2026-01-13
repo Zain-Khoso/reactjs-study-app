@@ -17,7 +17,7 @@ export default function Navbar() {
   const { isDark, setIsDark } = useTheme();
 
   return (
-    <nav className="border-b-muted flex w-full items-center justify-between border-b p-4">
+    <nav className="border-b-muted mx-auto mb-12 flex w-full max-w-7xl items-center justify-between border-b p-4">
       <BrandLogo />
 
       <ul className="hidden items-center gap-6 md:flex">
