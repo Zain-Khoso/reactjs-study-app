@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import GeneralLayout from './components/layouts/general';
 
 // Pages.
-import LandingPage from './pages/Landing';
+import LandingPage from './pages/landing';
 
 // Application Routes.
 export default function Router() {

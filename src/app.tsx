@@ -1,5 +1,5 @@
 // Component Imports.
-import Router from './Router';
+import Router from './router';
 
 // Webapp's entry point component.
 export default function Application() {
