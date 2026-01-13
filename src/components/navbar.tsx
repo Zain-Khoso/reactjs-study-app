@@ -2,7 +2,10 @@
 import { Link } from 'react-router';
 
 // Assets.
-import { IconArrowBigRightLinesFilled } from '@tabler/icons-react';
+import { IconArrowBigRightLinesFilled, IconSunFilled, IconMoonFilled } from '@tabler/icons-react';
+
+// Hooks.
+import { useTheme } from '@/hooks/useTheme';
 
 // Component Imports.
 import BrandLogo from './ui/brand-logo';
@@ -10,6 +13,8 @@ import { Button } from './ui/button';
 
 // Navbar Component.
 export default function Navbar() {
+  const { isDark, setIsDark } = useTheme();
+
   return (
     <nav className="border-b-muted flex w-full items-center justify-between border-b p-4">
       <BrandLogo />
@@ -45,11 +50,22 @@ export default function Navbar() {
         </li>
       </ul>
 
-      <Button asChild>
-        <Link to="/signin">
-          Sign In <IconArrowBigRightLinesFilled />
-        </Link>
-      </Button>
+      <div className="flex flex-wrap items-center gap-2 md:flex-row">
+        <Button
+          variant="outline"
+          size="icon"
+          aria-label={isDark() ? 'Lightmode' : 'Darkmode'}
+          onClick={() => setIsDark(!isDark())}
+        >
+          {isDark() ? <IconSunFilled /> : <IconMoonFilled />}
+        </Button>
+
+        <Button asChild>
+          <Link to="/signin">
+            Sign In <IconArrowBigRightLinesFilled />
+          </Link>
+        </Button>
+      </div>
     </nav>
   );
 }
