@@ -1,10 +1,10 @@
 // Lib Imports.
 import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
+import { AnimatePresence } from 'motion/react';
 
 // Skeletons.
 import LandingSkeleton from './pages/skeleton.landing';
-import NavbarSkeleton from './components/skeleton.navbar';
 
 // Layouts.
 import GeneralLayout from './components/layouts/general';
@@ -23,9 +23,11 @@ export default function Router() {
           <Route
             index
             element={
-              <Suspense fallback={<LandingSkeleton />}>
-                <LandingPage />
-              </Suspense>
+              <AnimatePresence mode="wait">
+                <Suspense fallback={<LandingSkeleton key="landing-skeleton" />}>
+                  <LandingPage />
+                </Suspense>
+              </AnimatePresence>
             }
           />
 

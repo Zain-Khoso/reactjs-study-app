@@ -54,7 +54,11 @@ const arenas = [
 // Page.
 export default function Landing() {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       <Helmet>
         <title>Preplus | The Ultimate Real-Time Testing Arena</title>
         <meta name="title" content="Preplus | Pulse the Competition" />
@@ -308,6 +312,6 @@ export default function Landing() {
           </motion.div>
         </section>
       </main>
-    </>
+    </motion.div>
   );
 }
