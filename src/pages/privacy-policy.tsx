@@ -1,5 +1,6 @@
 // Lib Imports.
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'motion/react';
 
 // Component Imports.
 import { H2, H3, P } from '@/components/ui/typography';
@@ -17,7 +18,12 @@ export default function PrivacyPolicyPage() {
         />
       </Helmet>
 
-      <main className="mx-auto mb-24 max-w-7xl flex-col space-y-16 px-4 md:mb-32 md:space-y-24">
+      <motion.main
+        className="mx-auto mb-24 max-w-7xl flex-col space-y-16 px-4 md:mb-32 md:space-y-24"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
         <H2>Privacy Policy</H2>
 
         <article className="space-y-4">
@@ -90,7 +96,7 @@ export default function PrivacyPolicyPage() {
             hours.
           </P>
         </article>
-      </main>
+      </motion.main>
     </>
   );
 }

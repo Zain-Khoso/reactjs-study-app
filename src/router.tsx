@@ -5,6 +5,7 @@ import { AnimatePresence } from 'motion/react';
 
 // Skeletons.
 import LandingSkeleton from './pages/skeleton.landing';
+import LegalSkeleton from './pages/skeleton.legal';
 
 // Layouts.
 import GeneralLayout from './components/layouts/general';
@@ -31,8 +32,26 @@ export default function Router() {
             }
           />
 
-          <Route path="terms-and-conditions" element={<TermsAndConditionsPage />} />
-          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route
+            path="terms-and-conditions"
+            element={
+              <AnimatePresence mode="wait">
+                <Suspense fallback={<LegalSkeleton key="legal-skeleton" />}>
+                  <TermsAndConditionsPage />
+                </Suspense>
+              </AnimatePresence>
+            }
+          />
+          <Route
+            path="privacy-policy"
+            element={
+              <AnimatePresence mode="wait">
+                <Suspense fallback={<LegalSkeleton key="legal-skeleton" />}>
+                  <PrivacyPolicyPage />
+                </Suspense>
+              </AnimatePresence>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
