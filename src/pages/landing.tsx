@@ -132,7 +132,7 @@ export default function Landing() {
           }}
           className="w-full md:flex-1"
         >
-          <Card className="w-full border-purple-500/20 shadow-lg shadow-purple-500/10">
+          <Card className="border-primary/20 shadow-primary/10 w-full shadow-lg">
             <CardHeader className="flex w-full flex-row items-center justify-between">
               <H3>Monthly Arcane</H3>
 
@@ -156,7 +156,7 @@ export default function Landing() {
                     transition={{ delay: 0.8 + i * 0.1 }}
                     className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2"
                   >
-                    <Big className="font-mono text-purple-500">{item.val}</Big>
+                    <Big className="text-primary font-mono">{item.val}</Big>
                     <Muted className="text-[10px] uppercase">{item.label}</Muted>
                   </motion.li>
                 ))}
@@ -180,7 +180,7 @@ export default function Landing() {
                 className="bg-muted h-px w-full origin-left"
               />
 
-              <Muted className="text-purple-400">
+              <Muted className="text-accent-foreground">
                 {Number(347823).toLocaleString()} Registered Competitors
               </Muted>
             </CardFooter>
@@ -282,7 +282,7 @@ export default function Landing() {
             transition={{ duration: 0.8, type: 'spring' }}
             className="hidden max-h-fit flex-1 flex-col md:flex"
           >
-            <Card className="from-card to-background border-purple-500/10 bg-linear-to-b">
+            <Card className="from-card to-background border-primary/10 bg-linear-to-b">
               <CardHeader>
                 <Big>Ranked Individuals</Big>
               </CardHeader>
@@ -307,7 +307,7 @@ export default function Landing() {
                       </Avatar>
                       <span className="font-medium">{user.name}</span>
                       <div className="ml-auto text-right">
-                        <span className="block font-bold text-purple-500">{user.percent}</span>
+                        <span className="text-primary block font-bold">{user.percent}</span>
                         <Small className="text-muted-foreground block">{user.sub}</Small>
                       </div>
                     </Link>

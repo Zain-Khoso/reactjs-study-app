@@ -50,7 +50,7 @@ export default function Navbar() {
               <HashLink
                 to={item.to}
                 smooth
-                className="text-muted-foreground transition-colors hover:text-purple-500"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 {item.label}
               </HashLink>
@@ -58,7 +58,7 @@ export default function Navbar() {
               <Link
                 to={item.to}
                 target={item.external ? '_blank' : undefined}
-                className="text-muted-foreground transition-colors hover:text-purple-500"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 {item.label}
               </Link>
