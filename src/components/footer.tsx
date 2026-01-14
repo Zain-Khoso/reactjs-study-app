@@ -36,7 +36,7 @@ const links = [
   {
     title: 'Creator',
     links: [
-      { label: 'Linkedin', to: 'https://linkedin.com/zain-khoso', external: true },
+      { label: 'Linkedin', to: 'https://linkedin.com/in/zain-khoso', external: true },
       { label: 'Github', to: 'https://github.com/zain-khoso', external: true },
       { label: 'Fiverr', to: 'https://fiverr.com/zainkhosodev', external: true },
     ],
