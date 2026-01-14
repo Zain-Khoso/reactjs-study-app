@@ -68,20 +68,22 @@ export default function Footer() {
             viewport={{ once: true }}
             className="flex flex-1 flex-col gap-2"
           >
-            <li className="text-foreground font-semibold">{col.title}</li>
+            <li className="text-foreground">{col.title}</li>
             {col.links.map((link) => (
-              <li key={link.label}>
-                <Muted>
-                  <motion.div
-                    whileHover={{ x: 5, color: 'var(--primary)' }}
-                    transition={{ type: 'tween', duration: 0.2 }}
-                  >
-                    <Link to={link.to} target={link.external ? '_blank' : '_self'}>
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                </Muted>
-              </li>
+              <motion.li
+                key={link.label}
+                className="text-muted-foreground"
+                whileHover={{ x: 5, color: 'var(--primary)' }}
+                transition={{ type: 'tween', duration: 0.2 }}
+              >
+                <Link
+                  to={link.to}
+                  target={link.external ? '_blank' : '_self'}
+                  className="block w-full"
+                >
+                  {link.label}
+                </Link>
+              </motion.li>
             ))}
           </motion.ul>
         ))}
