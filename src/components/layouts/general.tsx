@@ -34,20 +34,18 @@ export default function GeneralLayout() {
   };
 
   return (
-    <>
+    <AnimatePresence mode="wait">
       <Suspense fallback={<NavbarSkeleton />}>
         <Navbar />
       </Suspense>
 
-      <AnimatePresence mode="wait">
-        <Suspense fallback={getSkeleton()}>
-          <Outlet />
-        </Suspense>
-      </AnimatePresence>
+      <Suspense fallback={getSkeleton()}>
+        <Outlet />
+      </Suspense>
 
       <Suspense fallback={<FooterSkeleton />}>
         <Footer />
       </Suspense>
-    </>
+    </AnimatePresence>
   );
 }
