@@ -17,11 +17,11 @@ import {
 
 // Component Imports.
 import ArenaCard from '@/components/ui/arena-card';
-import LivePulse from '@/components/ui/live-pulse';
-import { H1, H2, H3, Big, Muted, Small } from '@/components/ui/typography';
+import { H1, H2, Big, Muted, Small } from '@/components/ui/typography';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import ArcaneCard from '@/components/arcane-card';
 
 // Static Data.
 const arenas = [
@@ -132,59 +132,12 @@ export default function Landing() {
           }}
           className="w-full md:flex-1"
         >
-          <Card className="border-primary/20 shadow-primary/10 w-full shadow-lg">
-            <CardHeader className="flex w-full flex-row items-center justify-between">
-              <H3>Monthly Arcane</H3>
-
-              <LivePulse />
-            </CardHeader>
-
-            <CardContent className="space-y-1 lg:space-y-4">
-              <Muted className="text-center tracking-widest uppercase">Starts In</Muted>
-
-              <ul className="flex w-full items-center gap-2">
-                {[
-                  { val: '03', label: 'Days' },
-                  { val: '08', label: 'Hrs' },
-                  { val: '20', label: 'Min' },
-                  { val: '01', label: 'Sec' },
-                ].map((item, i) => (
-                  <motion.li
-                    key={item.label}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 + i * 0.1 }}
-                    className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2"
-                  >
-                    <Big className="text-primary font-mono">{item.val}</Big>
-                    <Muted className="text-[10px] uppercase">{item.label}</Muted>
-                  </motion.li>
-                ))}
-              </ul>
-            </CardContent>
-
-            <CardFooter className="flex-col items-start gap-2">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2 }}
-              >
-                <Muted>Computer Science</Muted>
-                <Big>Prize Pool: ${Number(1000).toLocaleString()}</Big>
-              </motion.div>
-
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 1.4, duration: 0.8 }}
-                className="bg-muted h-px w-full origin-left"
-              />
-
-              <Muted className="text-accent-foreground">
-                {Number(347823).toLocaleString()} Registered Competitors
-              </Muted>
-            </CardFooter>
-          </Card>
+          <ArcaneCard
+            category={'computer-science'}
+            competitors={3782}
+            prizePool={1000}
+            startsAt={new Date(Date.now() + 1000 * 60 * 60 * 24 * 2)}
+          />
         </motion.div>
       </header>
 
