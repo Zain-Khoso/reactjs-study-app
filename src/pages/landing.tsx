@@ -159,7 +159,7 @@ export default function Landing() {
                 transition={{ delay: 1.2 }}
               >
                 <Muted>Computer Science</Muted>
-                <Big className="text-white">Prize Pool: ${Number(1000).toLocaleString()}</Big>
+                <Big>Prize Pool: ${Number(1000).toLocaleString()}</Big>
               </motion.div>
 
               <motion.div
@@ -179,29 +179,47 @@ export default function Landing() {
 
       <main className="mx-auto my-24 flex max-w-7xl flex-col gap-24 px-4 md:my-32 md:gap-48">
         <section id="arenas" className="space-y-12">
-          <div className="space-y-2 md:text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+            className="space-y-2 md:text-center"
+          >
             <H2 className="md:text-center">Trending Arenas</H2>
-
             <Muted className="md:text-center">
               The most crowded lobbies on Preplus right now. Join thousands of players in our
               highest-concurrency battles and test your skills under pressure.
             </Muted>
-          </div>
+          </motion.div>
 
           <ul className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] place-items-center gap-6">
-            {arenas.map((arena) => (
-              <li key={`arena-${arena.startsAt.toISOString()}`} className="h-full w-full">
+            {arenas.map((arena, index) => (
+              <motion.li
+                key={`arena-${arena.startsAt.toISOString()}`}
+                className="h-full w-full"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -10 }}
+              >
                 <ArenaCard {...arena} />
-              </li>
+              </motion.li>
             ))}
           </ul>
         </section>
 
         <section id="assessment" className="block items-center gap-8 md:flex lg:gap-16">
-          <article className="flex-1 space-y-12">
+          <motion.article
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.7 }}
+            className="flex-1 space-y-12"
+          >
             <div className="space-y-2">
               <H2>The Preplus Edge</H2>
-
               <Muted>
                 Our proprietary scoring engine analyzes more than just your answers. We measure the
                 three pillars of elite performance to determine your global rank.
@@ -209,93 +227,85 @@ export default function Landing() {
             </div>
 
             <ul className="flex flex-col gap-6">
-              <li className="flex gap-2">
-                <IconCircleNumber1Filled className="fill-muted-foreground block max-h-8 min-h-8 max-w-8 min-w-8" />
-
-                <div>
-                  <span>Speed is the ultimate tiebreaker</span>
-
-                  <Muted>
-                    Points decay every second, rewarding those who can process complex information
-                    and react faster than the rest of the field.
-                  </Muted>
-                </div>
-              </li>
-
-              <li className="flex gap-2">
-                <IconCircleNumber2Filled className="fill-muted-foreground block max-h-8 min-h-8 max-w-8 min-w-8" />
-
-                <div>
-                  <span>Consistency is rewarded</span>
-
-                  <Muted>
-                    Maintaining a "Perfect Streak" applies a score multiplier, separating casual
-                    players from those who have truly mastered the subject matter.
-                  </Muted>
-                </div>
-              </li>
-
-              <li className="flex gap-2">
-                <IconCircleNumber3Filled className="fill-muted-foreground block max-h-8 min-h-8 max-w-8 min-w-8" />
-
-                <div>
-                  <span>Not all questions are equal</span>
-
-                  <Muted>
-                    Harder questions—identified by real-time global fail rates—yield higher point
-                    rewards, ensuring your rank reflects true intellectual depth.
-                  </Muted>
-                </div>
-              </li>
+              {[
+                {
+                  icon: <IconCircleNumber1Filled />,
+                  title: 'Speed is the ultimate tiebreaker',
+                  text: 'Points decay every second, rewarding those who can process complex information and react faster than the rest of the field.',
+                },
+                {
+                  icon: <IconCircleNumber2Filled />,
+                  title: 'Consistency is rewarded',
+                  text: "Maintaining a 'Perfect Streak' applies a score multiplier, separating casual players from those who have truly mastered the subject matter.",
+                },
+                {
+                  icon: <IconCircleNumber3Filled />,
+                  title: 'Not all questions are equal',
+                  text: 'Harder questions—identified by real-time global fail rates—yield higher point rewards, ensuring your rank reflects true intellectual depth.',
+                },
+              ].map((item, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 * i }}
+                  className="flex gap-2"
+                >
+                  <div className="block max-h-8 min-h-8 max-w-8 min-w-8 text-purple-500">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <span className="font-bold">{item.title}</span>
+                    <Muted>{item.text}</Muted>
+                  </div>
+                </motion.li>
+              ))}
             </ul>
-          </article>
+          </motion.article>
 
-          <Card className="hidden max-h-fit flex-1 flex-col gap-6 md:flex">
-            <CardHeader>
-              <Big>Ranked Indivisuals</Big>
-            </CardHeader>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, type: 'spring' }}
+            className="hidden max-h-fit flex-1 flex-col md:flex"
+          >
+            <Card className="from-card to-background border-purple-500/10 bg-linear-to-b">
+              <CardHeader>
+                <Big>Ranked Individuals</Big>
+              </CardHeader>
 
-            <CardContent className="flex flex-col gap-4">
-              <article className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4">
-                <Avatar>
-                  <AvatarFallback>Dr</AvatarFallback>
-                </Avatar>
-
-                <span>Dr. Sarah Chen</span>
-
-                <div className="ml-auto">
-                  <span className="block text-end">99.7%</span>
-                  <Small className="text-muted-foreground block">Biology</Small>
-                </div>
-              </article>
-
-              <article className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4">
-                <Avatar>
-                  <AvatarFallback>A</AvatarFallback>
-                </Avatar>
-
-                <span>Alex Rodriguez</span>
-
-                <div className="ml-auto">
-                  <span className="block text-end">98.9%</span>
-                  <Small className="text-muted-foreground block">Maths</Small>
-                </div>
-              </article>
-
-              <article className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4">
-                <Avatar>
-                  <AvatarFallback>M</AvatarFallback>
-                </Avatar>
-
-                <span>Maria Santos</span>
-
-                <div className="ml-auto">
-                  <span className="block text-end">99.7%</span>
-                  <Small className="text-muted-foreground block">Chemistry</Small>
-                </div>
-              </article>
-            </CardContent>
-          </Card>
+              <CardContent className="flex flex-col gap-4">
+                {[
+                  { name: 'Dr. Sarah Chen', initial: 'Dr', percent: '99.7%', sub: 'Biology' },
+                  { name: 'Alex Rodriguez', initial: 'A', percent: '98.9%', sub: 'Maths' },
+                  { name: 'Maria Santos', initial: 'M', percent: '99.7%', sub: 'Chemistry' },
+                ].map((user, i) => (
+                  <motion.article
+                    key={user.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                      transition: { delay: 0.5 + i * 0.2, duration: 0.5 },
+                    }}
+                    whileHover={{ x: 5, borderColor: '#9336ea' }}
+                    className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4 transition-colors"
+                  >
+                    <Avatar>
+                      <AvatarFallback>{user.initial}</AvatarFallback>
+                    </Avatar>
+                    <span className="font-medium">{user.name}</span>
+                    <div className="ml-auto text-right">
+                      <span className="block font-bold text-purple-500">{user.percent}</span>
+                      <Small className="text-muted-foreground block">{user.sub}</Small>
+                    </div>
+                  </motion.article>
+                ))}
+              </CardContent>
+            </Card>
+          </motion.div>
         </section>
       </main>
     </>
