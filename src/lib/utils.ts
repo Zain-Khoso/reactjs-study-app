@@ -15,6 +15,7 @@ export function calculateTimeLeft(targetDate: Date | string) {
     hours: 0,
     minutes: 0,
     seconds: 0,
+    isLive: false,
   };
 
   if (difference > 0) {
@@ -22,6 +23,13 @@ export function calculateTimeLeft(targetDate: Date | string) {
     timeLeft.hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
     timeLeft.minutes = Math.floor((difference / 1000 / 60) % 60);
     timeLeft.seconds = Math.floor((difference / 1000) % 60);
+    timeLeft.isLive = false;
+  } else {
+    timeLeft.days = 0;
+    timeLeft.hours = 0;
+    timeLeft.minutes = 0;
+    timeLeft.seconds = 0;
+    timeLeft.isLive = true;
   }
 
   return timeLeft;

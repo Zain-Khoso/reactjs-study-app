@@ -29,12 +29,17 @@ export default function ArcaneCard({
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(startsAt));
 
   useEffect(() => {
+    if (timeLeft.isLive) return;
+
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft(startsAt));
+      const newTime = calculateTimeLeft(startsAt);
+      setTimeLeft(newTime);
+
+      if (newTime.isLive) clearInterval(timer);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [startsAt]);
+  }, [timeLeft.isLive]);
 
   const stats = [
     { label: 'Days', val: timeLeft.days },
@@ -48,7 +53,7 @@ export default function ArcaneCard({
       <CardHeader className="flex w-full flex-row items-center justify-between">
         <H3>{title}</H3>
 
-        <LivePulse />
+        <LivePulse isLive={timeLeft.isLive} />
       </CardHeader>
 
       <CardContent className="space-y-1 lg:space-y-4">
@@ -65,7 +70,7 @@ export default function ArcaneCard({
             >
               <AnimatePresence mode="popLayout">
                 <motion.span
-                  key={item.val}
+                  key={'monthly-arcane-timer-' + item.label}
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -20, opacity: 0 }}

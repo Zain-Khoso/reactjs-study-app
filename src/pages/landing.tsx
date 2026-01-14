@@ -136,7 +136,8 @@ export default function Landing() {
             category={'computer-science'}
             competitors={3782}
             prizePool={1000}
-            startsAt={new Date(Date.now() + 1000 * 60 * 60 * 24 * 2)}
+            startsAt={new Date(Date.now() + 1000 * 8)}
+            // startsAt={new Date()}
           />
         </motion.div>
       </header>
