@@ -26,6 +26,7 @@ import { Button } from '@/components/ui/button';
 // Static Data.
 const arenas = [
   {
+    link: '/arena/1',
     icon: IconSquareLetterEFilled,
     isLive: true,
     title: 'English',
@@ -34,6 +35,7 @@ const arenas = [
     startsAt: new Date(Date.now() - 1000 * 60 * 60 * 0.5),
   },
   {
+    link: '/arena/2',
     icon: IconEngineFilled,
     isLive: false,
     title: 'Physics',
@@ -42,6 +44,7 @@ const arenas = [
     startsAt: new Date(Date.now() + 1000 * 60 * 60 * 5),
   },
   {
+    link: '/arena/3',
     icon: IconGlobeFilled,
     isLive: true,
     title: 'World Current Affairs',
@@ -210,7 +213,7 @@ export default function Landing() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -10, transition: { delay: 0 } }}
               >
                 <ArenaCard {...arena} />
               </motion.li>
@@ -260,7 +263,7 @@ export default function Landing() {
                   transition={{ delay: 0.2 * i }}
                   className="flex gap-2"
                 >
-                  <div className="block max-h-8 min-h-8 max-w-8 min-w-8 text-purple-500">
+                  <div className="text-primary block max-h-8 min-h-8 max-w-8 min-w-8">
                     {item.icon}
                   </div>
                   <div>
@@ -293,22 +296,21 @@ export default function Landing() {
                   <motion.article
                     key={user.name}
                     initial={{ opacity: 0, y: 10 }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                      transition: { delay: 0.5 + i * 0.2, duration: 0.5 },
-                    }}
+                    whileInView={{ opacity: 1, y: 0, transition: { delay: 0.5 + i * 0.2 } }}
                     whileHover={{ x: 5, borderColor: 'var(--primary)' }}
-                    className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4 transition-colors"
+                    transition={{ duration: 0.5 }}
+                    className="bg-background border-muted rounded-xl border-2"
                   >
-                    <Avatar>
-                      <AvatarFallback>{user.initial}</AvatarFallback>
-                    </Avatar>
-                    <span className="font-medium">{user.name}</span>
-                    <div className="ml-auto text-right">
-                      <span className="block font-bold text-purple-500">{user.percent}</span>
-                      <Small className="text-muted-foreground block">{user.sub}</Small>
-                    </div>
+                    <Link to={'/user/' + i} className="flex w-full items-center gap-2 p-4">
+                      <Avatar>
+                        <AvatarFallback>{user.initial}</AvatarFallback>
+                      </Avatar>
+                      <span className="font-medium">{user.name}</span>
+                      <div className="ml-auto text-right">
+                        <span className="block font-bold text-purple-500">{user.percent}</span>
+                        <Small className="text-muted-foreground block">{user.sub}</Small>
+                      </div>
+                    </Link>
                   </motion.article>
                 ))}
               </CardContent>
