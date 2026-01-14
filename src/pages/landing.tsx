@@ -1,6 +1,7 @@
 // Lib Imports.
 import { Link } from 'react-router';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'motion/react';
 
 // Assets.
 import {
@@ -64,68 +65,116 @@ export default function Landing() {
       </Helmet>
 
       <header className="mx-auto flex w-full max-w-7xl flex-col items-center gap-16 px-4 pb-4 md:flex-row md:justify-between md:py-12 lg:gap-36">
-        <article className="flex flex-1 flex-col gap-6 lg:gap-8">
+        <motion.article
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="flex flex-1 flex-col gap-6 lg:gap-8"
+        >
           <H1>The Gold Standard of Knowledge.</H1>
 
-          <Muted>
-            Static quizzes are dead. Preplus brings live, e-sports intensity to educational content.
-            Faster questions, deeper analytics, and total leaderboard dominance.
-          </Muted>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <Muted>
+              Static quizzes are dead. Preplus brings live, e-sports intensity to educational
+              content. Faster questions, deeper analytics, and total leaderboard dominance.
+            </Muted>
+          </motion.div>
 
-          <div className="flex w-full gap-4">
+          <motion.div
+            className="flex w-full gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+          >
             <Button className="flex-1" asChild>
-              <Link to="/signin">
-                Get Started <IconArrowBigRightLinesFilled />
+              <Link to="/signin" className="group">
+                Get Started
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+                >
+                  <IconArrowBigRightLinesFilled className="ml-2" />
+                </motion.span>
               </Link>
             </Button>
 
             <Button variant="outline" className="flex-1" asChild>
               <Link to="/leaderboard">
-                Learderboard <IconBadgesFilled />
+                Leaderboard <IconBadgesFilled className="ml-2" />
               </Link>
             </Button>
-          </div>
-        </article>
+          </motion.div>
+        </motion.article>
 
-        <Card className="w-full md:flex-1">
-          <CardHeader className="flex w-full items-center justify-between">
-            <H3>Monthly Arcane</H3>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{
+            type: 'spring',
+            stiffness: 100,
+            damping: 15,
+            delay: 0.2,
+          }}
+          className="w-full md:flex-1"
+        >
+          <Card className="w-full border-purple-500/20 shadow-lg shadow-purple-500/10">
+            <CardHeader className="flex w-full flex-row items-center justify-between">
+              <H3>Monthly Arcane</H3>
 
-            <LivePulse />
-          </CardHeader>
+              <LivePulse />
+            </CardHeader>
 
-          <CardContent className="space-y-1 lg:space-y-4">
-            <Muted className="text-center uppercase">Starts In</Muted>
+            <CardContent className="space-y-1 lg:space-y-4">
+              <Muted className="text-center tracking-widest uppercase">Starts In</Muted>
 
-            <ul className="flex w-full items-center gap-2">
-              <li className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2">
-                <Big>03</Big>
-                <Muted className="uppercase">Days</Muted>
-              </li>
-              <li className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2">
-                <Big>08</Big>
-                <Muted className="uppercase">Hrs</Muted>
-              </li>
-              <li className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2">
-                <Big>20</Big>
-                <Muted className="uppercase">Min</Muted>
-              </li>
-              <li className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2">
-                <Big>01</Big>
-                <Muted className="uppercase">Sec</Muted>
-              </li>
-            </ul>
-          </CardContent>
+              <ul className="flex w-full items-center gap-2">
+                {[
+                  { val: '03', label: 'Days' },
+                  { val: '08', label: 'Hrs' },
+                  { val: '20', label: 'Min' },
+                  { val: '01', label: 'Sec' },
+                ].map((item, i) => (
+                  <motion.li
+                    key={item.label}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 + i * 0.1 }}
+                    className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2"
+                  >
+                    <Big className="font-mono text-purple-500">{item.val}</Big>
+                    <Muted className="text-[10px] uppercase">{item.label}</Muted>
+                  </motion.li>
+                ))}
+              </ul>
+            </CardContent>
 
-          <CardFooter className="flex-col items-start gap-2">
-            <div>
-              <Muted>Computer Science</Muted>
-              <Big>Price Pool: {Number(1000).toLocaleString()}</Big>
-            </div>
+            <CardFooter className="flex-col items-start gap-2">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2 }}
+              >
+                <Muted>Computer Science</Muted>
+                <Big className="text-white">Prize Pool: ${Number(1000).toLocaleString()}</Big>
+              </motion.div>
 
-            <Muted>{Number(347823).toLocaleString()} Registered Competitors</Muted>
-          </CardFooter>
-        </Card>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 1.4, duration: 0.8 }}
+                className="bg-muted h-px w-full origin-left"
+              />
+
+              <Muted className="text-purple-400">
+                {Number(347823).toLocaleString()} Registered Competitors
+              </Muted>
+            </CardFooter>
+          </Card>
+        </motion.div>
       </header>
 
       <main className="mx-auto my-24 flex max-w-7xl flex-col gap-24 px-4 md:my-32 md:gap-48">
