@@ -290,7 +290,7 @@ export default function Landing() {
                       y: 0,
                       transition: { delay: 0.5 + i * 0.2, duration: 0.5 },
                     }}
-                    whileHover={{ x: 5, borderColor: '#9336ea' }}
+                    whileHover={{ x: 5, borderColor: 'var(--primary)' }}
                     className="bg-background border-muted flex items-center gap-2 rounded-xl border-2 p-4 transition-colors"
                   >
                     <Avatar>
