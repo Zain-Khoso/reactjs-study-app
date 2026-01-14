@@ -1,11 +1,9 @@
 // Lib Imports.
-import { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router';
-import { AnimatePresence } from 'motion/react';
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router';
 
-// Skeletons.
-import LandingSkeleton from './pages/skeleton.landing';
-import LegalSkeleton from './pages/skeleton.legal';
+// Hook Imports.
+import { useScrollToTop } from './hooks/useScrollToTop';
 
 // Layouts.
 import GeneralLayout from './components/layouts/general';
@@ -17,43 +15,15 @@ const PrivacyPolicyPage = lazy(() => import('./pages/privacy-policy'));
 
 // Application Routes.
 export default function Router() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<GeneralLayout />}>
-          <Route
-            index
-            element={
-              <AnimatePresence mode="wait">
-                <Suspense fallback={<LandingSkeleton key="landing-skeleton" />}>
-                  <LandingPage />
-                </Suspense>
-              </AnimatePresence>
-            }
-          />
+  useScrollToTop();
 
-          <Route
-            path="terms-and-conditions"
-            element={
-              <AnimatePresence mode="wait">
-                <Suspense fallback={<LegalSkeleton key="legal-skeleton" />}>
-                  <TermsAndConditionsPage />
-                </Suspense>
-              </AnimatePresence>
-            }
-          />
-          <Route
-            path="privacy-policy"
-            element={
-              <AnimatePresence mode="wait">
-                <Suspense fallback={<LegalSkeleton key="legal-skeleton" />}>
-                  <PrivacyPolicyPage />
-                </Suspense>
-              </AnimatePresence>
-            }
-          />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+  return (
+    <Routes>
+      <Route element={<GeneralLayout />}>
+        <Route index element={<LandingPage />} />
+        <Route path="terms-and-conditions" element={<TermsAndConditionsPage />} />
+        <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+      </Route>
+    </Routes>
   );
 }

@@ -1,5 +1,6 @@
 // Lib Imports.
 import { HelmetProvider } from 'react-helmet-async';
+import { BrowserRouter } from 'react-router';
 
 // Component Imports.
 import Router from './router';
@@ -8,7 +9,9 @@ import Router from './router';
 export default function Application() {
   return (
     <HelmetProvider>
-      <Router />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </HelmetProvider>
   );
 }

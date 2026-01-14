@@ -1,5 +1,5 @@
 // Lib Imports.
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 
@@ -53,10 +53,14 @@ const arenas = [
 
 // Page.
 export default function Landing() {
+  const { pathname } = useLocation();
+
   return (
     <motion.div
+      key={pathname}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <Helmet>
