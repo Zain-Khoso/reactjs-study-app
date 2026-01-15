@@ -5,17 +5,17 @@ import {
   IconStarFilled,
   IconStack3Filled,
   IconCurrentLocationFilled,
-  IconTrendingUp,
   IconChevronRight,
 } from '@tabler/icons-react';
 
 // Component Imports.
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function ProfilePage() {
+// User/Profile Page.
+export default function UserPage() {
   return (
     <div className="bg-background mx-auto min-h-screen max-w-7xl space-y-8 p-4 md:p-8">
       {/* Header Profile Section */}
@@ -56,14 +56,14 @@ export default function ProfilePage() {
         {/* Topic Mastery & Battle History Column */}
         <div className="space-y-8 lg:col-span-2">
           {/* Radar Chart Section */}
-          <Card className="min-h-[400px]">
+          <Card className="min-h-100">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <IconCurrentLocationFilled className="text-primary h-5 w-5" />
                 Topic Mastery
               </CardTitle>
             </CardHeader>
-            <CardContent className="bg-muted/20 m-4 flex min-h-[300px] items-center justify-center rounded-lg">
+            <CardContent className="bg-muted/20 m-4 flex min-h-75 items-center justify-center rounded-lg">
               {/* Replace with your Chart.js or Recharts Radar implementation */}
               <div className="text-muted-foreground flex flex-col items-center gap-2">
                 <div className="border-muted-foreground/20 flex h-48 w-48 items-center justify-center rounded-full border-4 border-dashed">
