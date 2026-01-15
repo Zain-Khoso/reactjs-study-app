@@ -42,7 +42,7 @@ const SSOs = [
 // User Authentication Page.
 export default function SignInPage() {
   return (
-    <div className="relative grid min-h-screen w-full place-items-center">
+    <div className="relative grid min-h-screen w-full place-items-center overflow-hidden">
       <Helmet>
         <title>Join Preplus | Competitive Assessment Platform</title>
         <meta name="title" content="Join Preplus | Sign In to the Arena" />
@@ -55,10 +55,27 @@ export default function SignInPage() {
       </Helmet>
 
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.5, ease: 'easeOut', delay: 0.5, delayChildren: 1 }}
+        initial={{ opacity: 0, y: -150, x: -50 }}
+        animate={{ opacity: 1, y: 0, x: 0 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="bg-primary/5 absolute -top-[15%] left-[5%] aspect-square h-64 w-64 rounded-full transition-all md:left-[15%] md:h-96 md:w-96"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 150, x: 50 }}
+        animate={{ opacity: 1, y: 0, x: 0 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="bg-primary/5 absolute -right-[5%] -bottom-[10%] aspect-square h-72 w-72 rounded-full transition-all md:right-[10%] md:h-120 md:w-120"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 20, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.9,
+          ease: [0.22, 1, 0.36, 1],
+        }}
         className="z-10 w-full"
       >
         <Card className="border-foreground/10 bg-foreground/3 mx-auto w-full max-w-[90%] shadow-2xl backdrop-blur-xs sm:max-w-90">
@@ -77,11 +94,12 @@ export default function SignInPage() {
             {SSOs.map(({ icon: Icon, label }, i) => (
               <motion.div
                 key={`sso-${label}`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.3, ease: 'easeOut', delay: i * 0.25 },
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  ease: 'easeOut',
+                  delay: 1.4 + i * 0.12,
                 }}
               >
                 <Button
@@ -108,24 +126,16 @@ export default function SignInPage() {
         </Card>
       </motion.div>
 
-      <footer className="absolute bottom-8 w-full">
+      <motion.footer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-8 w-full"
+      >
         <Muted className="text-center">
           &copy; {new Date().getFullYear()} PrepPulse. All rights reserved.
         </Muted>
-      </footer>
-
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeIn' }}
-        className="bg-primary/5 absolute -top-1/12 -left-3/12 aspect-square h-80 w-80 rounded-full transition md:top-1/12 md:left-1/12 lg:top-1/12 lg:left-3/12"
-      />
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="bg-primary/5 absolute -right-3/12 -bottom-1/12 aspect-square h-80 w-80 rounded-full transition md:right-1/12 md:bottom-1/12 lg:right-3/12 lg:bottom-1/12"
-      />
+      </motion.footer>
     </div>
   );
 }
