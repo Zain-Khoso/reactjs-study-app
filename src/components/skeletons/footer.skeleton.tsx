@@ -2,7 +2,7 @@
 import { Skeleton } from '../ui/skeleton';
 
 // Loading Skeleton for general layout footer.
-export function FooterSkeleton() {
+export default function FooterSkeleton() {
   return (
     <footer className="border-muted mx-auto max-w-7xl border-t px-4 py-12">
       <div className="border-muted flex flex-col justify-between gap-12 border-b pb-12 md:flex-row md:flex-wrap">

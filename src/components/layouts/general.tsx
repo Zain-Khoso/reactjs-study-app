@@ -1,17 +1,28 @@
 // Lib Imports.
 import { Suspense, lazy } from 'react';
 import { Outlet, useLocation } from 'react-router';
-import { AnimatePresence } from 'motion/react';
+import { motion, type Variants } from 'motion/react';
 
 // Skeleton Imports.
 import NavbarSkeleton from '../skeletons/navbar.skeleton';
+import FooterSkeleton from '../skeletons/footer.skeleton';
 import LandingSkeleton from '@/components/skeletons/landing.skeleton';
 import LegalSkeleton from '@/components/skeletons/legal.skeleton';
-import { FooterSkeleton } from '../skeletons/footer.skeleton';
 
 // Component Imports.
 const Navbar = lazy(() => import('../navbar'));
 const Footer = lazy(() => import('../footer'));
+
+// Data.
+const variants: Variants = {
+  initial: { opacity: 0, y: 10 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1], when: 'beforeChildren' },
+  },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.3, ease: 'easeIn' } },
+};
 
 // Layout for static/info pages.
 export default function GeneralLayout() {
@@ -34,7 +45,7 @@ export default function GeneralLayout() {
   };
 
   return (
-    <AnimatePresence mode="wait">
+    <motion.div variants={variants} initial="initial" animate="animate" exit="exit">
       <Suspense fallback={<NavbarSkeleton />}>
         <Navbar />
       </Suspense>
@@ -46,6 +57,6 @@ export default function GeneralLayout() {
       <Suspense fallback={<FooterSkeleton />}>
         <Footer />
       </Suspense>
-    </AnimatePresence>
+    </motion.div>
   );
 }

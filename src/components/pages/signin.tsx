@@ -1,7 +1,7 @@
 // Lib Imports.
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router';
-import { motion } from 'motion/react';
+import { motion, type Variants } from 'motion/react';
 
 // Assets.
 import {
@@ -38,6 +38,86 @@ const SSOs = [
     label: 'X',
   },
 ];
+const motionVariants: Record<string, Variants> = {
+  upperCircle: {
+    hidden: {
+      opacity: 0,
+      y: -150,
+      x: -50,
+      transition: {
+        duration: 0.3,
+        ease: 'easeOut',
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      transition: {
+        duration: 1.2,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  },
+  lowerCircle: {
+    hidden: {
+      opacity: 0,
+      y: 150,
+      x: 50,
+      transition: {
+        duration: 0.3,
+        ease: 'easeOut',
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      transition: {
+        duration: 1.2,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  },
+  ssoCard: {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      scale: 0.9,
+      transition: {
+        duration: 0.5,
+        delay: 0.3,
+        ease: 'easeIn',
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        delay: 0.9,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  },
+  footer: {
+    hidden: {
+      opacity: 0,
+      transition: {
+        delay: 0.8,
+        duration: 0.2,
+      },
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 2,
+        duration: 1,
+      },
+    },
+  },
+};
 
 // User Authentication Page.
 export default function SignInPage() {
@@ -55,27 +135,26 @@ export default function SignInPage() {
       </Helmet>
 
       <motion.div
-        initial={{ opacity: 0, y: -150, x: -50 }}
-        animate={{ opacity: 1, y: 0, x: 0 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        variants={motionVariants.upperCircle}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
         className="bg-primary/5 absolute -top-[15%] left-[5%] aspect-square h-64 w-64 rounded-full transition-all md:left-[15%] md:h-96 md:w-96"
       />
 
       <motion.div
-        initial={{ opacity: 0, y: 150, x: 50 }}
-        animate={{ opacity: 1, y: 0, x: 0 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        variants={motionVariants.lowerCircle}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
         className="bg-primary/5 absolute -right-[5%] -bottom-[10%] aspect-square h-72 w-72 rounded-full transition-all md:right-[10%] md:h-120 md:w-120"
       />
 
       <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{
-          duration: 0.8,
-          delay: 0.9,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+        variants={motionVariants.ssoCard}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
         className="z-10 w-full"
       >
         <Card className="border-foreground/10 bg-foreground/3 mx-auto w-full max-w-[90%] shadow-2xl backdrop-blur-xs sm:max-w-90">
@@ -129,9 +208,10 @@ export default function SignInPage() {
       </motion.div>
 
       <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        variants={motionVariants.footer}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
         className="absolute bottom-8 w-full"
       >
         <Muted className="text-center">

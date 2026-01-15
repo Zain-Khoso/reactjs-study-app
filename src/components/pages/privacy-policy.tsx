@@ -1,15 +1,11 @@
 // Lib Imports.
 import { Helmet } from 'react-helmet-async';
-import { useLocation } from 'react-router';
-import { motion } from 'motion/react';
 
 // Component Imports.
 import { H2, H3, P } from '@/components/ui/typography';
 
 // Privacy Policy of the application.
 export default function PrivacyPolicyPage() {
-  const { pathname } = useLocation();
-
   return (
     <>
       <Helmet>
@@ -21,14 +17,7 @@ export default function PrivacyPolicyPage() {
         />
       </Helmet>
 
-      <motion.main
-        key={pathname}
-        className="mx-auto mb-24 max-w-7xl flex-col space-y-16 px-4 md:mb-32 md:space-y-24"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-      >
+      <main className="mx-auto mb-24 max-w-7xl flex-col space-y-16 px-4 md:mb-32 md:space-y-24">
         <H2>Privacy Policy</H2>
 
         <article className="space-y-4">
@@ -101,7 +90,7 @@ export default function PrivacyPolicyPage() {
             hours.
           </P>
         </article>
-      </motion.main>
+      </main>
     </>
   );
 }

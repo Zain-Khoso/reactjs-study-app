@@ -1,7 +1,6 @@
 // Lib Import.
 import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router';
-import { AnimatePresence } from 'motion/react';
 
 // Page Skeletons.
 import SignInSkeleton from '@/components/skeletons/signin.skeleton';
@@ -21,10 +20,8 @@ export default function EmptyLayout() {
   };
 
   return (
-    <AnimatePresence>
-      <Suspense fallback={getSkeleton()}>
-        <Outlet />
-      </Suspense>
-    </AnimatePresence>
+    <Suspense fallback={getSkeleton()}>
+      <Outlet />
+    </Suspense>
   );
 }
