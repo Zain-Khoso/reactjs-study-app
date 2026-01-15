@@ -1,4 +1,4 @@
-# PrepPlus Backend
+# Preplus
 
 A study app with over a 100K questions.
 
