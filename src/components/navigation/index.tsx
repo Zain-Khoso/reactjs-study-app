@@ -45,11 +45,17 @@ export default function Navbar({ user }: Props) {
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delayChildren: 0.1 }}
       className="border-b-muted bg-background/80 sticky top-0 z-50 mx-auto mb-12 flex w-full max-w-7xl items-center justify-between border-b p-4 backdrop-blur-md"
     >
       <div className="flex items-center gap-8">
-        <BrandLogo />
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          <BrandLogo />
+        </motion.div>
 
         <ul className="hidden items-center gap-6 md:flex">
           {links.map((link, index) => (
@@ -63,7 +69,12 @@ export default function Navbar({ user }: Props) {
         </ul>
       </div>
 
-      <div className="flex items-center gap-2">
+      <motion.div
+        initial={{ opacity: 0, x: 10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+        className="flex items-center gap-2"
+      >
         <ThemeToggle />
 
         {user ? (
@@ -80,7 +91,7 @@ export default function Navbar({ user }: Props) {
             </Link>
           </Button>
         )}
-      </div>
+      </motion.div>
     </motion.nav>
   );
 }
