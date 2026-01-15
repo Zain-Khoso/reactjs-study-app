@@ -47,7 +47,7 @@ export default function GeneralLayout() {
   return (
     <motion.div variants={variants} initial="initial" animate="animate" exit="exit">
       <Suspense fallback={<NavbarSkeleton />}>
-        <Navbar />
+        <Navbar user={{}} />
       </Suspense>
 
       <Suspense fallback={getSkeleton()}>

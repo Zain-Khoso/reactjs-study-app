@@ -25,7 +25,7 @@ export default function DashboardLayout() {
   return (
     <motion.div variants={variants} initial="initial" animate="animate" exit="exit">
       <Suspense fallback={<NavbarSkeleton />}>
-        <Navbar />
+        <Navbar user={{}} />
       </Suspense>
 
       <Outlet />
