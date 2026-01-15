@@ -66,7 +66,7 @@ export default function ArcaneCard({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="bg-background border-muted flex max-h-fit flex-1 flex-col items-center rounded-lg border-2 py-2"
+              className="bg-background border-muted relative flex max-h-fit flex-1 flex-col items-center overflow-hidden rounded-lg border-2 py-2"
             >
               <AnimatePresence mode="popLayout">
                 <motion.span
