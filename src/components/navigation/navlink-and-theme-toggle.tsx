@@ -1,5 +1,5 @@
 // Lib Imports.
-import { Link } from 'react-router';
+import { NavLink as BaseNavLink } from 'react-router';
 import { HashLink } from 'react-router-hash-link';
 import { motion } from 'motion/react';
 
@@ -63,7 +63,7 @@ function NavLink({ index, href, label, isActive, external, hash = false }: NavLi
           {label}
         </HashLink>
       ) : (
-        <Link
+        <BaseNavLink
           to={href}
           target={external ? '_blank' : '_self'}
           className={cn(
@@ -72,7 +72,7 @@ function NavLink({ index, href, label, isActive, external, hash = false }: NavLi
           )}
         >
           {label}
-        </Link>
+        </BaseNavLink>
       )}
     </motion.li>
   );
