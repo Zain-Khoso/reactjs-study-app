@@ -9,13 +9,14 @@ import { useScrollToTop } from './hooks/useScrollToTop';
 // Layouts.
 import EmptyLayout from './components/layouts/empty';
 import GeneralLayout from './components/layouts/general';
+import DashboardLayout from './components/layouts/dashboard';
 
 // Pages.
 const LandingPage = lazy(() => import('./components/pages/landing'));
 const TermsAndConditionsPage = lazy(() => import('./components/pages/terms-and-conditions'));
 const PrivacyPolicyPage = lazy(() => import('./components/pages/privacy-policy'));
 const SignInPage = lazy(() => import('./components/pages/signin'));
-const ProfilePage = lazy(() => import('./components/pages/user-profile'));
+const UserPage = lazy(() => import('./components/pages/user'));
 
 // Application Routes.
 export default function Router() {
@@ -34,7 +35,10 @@ export default function Router() {
 
         <Route element={<EmptyLayout />}>
           <Route path="signin" element={<SignInPage />} />
-          <Route path="profile" element={<ProfilePage />} />
+        </Route>
+
+        <Route element={<DashboardLayout />}>
+          <Route path="profile" element={<UserPage />} />
         </Route>
       </Routes>
     </AnimatePresence>
