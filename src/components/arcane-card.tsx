@@ -39,7 +39,7 @@ export default function ArcaneCard({
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timeLeft.isLive]);
+  }, [timeLeft.isLive, startsAt]);
 
   const stats = [
     { label: 'Days', val: timeLeft.days },
