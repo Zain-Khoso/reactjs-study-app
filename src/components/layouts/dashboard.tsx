@@ -7,7 +7,7 @@ import { motion, type Variants } from 'motion/react';
 import NavbarSkeleton from '../skeletons/navbar.skeleton';
 
 // Component Imports.
-const Navbar = lazy(() => import('../navbar'));
+const Navbar = lazy(() => import('../navigation'));
 
 // Data.
 const variants: Variants = {

@@ -10,7 +10,7 @@ import LandingSkeleton from '@/components/skeletons/landing.skeleton';
 import LegalSkeleton from '@/components/skeletons/legal.skeleton';
 
 // Component Imports.
-const Navbar = lazy(() => import('../navbar'));
+const Navbar = lazy(() => import('../navigation'));
 const Footer = lazy(() => import('../footer'));
 
 // Data.
