@@ -85,7 +85,9 @@ export default function SignInPage() {
             </div>
 
             <div className="space-y-2">
-              <H3 className="text-center font-bold">PrepPlus</H3>
+              <Link to="/">
+                <H3 className="text-center font-bold">PrepPlus</H3>
+              </Link>
               <Muted className="text-center">Join the Arena.</Muted>
             </div>
           </CardHeader>
@@ -106,7 +108,7 @@ export default function SignInPage() {
                   variant={'secondary'}
                   className="group relative flex h-auto w-full gap-2 py-2"
                 >
-                  <Icon size={24} className="block h-6! w-8!" />
+                  <Icon />
                   Continue with {label}
                   <IconArrowBigRightLinesFilled className="text-primary absolute top-1/2 right-4 -translate-x-4 -translate-y-1/2 opacity-0 transition duration-250 ease-out group-hover:translate-x-0 group-hover:opacity-100" />
                 </Button>
