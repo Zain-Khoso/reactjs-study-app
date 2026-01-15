@@ -4,10 +4,10 @@ import { Outlet, useLocation } from 'react-router';
 import { AnimatePresence } from 'motion/react';
 
 // Skeleton Imports.
-import NavbarSkeleton from '../skeleton.navbar';
-import LandingSkeleton from '@/pages/skeleton.landing';
-import LegalSkeleton from '@/pages/skeleton.legal';
-import { FooterSkeleton } from '../skeleton.footer';
+import NavbarSkeleton from '../skeletons/navbar.skeleton';
+import LandingSkeleton from '@/components/skeletons/landing.skeleton';
+import LegalSkeleton from '@/components/skeletons/legal.skeleton';
+import { FooterSkeleton } from '../skeletons/footer.skeleton';
 
 // Component Imports.
 const Navbar = lazy(() => import('../navbar'));

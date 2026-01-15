@@ -1,5 +1,5 @@
 // Component Imports.
-import { Skeleton } from './ui/skeleton';
+import { Skeleton } from '../ui/skeleton';
 
 // Loading Skeleton for general layout footer.
 export function FooterSkeleton() {

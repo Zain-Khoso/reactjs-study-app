@@ -4,7 +4,7 @@ import { Outlet, useLocation } from 'react-router';
 import { AnimatePresence } from 'motion/react';
 
 // Page Skeletons.
-import SignInSkeleton from '@/pages/skeleton.signin';
+import SignInSkeleton from '@/components/skeletons/signin.skeleton';
 
 // Layout used for unique pages.
 export default function EmptyLayout() {

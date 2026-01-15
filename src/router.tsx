@@ -10,10 +10,10 @@ import EmptyLayout from './components/layouts/empty';
 import GeneralLayout from './components/layouts/general';
 
 // Pages.
-const LandingPage = lazy(() => import('./pages/landing'));
-const TermsAndConditionsPage = lazy(() => import('./pages/terms-and-conditions'));
-const PrivacyPolicyPage = lazy(() => import('./pages/privacy-policy'));
-const SignInPage = lazy(() => import('./pages/signin'));
+const LandingPage = lazy(() => import('./components/pages/landing'));
+const TermsAndConditionsPage = lazy(() => import('./components/pages/terms-and-conditions'));
+const PrivacyPolicyPage = lazy(() => import('./components/pages/privacy-policy'));
+const SignInPage = lazy(() => import('./components/pages/signin'));
 
 // Application Routes.
 export default function Router() {
