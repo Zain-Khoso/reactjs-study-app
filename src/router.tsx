@@ -11,7 +11,7 @@ const LandingPage = lazy(() => import('./components/pages/landing'));
 const TermsAndConditionsPage = lazy(() => import('./components/pages/terms-and-conditions'));
 const PrivacyPolicyPage = lazy(() => import('./components/pages/privacy-policy'));
 const SignInPage = lazy(() => import('./components/pages/signin'));
-const UserPage = lazy(() => import('./components/pages/user'));
+const UserPage = lazy(() => import('./components/pages/profile'));
 
 // Application Routes.
 export default function Router() {
