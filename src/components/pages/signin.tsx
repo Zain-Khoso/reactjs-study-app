@@ -1,5 +1,4 @@
 // Lib Imports.
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
 
@@ -16,6 +15,9 @@ import {
 
 // Util Imports.
 import { signInPageMotions as motionVariants } from '@/lib/motions';
+
+// Hook Imports.
+import { useDocTitle } from '@/hooks/useDocTitle';
 
 // Component Imports.
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
@@ -44,19 +46,10 @@ const SSOs = [
 
 // User Authentication Page.
 export default function SignInPage() {
+  useDocTitle('Join Preplus | Competitive Assessment Platform');
+
   return (
     <div className="relative grid min-h-screen w-full place-items-center overflow-hidden">
-      <Helmet>
-        <title>Join Preplus | Competitive Assessment Platform</title>
-        <meta name="title" content="Join Preplus | Sign In to the Arena" />
-        <meta
-          name="description"
-          content="Securely access your Preplus account. Sign in or sign up via SSO to join live arenas, track your performance, and compete with the best."
-        />
-
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-
       <motion.div
         variants={motionVariants.upperCircle}
         initial="hidden"

@@ -1,6 +1,5 @@
 // Lib Imports.
 import { Link } from 'react-router';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 
 // Asset Imports.
@@ -17,6 +16,9 @@ import {
 
 // Util Imports.
 import { generalPageMotions } from '@/lib/motions';
+
+// Hook Imports.
+import { useDocTitle } from '@/hooks/useDocTitle';
 
 // Component Imports.
 import { H1, H2, Big, Muted, Small } from '@/components/ui/typography';
@@ -60,18 +62,11 @@ const arenas = [
 
 // Page.
 export default function Landing() {
+  useDocTitle('The Ultimate Real-Time Testing Arena');
+
   return (
     <>
       <motion.div variants={generalPageMotions} initial="initial" animate="animate" exit="exit">
-        <Helmet>
-          <title>Preplus | The Ultimate Real-Time Testing Arena</title>
-          <meta name="title" content="Preplus | Pulse the Competition" />
-          <meta
-            name="description"
-            content="Dominate the arena with Preplus. High-concurrency live battles, real-time rankings, and elite performance analytics for competitive learners."
-          />
-        </Helmet>
-
         <header className="mx-auto flex w-full max-w-7xl flex-col items-center gap-16 px-4 pb-4 md:flex-row md:justify-between md:py-12 lg:gap-36">
           <motion.article
             initial={{ opacity: 0, x: -50 }}

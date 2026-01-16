@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 
 // This hook listens to page change and moves the scroll to the top.
-export const useScrollToTop = () => {
+export function useScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
@@ -15,4 +15,4 @@ export const useScrollToTop = () => {
       behavior: 'instant',
     });
   }, [pathname, hash]);
-};
+}
