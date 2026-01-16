@@ -1,10 +1,10 @@
 // Lib Imports.
 import { lazy } from 'react';
-import { Routes, Route } from 'react-router';
+import { Routes, Route, useLocation } from 'react-router';
 
 // Layouts.
-import RootLayout from './components/layouts/root';
-import NavigationLayout from './components/layouts/navigation';
+import NavigationLayout from './components/navigation/layout';
+import { AnimatePresence } from 'motion/react';
 
 // Pages.
 const LandingPage = lazy(() => import('./components/pages/landing'));
@@ -15,19 +15,23 @@ const UserPage = lazy(() => import('./components/pages/user'));
 
 // Application Routes.
 export default function Router() {
+  const location = useLocation();
+
   return (
-    <Routes>
-      <Route element={<RootLayout />}>
+    <AnimatePresence mode="wait">
+      <Routes key={location.pathname} location={location}>
+        <Route path="signin" element={<SignInPage />} />
+
         <Route element={<NavigationLayout />}>
+          {/* "Static" pages */}
           <Route index element={<LandingPage />} />
           <Route path="terms-and-conditions" element={<TermsAndConditionsPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
 
+          {/* Dashboard pages */}
           <Route path="profile" element={<UserPage />} />
         </Route>
-
-        <Route path="signin" element={<SignInPage />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </AnimatePresence>
   );
 }
