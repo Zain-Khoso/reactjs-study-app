@@ -31,7 +31,7 @@ export default function NavigationLayout() {
 
   return (
     <Suspense fallback={getSkeleton()}>
-      <Navbar user={null} />
+      <Navbar user={{}} />
 
       <Outlet />
     </Suspense>

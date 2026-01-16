@@ -1,11 +1,15 @@
+// Lib Imports.
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts';
+
 // Assets.
 import {
-  IconTrophyFilled,
-  IconBoltFilled,
   IconStarFilled,
-  IconStack3Filled,
   IconCurrentLocationFilled,
-  IconChevronRight,
+  IconHistory,
+  IconDeviceDesktopFilled,
+  IconNumber123,
+  IconHistoryToggle,
+  IconEngineFilled,
 } from '@tabler/icons-react';
 
 // Hook Imports.
@@ -15,237 +19,234 @@ import { useDocTitle } from '@/hooks/useDocTitle';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Big, H2, Muted, P, Small } from '../ui/typography';
+import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '../ui/chart';
+import { Button } from '../ui/button';
+
+// Data.
+const chartData = [
+  { subject: 'Computer', points: 316 },
+  { subject: 'History', points: 280 },
+  { subject: 'Physics', points: 190 },
+];
+const chartConfig: ChartConfig = {
+  points: {
+    label: 'Points',
+    color: 'var(--chart-1)',
+  },
+};
 
 // User/Profile Page.
 export default function UserPage() {
   useDocTitle('User Profile');
 
   return (
-    <div className="bg-background mx-auto min-h-screen max-w-7xl space-y-8 p-4 md:p-8">
-      {/* Header Profile Section */}
-      <Card className="border-border/50 bg-card/50 shadow-sm backdrop-blur-sm">
-        <CardContent className="flex flex-col items-center gap-6 pt-6 md:flex-row md:items-start">
-          <Avatar className="border-primary/20 h-24 w-24 border-2">
-            <AvatarImage src="/path-to-alex-chen.png" alt="Alex Chen" />
-            <AvatarFallback className="text-2xl">AC</AvatarFallback>
+    <main className="mx-auto max-w-7xl space-y-8 px-4 pb-8 xl:px-0">
+      <Card>
+        <CardContent className="flex flex-col items-center gap-6 md:flex-row md:items-start">
+          <Avatar className="h-24 w-24">
+            <AvatarImage
+              src="https://lh3.googleusercontent.com/-vMM9R2UlBpM/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkQSh6CEfa4PH8bRLDDUxvUhhTriQ/photo.jpg?sz=512"
+              alt="Zain Khoso"
+            />
+            <AvatarFallback className="text-2xl">ZK</AvatarFallback>
           </Avatar>
 
-          <div className="flex-1 space-y-4 text-center md:text-left">
-            <div>
-              <h1 className="text-3xl font-bold tracking-tight">Alex Chen</h1>
-              <div className="mt-1 flex items-center justify-center gap-3 md:justify-start">
+          <section className="flex-1 space-y-2 text-center md:text-left">
+            <div className="space-y-2">
+              <Big>Zain Khoso</Big>
+
+              <div className="flex items-center justify-center gap-2 md:justify-start">
                 <Badge variant="secondary" className="gap-1 font-medium">
-                  <IconStarFilled className="fill-primary text-primary h-3 w-3" />
-                  Level 42
+                  <IconStarFilled className="text-primary" />
+                  Level 26
                 </Badge>
-                <span className="text-muted-foreground text-sm">Member since Jan 2025</span>
+
+                <P className="text-muted-foreground">Member since Jan 2026</P>
               </div>
             </div>
-            <p className="text-muted-foreground font-medium">
-              Full Stack Developer • JavaScript Enthusiast
-            </p>
-          </div>
 
-          <div className="space-y-1 text-center md:text-right">
-            <div className="text-4xl font-bold tabular-nums">15,847</div>
-            <p className="text-muted-foreground text-sm font-medium tracking-wider uppercase">
-              Total Pulse Points
-            </p>
-            <div className="text-primary text-xs font-semibold">+245 this week</div>
-          </div>
+            <P className="text-muted-foreground text-center font-medium md:text-left">
+              Full Stack Developer
+            </P>
+          </section>
+
+          <section className="space-y-2 text-center md:text-right">
+            <H2>6,840</H2>
+
+            <Muted className="text-center md:text-right">Total Points</Muted>
+            <span className="text-primary font-semibold">+1,648 this week</span>
+          </section>
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        {/* Topic Mastery & Battle History Column */}
-        <div className="space-y-8 lg:col-span-2">
-          {/* Radar Chart Section */}
+      <section className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <article className="space-y-8 lg:col-span-2">
           <Card className="min-h-100">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <IconCurrentLocationFilled className="text-primary h-5 w-5" />
-                Topic Mastery
-              </CardTitle>
+            <CardHeader className="flex items-center gap-2">
+              <IconCurrentLocationFilled size={24} className="text-primary h-5 w-5" />
+
+              <CardTitle>Topic Mastery</CardTitle>
             </CardHeader>
-            <CardContent className="bg-muted/20 m-4 flex min-h-75 items-center justify-center rounded-lg">
-              {/* Replace with your Chart.js or Recharts Radar implementation */}
-              <div className="text-muted-foreground flex flex-col items-center gap-2">
-                <div className="border-muted-foreground/20 flex h-48 w-48 items-center justify-center rounded-full border-4 border-dashed">
-                  Radar Chart
-                </div>
-                <div className="mt-4 space-x-2 text-xs opacity-70">
-                  <span>JavaScript</span> • <span>React</span> • <span>Node.js</span> •{' '}
-                  <span>Python</span> • <span>SQL</span> • <span>Algorithms</span>
-                </div>
-              </div>
+
+            <CardContent className="flex min-h-75 items-center justify-center">
+              <ChartContainer config={chartConfig} className="aspect-square h-full max-h-62 w-full">
+                <RadarChart data={chartData}>
+                  <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+                  <PolarGrid className="fill-primary opacity-10" gridType="circle" />
+                  <PolarAngleAxis dataKey="subject" />
+                  <Radar dataKey="points" fill="var(--color-primary)" fillOpacity={0.6} />
+                </RadarChart>
+              </ChartContainer>
             </CardContent>
+
+            <CardFooter className="flex-col gap-2 text-sm">
+              <P>Computer &middot; History &middot; Physics</P>
+              <Muted>Your stats since January 2026</Muted>
+            </CardFooter>
           </Card>
 
-          {/* Battle History */}
           <Card>
             <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="flex items-center gap-2">
-                <IconStack3Filled className="text-primary h-5 w-5" />
-                Battle History
-              </CardTitle>
-              <button className="text-muted-foreground text-xs font-semibold hover:underline">
+              <div className="flex items-center gap-2">
+                <IconHistory size={24} className="text-primary" />
+                <CardTitle>Battle History</CardTitle>
+              </div>
+
+              <Button
+                variant="link"
+                className="text-muted-foreground p-0 text-xs font-semibold hover:underline"
+              >
                 View All
-              </button>
+              </Button>
             </CardHeader>
+
             <CardContent className="space-y-4">
               {[
                 {
-                  title: 'JavaScript Arrays Challenge',
-                  players: 23,
-                  date: 'Jan 10, 2025',
-                  rank: '#1',
-                  points: '+450 pts',
-                  icon: IconTrophyFilled,
+                  subject: 'Computer Science',
+                  players: 123,
+                  date: new Date('Jan 10, 2026'),
+                  rank: 1,
+                  points: 1450,
+                  icon: IconDeviceDesktopFilled,
                 },
                 {
-                  title: 'React Hooks Battle',
+                  subject: 'Mathematics',
                   players: 18,
-                  date: 'Jan 9, 2025',
-                  rank: '#3',
-                  points: '+280 pts',
-                  icon: IconBoltFilled,
+                  date: new Date('Jan 9, 2026'),
+                  rank: 3,
+                  points: 280,
+                  icon: IconNumber123,
                 },
                 {
-                  title: 'SQL Queries Showdown',
-                  players: 31,
-                  date: 'Jan 8, 2025',
-                  rank: '#5',
-                  points: '+190 pts',
-                  icon: IconCurrentLocationFilled,
+                  subject: 'History',
+                  players: 8,
+                  date: new Date('Jan 8, 2026'),
+                  rank: 2,
+                  points: 190,
+                  icon: IconHistoryToggle,
                 },
                 {
-                  title: 'Algorithm Sprint',
+                  subject: 'Physics',
                   players: 27,
-                  date: 'Jan 7, 2025',
-                  rank: '#12',
-                  points: '+85 pts',
-                  icon: IconChevronRight,
+                  date: new Date('Jan 7, 2026'),
+                  rank: 8,
+                  points: 285,
+                  icon: IconEngineFilled,
                 },
               ].map((battle, i) => (
-                <div
-                  key={i}
-                  className="bg-muted/30 hover:border-border flex items-center justify-between rounded-xl border border-transparent p-4 transition-colors"
+                <Card
+                  key={`battle-${i}`}
+                  className="bg-muted/30 hover:bg-muted/50 overflow-hidden transition-colors"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="bg-background rounded-lg border p-2">
+                  <CardContent className="flex items-center gap-4 px-4">
+                    <div className="bg-background/20 rounded-lg border p-2 shadow-sm">
                       <battle.icon className="text-muted-foreground h-5 w-5" />
                     </div>
+
                     <div>
-                      <div className="text-sm font-semibold">{battle.title}</div>
-                      <div className="text-muted-foreground text-xs">
-                        vs {battle.players} players • {battle.date}
-                      </div>
+                      <P className="text-left leading-4">{battle.subject}</P>
+                      <Small className="text-muted-foreground">
+                        vs {battle.players} players •{' '}
+                        {battle.date.toLocaleDateString('pk', {
+                          day: '2-digit',
+                          month: 'short',
+                          year: 'numeric',
+                        })}
+                      </Small>
                     </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-sm font-bold">{battle.rank}</div>
-                    <div className="text-primary text-xs font-medium">{battle.points}</div>
-                  </div>
-                </div>
+                  </CardContent>
+
+                  <CardFooter className="flex w-full items-center justify-between gap-2 p-4">
+                    <Muted className="text-right leading-4">Ranked #{battle.rank}</Muted>
+                    <Small className="text-primary block text-right">+{battle.points}</Small>
+                  </CardFooter>
+                </Card>
               ))}
             </CardContent>
           </Card>
-        </div>
+        </article>
 
-        {/* Right Sidebar: Stats & Achievements */}
-        <div className="space-y-8">
-          {/* Global Percentile */}
+        <article className="space-y-8">
           <Card>
             <CardHeader>
-              <CardTitle className="text-muted-foreground text-sm font-semibold tracking-wider uppercase">
-                Global Percentile
-              </CardTitle>
+              <CardTitle className="text-muted-foreground uppercase">Global Percentile</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               {[
                 {
-                  label: 'JavaScript',
-                  top: '5%',
-                  value: 95,
+                  label: 'Computer Science',
+                  top: 5,
+                  value: 98,
                   current: '2,150 / 2,200 to next rank',
                 },
-                { label: 'React', top: '8%', value: 92, current: '1,840 / 2,000 to next rank' },
+                { label: 'History', top: 20, value: 78, current: '1,840 / 2,000 to next rank' },
                 {
-                  label: 'Algorithms',
-                  top: '15%',
-                  value: 85,
+                  label: 'Physics',
+                  top: 50,
+                  value: 48,
                   current: '1,275 / 1,500 to next rank',
                 },
               ].map((stat, i) => (
-                <div key={i} className="space-y-2">
-                  <div className="flex justify-between text-sm font-medium">
-                    <span>{stat.label}</span>
-                    <span className="text-muted-foreground">Top {stat.top}</span>
+                <div key={`stat-${i}`} className="space-y-2">
+                  <div className="flex justify-between">
+                    <Muted>{stat.label}</Muted>
+                    <Muted className="font-semibold">Top {stat.top}%</Muted>
                   </div>
+
                   <Progress value={stat.value} className="h-2" />
-                  <p className="text-muted-foreground text-[10px]">{stat.current}</p>
+
+                  <Small className="text-muted-foreground">{stat.current}</Small>
                 </div>
               ))}
             </CardContent>
           </Card>
 
-          {/* Quick Stats */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-muted-foreground text-sm font-semibold tracking-wider uppercase">
-                Quick Stats
-              </CardTitle>
+              <CardTitle className="text-muted-foreground uppercase">Quick Stats</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               {[
-                { label: 'Total Battles', val: '247' },
-                { label: 'Win Rate', val: '68%' },
-                { label: 'Avg Rank', val: '#4.2' },
-                { label: 'Streak', val: '12 days' },
+                { label: 'Total Battles', val: '3,829' },
+                { label: 'Win Rate', val: '69%' },
+                { label: 'Avg Rank', val: '#7.2' },
+                { label: 'Streak', val: '17 days' },
               ].map((s, i) => (
                 <div
-                  key={i}
-                  className="border-border/50 flex items-center justify-between border-b py-1 last:border-0"
+                  key={`${i}-quickstats`}
+                  className="border-border/50 flex items-center justify-between border-b pb-2"
                 >
-                  <span className="text-muted-foreground text-sm">{s.label}</span>
-                  <span className="font-bold">{s.val}</span>
+                  <Muted>{s.label}</Muted>
+                  <Muted className="font-bold">{s.val}</Muted>
                 </div>
               ))}
             </CardContent>
           </Card>
-
-          {/* Achievements */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-muted-foreground text-sm font-semibold tracking-wider uppercase">
-                Achievements
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {[
-                {
-                  title: 'Speed Demon',
-                  desc: 'Complete 10 battles in under 5 minutes',
-                  icon: IconBoltFilled,
-                },
-                { title: 'Champion', desc: 'Win 5 battles in a row', icon: IconTrophyFilled },
-                { title: 'Rising Star', desc: 'Reach Level 40', icon: IconStarFilled },
-              ].map((ach, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="bg-muted mt-1 rounded-full p-2">
-                    <ach.icon className="text-muted-foreground h-4 w-4" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold">{ach.title}</div>
-                    <div className="text-muted-foreground text-xs leading-relaxed">{ach.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </div>
+        </article>
+      </section>
+    </main>
   );
 }
