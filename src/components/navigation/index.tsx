@@ -1,6 +1,6 @@
 // Lib Imports.
 import { Link, useLocation } from 'react-router';
-import { motion } from 'motion/react';
+import { motion, type Variants } from 'motion/react';
 
 // Assets.
 import { IconArrowBigRightLinesFilled } from '@tabler/icons-react';
@@ -34,6 +34,18 @@ const authLinks = [
   { label: 'Arenas', href: '/arenas', hash: false, external: false },
   { label: 'Leaderboards', href: '/leaderboards', hash: false, external: false },
 ];
+const motionVariants: Variants = {
+  hidden: {
+    y: -20,
+    opacity: 0,
+    transition: { duration: 0.3, ease: 'easeIn', delayChildren: 0 },
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delayChildren: 0.1 },
+  },
+};
 
 // Navbar for the entire application.
 export default function Navbar({ user }: Props) {
@@ -43,9 +55,10 @@ export default function Navbar({ user }: Props) {
 
   return (
     <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delayChildren: 0.1 }}
+      variants={motionVariants}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
       className="border-b-muted bg-background/80 sticky top-0 z-50 mx-auto mb-12 flex w-full max-w-7xl items-center justify-between border-b p-4 backdrop-blur-md"
     >
       <div className="flex items-center gap-8">
