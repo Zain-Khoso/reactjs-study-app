@@ -1,5 +1,6 @@
 // Lib Imports.
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts';
+import { motion } from 'motion/react';
 
 // Assets.
 import {
@@ -11,6 +12,9 @@ import {
   IconHistoryToggle,
   IconEngineFilled,
 } from '@tabler/icons-react';
+
+// Util Imports.
+import { generalPageMotions } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
@@ -42,7 +46,13 @@ export default function UserPage() {
   useDocTitle('User Profile');
 
   return (
-    <main className="mx-auto max-w-7xl space-y-8 px-4 pb-8 xl:px-0">
+    <motion.main
+      variants={generalPageMotions}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="mx-auto max-w-7xl space-y-8 px-4 pb-8 xl:px-0"
+    >
       <Card>
         <CardContent className="flex flex-col items-center gap-6 md:flex-row md:items-start">
           <Avatar className="h-24 w-24">
@@ -102,7 +112,7 @@ export default function UserPage() {
             </CardContent>
 
             <CardFooter className="flex-col gap-2 text-sm">
-              <P>Computer &middot; History &middot; Physics</P>
+              <P>Computer · History · Physics</P>
               <Muted>Your stats since January 2026</Muted>
             </CardFooter>
           </Card>
@@ -247,6 +257,6 @@ export default function UserPage() {
           </Card>
         </article>
       </section>
-    </main>
+    </motion.main>
   );
 }
