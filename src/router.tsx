@@ -1,15 +1,10 @@
 // Lib Imports.
 import { lazy } from 'react';
-import { Routes, Route, useLocation } from 'react-router';
-import { AnimatePresence } from 'motion/react';
-
-// Hook Imports.
-import { useScrollToTop } from './hooks/useScrollToTop';
+import { Routes, Route } from 'react-router';
 
 // Layouts.
-import EmptyLayout from './components/layouts/empty';
-import GeneralLayout from './components/layouts/general';
-import DashboardLayout from './components/layouts/dashboard';
+import RootLayout from './components/layouts/root';
+import NavigationLayout from './components/layouts/navigation';
 
 // Pages.
 const LandingPage = lazy(() => import('./components/pages/landing'));
@@ -20,27 +15,19 @@ const UserPage = lazy(() => import('./components/pages/user'));
 
 // Application Routes.
 export default function Router() {
-  const { pathname } = useLocation();
-
-  useScrollToTop();
-
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={pathname} key={pathname}>
-        <Route element={<GeneralLayout />}>
+    <Routes>
+      <Route element={<RootLayout />}>
+        <Route element={<NavigationLayout />}>
           <Route index element={<LandingPage />} />
           <Route path="terms-and-conditions" element={<TermsAndConditionsPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
-        </Route>
 
-        <Route element={<EmptyLayout />}>
-          <Route path="signin" element={<SignInPage />} />
-        </Route>
-
-        <Route element={<DashboardLayout />}>
           <Route path="profile" element={<UserPage />} />
         </Route>
-      </Routes>
-    </AnimatePresence>
+
+        <Route path="signin" element={<SignInPage />} />
+      </Route>
+    </Routes>
   );
 }

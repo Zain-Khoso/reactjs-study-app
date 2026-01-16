@@ -3,17 +3,20 @@ import { motion } from 'motion/react';
 
 // Component Imports.
 import { Skeleton } from '@/components/ui/skeleton';
+import NavbarSkeleton from './navbar.skeleton';
+import FooterSkeleton from './footer.skeleton';
 
 // Loading Skeleton for Landing Page.
 export default function LandingSkeleton() {
   return (
     <motion.div
-      key="landing-skeleton"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, filter: 'blur(10px)' }}
       transition={{ duration: 0.4 }}
     >
+      <NavbarSkeleton />
+
       <header className="mx-auto flex w-full max-w-7xl flex-col items-center gap-16 px-4 pb-4 md:flex-row md:justify-between md:py-12 lg:gap-36">
         <div className="flex w-full flex-1 flex-col gap-6 lg:gap-8">
           <div className="space-y-4">
@@ -122,6 +125,8 @@ export default function LandingSkeleton() {
           </div>
         </section>
       </main>
+
+      <FooterSkeleton />
     </motion.div>
   );
 }
