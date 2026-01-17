@@ -1,5 +1,11 @@
+// Lib Imports.
+import { motion } from 'motion/react';
+
 // Asset Imports
 import { IconTrendingUp } from '@tabler/icons-react';
+
+// Util Imports
+import { footerVariants } from '@/lib/motions';
 
 // Component Imports
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -27,7 +33,13 @@ export default function CurrentUserRankBar({
   occupation = 'Fullstack Developer',
 }: CurrentUserRankBarProps) {
   return (
-    <article className="border-border bg-background/90 fixed right-0 bottom-0 left-0 z-50 border-t backdrop-blur-md">
+    <motion.article
+      variants={footerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="border-border bg-background/90 fixed right-0 bottom-0 left-0 z-50 border-t backdrop-blur-md"
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-6">
           <div className="border-border hidden border-r pr-6 text-center sm:block">
@@ -61,6 +73,6 @@ export default function CurrentUserRankBar({
           </Small>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
