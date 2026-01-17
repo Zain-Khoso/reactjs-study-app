@@ -8,6 +8,9 @@ import { IconTrophy } from '@tabler/icons-react';
 // Util Imports.
 import { containerVariants, itemVariants } from '@/lib/motions';
 
+// Hook Imports.
+import { useDocTitle } from '@/hooks/useDocTitle';
+
 // Component Imports.
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -107,6 +110,7 @@ const RANKED_LIST: LeaderboardEntry[] = [
 // Leaderboard page.
 export default function LeaderboardPage() {
   const [currentSubject, setCurrentSubject] = useState('Global');
+  useDocTitle('Leaderboards');
 
   return (
     <motion.main
