@@ -7,6 +7,9 @@ import { IconBooks, IconCode, IconHistory, IconFlask, IconCalculator } from '@ta
 // Util Imports.
 import { containerVariants, itemVariants } from '@/lib/motions';
 
+// Hook Imports.
+import { useDocTitle } from '@/hooks/useDocTitle';
+
 // Component Imports.
 import { H2, P, Muted } from '@/components/ui/typography';
 import { Badge } from '@/components/ui/badge';
@@ -71,6 +74,8 @@ const UPCOMING_ARENAS = [
 
 // Page to browse Arenas to Participate in.
 export default function ArenasPage() {
+  useDocTitle('Arenas');
+
   return (
     <motion.main
       variants={containerVariants}
