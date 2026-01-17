@@ -3,43 +3,19 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 
 // Asset Imports.
-import {
-  IconTrophy,
-  IconCheck,
-  IconSelector,
-  IconCrown,
-  IconTrendingUp,
-} from '@tabler/icons-react';
+import { IconTrophy } from '@tabler/icons-react';
 
 // Util Imports.
-import { cn } from '@/lib/utils';
 import { generalPageMotions } from '@/lib/motions';
 
 // Component Imports.
-import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/components/ui/command';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Big, H2, Muted, P, Small } from '../ui/typography';
+import { H2, Muted } from '../ui/typography';
+import { PodiumItem, RankList, LeaderboardToggle, CurrentUserRank } from '../leaderboards';
 
 // Types.
-type LeaderboardEntry = {
-  rank: number;
-  name: string;
-  handle: string;
-  avatar: string;
-  points: number;
-  pointsToday: number;
-};
+import { type LeaderboardEntry } from '../leaderboards';
 
 // Data.
 const subjects = [
@@ -128,48 +104,8 @@ const RANKED_LIST: LeaderboardEntry[] = [
   },
 ];
 
-// Component used inside Leaderboard page to show top 3 users.
-function PodiumItem({ entry, isWinner }: { entry: LeaderboardEntry; isWinner?: boolean }) {
-  return (
-    <article className={cn('flex flex-col items-center gap-2', isWinner ? 'mb-6' : 'mb-0')}>
-      <div className="relative">
-        <div
-          className={cn(
-            'relative rounded-full p-1 transition-all duration-500',
-            isWinner ? 'bg-primary' : 'bg-muted'
-          )}
-        >
-          <Avatar
-            className={cn('border-background border-2', isWinner ? 'h-24 w-24' : 'h-20 w-20')}
-          >
-            <AvatarImage src={entry.avatar} alt={entry.name} />
-            <AvatarFallback>{entry.name[0]}</AvatarFallback>
-          </Avatar>
-        </div>
-
-        <div
-          className={cn(
-            'bg-background absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full border text-xs font-bold shadow-sm',
-            isWinner
-              ? 'bg-primary text-primary-foreground'
-              : 'bg-secondary text-secondary-foreground'
-          )}
-        >
-          {isWinner ? <IconCrown size={16} stroke={2.5} /> : entry.rank}
-        </div>
-      </div>
-
-      <div className="text-center">
-        <P className="text-sm leading-none font-bold">{entry.name}</P>
-        <Small className="text-muted-foreground">{entry.points.toLocaleString()} pts</Small>
-      </div>
-    </article>
-  );
-}
-
 // Leaderboard page.
 export default function LeaderboardPage() {
-  const [openSubject, setOpenSubject] = useState(false);
   const [currentSubject, setCurrentSubject] = useState('Global');
 
   return (
@@ -187,50 +123,11 @@ export default function LeaderboardPage() {
         </article>
 
         <div className="flex flex-wrap items-center gap-3">
-          <Popover open={openSubject} onOpenChange={setOpenSubject}>
-            <PopoverTrigger asChild>
-              <Button variant="outline" className="w-50 justify-between lg:w-64">
-                <div className="flex items-center gap-2">
-                  <IconTrophy size={18} className="text-primary" />
-                  {currentSubject}
-                </div>
-
-                <IconSelector size={16} className="text-muted-foreground" />
-              </Button>
-            </PopoverTrigger>
-
-            <PopoverContent className="border-border w-50 p-0 shadow-xl lg:w-64">
-              <Command>
-                <CommandInput placeholder="Search subject..." />
-
-                <CommandList>
-                  <CommandEmpty>No subject found.</CommandEmpty>
-
-                  <CommandGroup>
-                    {subjects.map((s) => (
-                      <CommandItem
-                        key={s.value}
-                        onSelect={() => {
-                          setCurrentSubject(s.value);
-                          setOpenSubject(false);
-                        }}
-                        className="cursor-pointer"
-                      >
-                        <IconCheck
-                          size={16}
-                          className={cn(
-                            'mr-2',
-                            currentSubject === s.value ? 'opacity-100' : 'opacity-0'
-                          )}
-                        />
-                        {s.label}
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                </CommandList>
-              </Command>
-            </PopoverContent>
-          </Popover>
+          <LeaderboardToggle
+            subjects={subjects}
+            currentSubject={currentSubject}
+            onSubjectChange={setCurrentSubject}
+          />
 
           <Tabs defaultValue="daily" className="w-auto">
             <TabsList className="bg-muted/50 border-border/50 border">
@@ -256,76 +153,19 @@ export default function LeaderboardPage() {
             <PodiumItem entry={TOP_THREE[2]} />
           </div>
 
-          <ul className="divide-border divide-y">
-            {RANKED_LIST.map((user) => (
-              <li
-                key={user.rank}
-                className="hover:bg-accent/50 group flex items-center justify-between p-4 transition-all"
-              >
-                <div className="flex items-center gap-4 sm:gap-6">
-                  <Small className="text-muted-foreground">{user.rank}</Small>
-
-                  <div className="flex items-center gap-3">
-                    <Avatar className="h-10 w-10">
-                      <AvatarImage src={user.avatar} />
-                      <AvatarFallback>{user.name[0]}</AvatarFallback>
-                    </Avatar>
-
-                    <div>
-                      <P className="leading-2">{user.name}</P>
-                      <Small className="text-muted-foreground">{user.handle}</Small>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <P className="text-right font-bold">{user.points.toLocaleString()} pts</P>
-                  <Small className="text-primary flex items-center justify-end gap-1 font-bold">
-                    <IconTrendingUp size={12} stroke={3} />+{user.pointsToday} today
-                  </Small>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <RankList users={RANKED_LIST} />
         </CardContent>
       </Card>
 
-      <article className="border-border bg-background/90 fixed right-0 bottom-0 left-0 z-50 border-t backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-6">
-            <div className="border-border hidden border-r pr-6 text-center sm:block">
-              <Small className="text-muted-foreground font-semibold uppercase">Your Rank</Small>
-              <Big className="text-primary font-bold">#1</Big>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <Avatar className="h-12 w-12">
-                  <AvatarImage src="https://lh3.googleusercontent.com/-vMM9R2UlBpM/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkQSh6CEfa4PH8bRLDDUxvUhhTriQ/photo.jpg?sz=512" />
-                  <AvatarFallback>ZK</AvatarFallback>
-                </Avatar>
-
-                <Small className="bg-primary text-primary-foreground absolute -top-1/5 -right-3/12 rounded-full px-1.5 py-0.5 font-semibold sm:hidden">
-                  #47
-                </Small>
-              </div>
-
-              <div className="hidden sm:block">
-                <P className="font-bold">You (@zainkhoso)</P>
-                <Small className="text-muted-foreground">Fullstack Developer</Small>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <P className="text-right font-bold">{(3511).toLocaleString()} pts</P>
-            <Small className="text-primary flex items-center justify-end gap-1 font-bold">
-              <IconTrendingUp size={10} stroke={3} />
-              +78 Today
-            </Small>
-          </div>
-        </div>
-      </article>
+      <CurrentUserRank
+        rank={1}
+        name="Zain Khoso"
+        handle="@zainkhoso"
+        avatar="https://lh3.googleusercontent.com/-vMM9R2UlBpM/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkQSh6CEfa4PH8bRLDDUxvUhhTriQ/photo.jpg?sz=512"
+        points={3511}
+        pointsToday={78}
+        occupation="Fullstack Developer"
+      />
     </motion.main>
   );
 }
