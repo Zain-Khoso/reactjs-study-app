@@ -9,6 +9,7 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import LandingSkeleton from '../skeletons/landing.skeleton';
 import LegalSkeleton from '../skeletons/legal.skeleton';
 import ProfileSkeleton from '../skeletons/profile.skeleton';
+import LeaderboardsSkeleton from '../skeletons/leaderboards.skeleton';
 
 const Navbar = lazy(() => import('./index'));
 
@@ -28,6 +29,9 @@ export default function NavigationLayout() {
 
       case '/profile':
         return <ProfileSkeleton key="skeleton-profile" />;
+
+      case '/leaderboards':
+        return <LeaderboardsSkeleton key="skeleton-leaderboards" />;
 
       default:
         return <LandingSkeleton key="skeleton-landing" />;
