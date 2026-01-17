@@ -1,3 +1,9 @@
+// Lib Imports.
+import { motion } from 'motion/react';
+
+// Util Imports.
+import { itemVariants } from '@/lib/motions';
+
 // Component Imports.
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -17,16 +23,18 @@ type GlobalPercentileProps = {
 // Component to list level progessions.
 export default function GlobalPercentile({ stats }: GlobalPercentileProps) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-muted-foreground uppercase">Global Percentile</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        {stats.map((stat, i) => (
-          <PercentileItem key={`stat-${i}`} stat={stat} />
-        ))}
-      </CardContent>
-    </Card>
+    <motion.div variants={itemVariants}>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-muted-foreground uppercase">Global Percentile</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {stats.map((stat, i) => (
+            <PercentileItem key={`stat-${i}`} stat={stat} />
+          ))}
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }
 

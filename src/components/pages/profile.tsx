@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import { IconAtom, IconCalculator, IconFlask } from '@tabler/icons-react';
 
 // Util Imports.
-import { generalPageMotions } from '@/lib/motions';
+import { containerVariants } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
@@ -90,7 +90,7 @@ export default function UserPage() {
 
   return (
     <motion.main
-      variants={generalPageMotions}
+      variants={containerVariants}
       initial="initial"
       animate="animate"
       exit="exit"

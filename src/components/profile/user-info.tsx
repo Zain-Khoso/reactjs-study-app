@@ -1,8 +1,12 @@
 // Lib Imports.
 import { useMemo } from 'react';
+import { motion } from 'motion/react';
 
 // Asset Imports.
 import { IconStarFilled } from '@tabler/icons-react';
+
+// Util Imports.
+import { itemVariants } from '@/lib/motions';
 
 // Component Imports.
 import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
@@ -49,39 +53,41 @@ export default function UserCard({
   }, [name]);
 
   return (
-    <Card>
-      <CardContent className="flex flex-col items-center gap-6 md:flex-row md:items-start">
-        <Avatar className="h-24 w-24">
-          <AvatarImage src={image ?? undefined} alt={`${name}'s Picture`} />
-          <AvatarFallback className="text-2xl">{initials}</AvatarFallback>
-        </Avatar>
+    <motion.div variants={itemVariants}>
+      <Card>
+        <CardContent className="flex flex-col items-center gap-6 md:flex-row md:items-start">
+          <Avatar className="h-24 w-24">
+            <AvatarImage src={image ?? undefined} alt={`${name}'s Picture`} />
+            <AvatarFallback className="text-2xl">{initials}</AvatarFallback>
+          </Avatar>
 
-        <section className="flex-1 space-y-2 text-center md:text-left">
-          <div className="space-y-2">
-            <Big>{name}</Big>
+          <section className="flex-1 space-y-2 text-center md:text-left">
+            <div className="space-y-2">
+              <Big>{name}</Big>
 
-            <div className="flex items-center justify-center gap-2 md:justify-start">
-              <Badge variant="secondary" className="gap-1 font-medium">
-                <IconStarFilled className="text-primary" />
-                Level {level}
-              </Badge>
+              <div className="flex items-center justify-center gap-2 md:justify-start">
+                <Badge variant="secondary" className="gap-1 font-medium">
+                  <IconStarFilled className="text-primary" />
+                  Level {level}
+                </Badge>
 
-              <P className="text-muted-foreground">Member since {memberSinceText}</P>
+                <P className="text-muted-foreground">Member since {memberSinceText}</P>
+              </div>
             </div>
-          </div>
 
-          <P className="text-muted-foreground text-center font-medium md:text-left">{headline}</P>
-        </section>
+            <P className="text-muted-foreground text-center font-medium md:text-left">{headline}</P>
+          </section>
 
-        <section className="space-y-2 text-center md:text-right">
-          <H2>{points.toLocaleString('en-uk')}</H2>
+          <section className="space-y-2 text-center md:text-right">
+            <H2>{points.toLocaleString('en-uk')}</H2>
 
-          <Muted className="text-center md:text-right">Total Points</Muted>
-          <span className="text-primary font-semibold">
-            +{pointsThisWeek.toLocaleString('en-uk')} this week
-          </span>
-        </section>
-      </CardContent>
-    </Card>
+            <Muted className="text-center md:text-right">Total Points</Muted>
+            <span className="text-primary font-semibold">
+              +{pointsThisWeek.toLocaleString('en-uk')} this week
+            </span>
+          </section>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }

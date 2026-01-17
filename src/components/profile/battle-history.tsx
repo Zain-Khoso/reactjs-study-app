@@ -1,5 +1,11 @@
+// Lib Imports.
+import { motion } from 'motion/react';
+
 // Asset Imports
 import { IconHistory } from '@tabler/icons-react';
+
+// Util Imports.
+import { itemVariants } from '@/lib/motions';
 
 // Component Imports
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -24,27 +30,29 @@ type BattleHistoryProps = {
 // Component used to profile page to show battle/quiz history.
 export default function BattleHistory({ battles }: BattleHistoryProps) {
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
-        <div className="flex items-center gap-2">
-          <IconHistory size={24} className="text-primary" />
-          <CardTitle>Battle History</CardTitle>
-        </div>
+    <motion.div variants={itemVariants}>
+      <Card>
+        <CardHeader className="flex flex-row items-center justify-between">
+          <div className="flex items-center gap-2">
+            <IconHistory size={24} className="text-primary" />
+            <CardTitle>Battle History</CardTitle>
+          </div>
 
-        <Button
-          variant="link"
-          className="text-muted-foreground p-0 text-xs font-semibold hover:underline"
-        >
-          View All
-        </Button>
-      </CardHeader>
+          <Button
+            variant="link"
+            className="text-muted-foreground p-0 text-xs font-semibold hover:underline"
+          >
+            View All
+          </Button>
+        </CardHeader>
 
-      <CardContent className="space-y-4">
-        {battles.map((battle, i) => (
-          <BattleItem key={`battle-${i}`} battle={battle} />
-        ))}
-      </CardContent>
-    </Card>
+        <CardContent className="space-y-4">
+          {battles.map((battle, i) => (
+            <BattleItem key={`battle-${i}`} battle={battle} />
+          ))}
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }
 
