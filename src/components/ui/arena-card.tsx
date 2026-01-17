@@ -35,7 +35,7 @@ export default function ArenaCard({
       <Card className="h-full w-full">
         <CardHeader className="flex w-full items-center justify-between">
           <div className="bg-muted rounded-lg p-2">
-            <Icon size={32} className="fill-primary" />
+            <Icon size={32} className="text-primary" />
           </div>
 
           <LivePulse isLive={isLive} />
