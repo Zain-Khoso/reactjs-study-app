@@ -10,6 +10,7 @@ import LandingSkeleton from '../skeletons/landing.skeleton';
 import LegalSkeleton from '../skeletons/legal.skeleton';
 import ProfileSkeleton from '../skeletons/profile.skeleton';
 import LeaderboardsSkeleton from '../skeletons/leaderboards.skeleton';
+import ArenasSkeleton from '../skeletons/arenas.skeleton';
 
 const Navbar = lazy(() => import('./index'));
 
@@ -32,6 +33,9 @@ export default function NavigationLayout() {
 
       case '/leaderboards':
         return <LeaderboardsSkeleton key="skeleton-leaderboards" />;
+
+      case '/arenas':
+        return <ArenasSkeleton key="skeleton-arenas" />;
 
       default:
         return <LandingSkeleton key="skeleton-landing" />;
