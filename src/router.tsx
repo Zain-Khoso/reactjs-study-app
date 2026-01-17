@@ -12,6 +12,7 @@ const TermsAndConditionsPage = lazy(() => import('./components/pages/terms-and-c
 const PrivacyPolicyPage = lazy(() => import('./components/pages/privacy-policy'));
 const SignInPage = lazy(() => import('./components/pages/signin'));
 const ProfilePage = lazy(() => import('./components/pages/profile'));
+const LeaderboardPage = lazy(() => import('./components/pages/leaderboards'));
 
 // Application Routes.
 export default function Router() {
@@ -30,6 +31,7 @@ export default function Router() {
 
           {/* Dashboard pages */}
           <Route path="profile" element={<ProfilePage />} />
+          <Route path="leaderboards" element={<LeaderboardPage />} />
         </Route>
       </Routes>
     </AnimatePresence>
