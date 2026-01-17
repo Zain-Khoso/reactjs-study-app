@@ -1,7 +1,7 @@
 // Lib Imports.
 import { motion } from 'motion/react';
 
-// Assets.
+// Asset Imports.
 import { IconAtom, IconCalculator, IconFlask } from '@tabler/icons-react';
 
 // Util Imports.

@@ -1,7 +1,7 @@
 // Lib Imports.
 import { Link } from 'react-router';
 
-// Assets.
+// Asset Imports.
 import { IconBoltFilled } from '@tabler/icons-react';
 
 // Component Imports.

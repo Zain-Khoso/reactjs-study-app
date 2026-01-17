@@ -1,4 +1,4 @@
-// Utils.
+// Util Imports.
 import { cn } from '@/lib/utils';
 
 // Types.

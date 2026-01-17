@@ -2,7 +2,7 @@
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
 
-// Assets.
+// Asset Imports.
 import {
   IconBoltFilled,
   IconBrandDiscordFilled,

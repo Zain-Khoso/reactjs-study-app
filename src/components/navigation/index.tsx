@@ -2,7 +2,7 @@
 import { Link, useLocation } from 'react-router';
 import { motion, type Variants } from 'motion/react';
 
-// Assets.
+// Asset Imports.
 import { IconArrowBigRightLinesFilled } from '@tabler/icons-react';
 
 // Component Imports.

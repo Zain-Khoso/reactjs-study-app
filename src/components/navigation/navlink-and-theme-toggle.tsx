@@ -3,7 +3,7 @@ import { NavLink as BaseNavLink } from 'react-router';
 import { HashLink } from 'react-router-hash-link';
 import { motion } from 'motion/react';
 
-// Assets.
+// Asset Imports.
 import { IconSunFilled, IconMoonFilled } from '@tabler/icons-react';
 
 // Lib Imports.
