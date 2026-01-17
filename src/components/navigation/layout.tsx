@@ -36,7 +36,13 @@ export default function NavigationLayout() {
 
   return (
     <Suspense fallback={getSkeleton()}>
-      <Navbar user={{}} />
+      <Navbar
+        user={{
+          image:
+            'https://lh3.googleusercontent.com/-vMM9R2UlBpM/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkQSh6CEfa4PH8bRLDDUxvUhhTriQ/photo.jpg?sz=512',
+          name: 'Zain Khoso',
+        }}
+      />
 
       <Outlet />
     </Suspense>
