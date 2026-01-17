@@ -1,5 +1,11 @@
+// Lib Imports.
+import { motion } from 'motion/react';
+
 // Asset Imports.
 import { IconTrendingUp } from '@tabler/icons-react';
+
+// Util Imports
+import { containerVariants, itemVariants } from '@/lib/motions';
 
 // Component Imports.
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -17,18 +23,28 @@ type RankListItemProps = {
 // Component used in leaderboards page to list users.
 export default function RankList({ users }: RankListProps) {
   return (
-    <ul className="divide-border divide-y">
+    <motion.ul
+      variants={containerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="divide-border divide-y"
+    >
       {users.map((user) => (
         <RankListItem key={user.rank} user={user} />
       ))}
-    </ul>
+    </motion.ul>
   );
 }
 
 // Component used in leaderboards page to show a single user and its rank.
 function RankListItem({ user }: RankListItemProps) {
   return (
-    <li className="hover:bg-accent/50 group flex items-center justify-between p-4 transition-all">
+    <motion.li
+      variants={itemVariants}
+      layout
+      className="hover:bg-accent/50 group flex items-center justify-between p-4 transition-all"
+    >
       <div className="flex items-center gap-4 sm:gap-6">
         <Small className="text-muted-foreground">{user.rank}</Small>
 
@@ -51,6 +67,6 @@ function RankListItem({ user }: RankListItemProps) {
           <IconTrendingUp size={12} stroke={3} />+{user.pointsToday} today
         </Small>
       </div>
-    </li>
+    </motion.li>
   );
 }
