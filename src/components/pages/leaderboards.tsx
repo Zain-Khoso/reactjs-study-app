@@ -14,6 +14,7 @@ import {
 
 // Util Imports.
 import { cn } from '@/lib/utils';
+import { generalPageMotions } from '@/lib/motions';
 
 // Component Imports.
 import { Button } from '@/components/ui/button';
@@ -174,7 +175,13 @@ export default function LeaderboardPage() {
   const [currentSubject, setCurrentSubject] = useState('Global');
 
   return (
-    <main className="bg-background min-h-screen pb-32">
+    <motion.main
+      variants={generalPageMotions}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="bg-background min-h-screen pb-32"
+    >
       <div className="mx-auto max-w-5xl px-4 py-8">
         {/* Header & Filters */}
         <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
@@ -329,6 +336,6 @@ export default function LeaderboardPage() {
           </div>
         </div>
       </div>
-    </main>
+    </motion.main>
   );
 }
