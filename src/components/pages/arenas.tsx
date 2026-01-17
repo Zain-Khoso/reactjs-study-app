@@ -77,7 +77,7 @@ export default function ArenasPage() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="mx-auto max-w-7xl space-y-12 px-6 pb-32 lg:px-0"
+      className="mx-auto max-w-7xl space-y-12 px-6 pb-8 lg:pb-16 xl:px-0"
     >
       <motion.section variants={itemVariants} className="space-y-1">
         <H2>Active Arenas</H2>
