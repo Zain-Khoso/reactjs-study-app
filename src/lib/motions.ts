@@ -12,6 +12,7 @@ const generalPageMotions: Variants = {
   exit: { opacity: 0, y: -10, transition: { duration: 0.3, ease: 'easeIn' } },
 };
 
+// Motion Variants for sigin page specifically.
 const signInPageMotions: Record<string, Variants> = {
   upperCircle: {
     hidden: {
@@ -93,4 +94,38 @@ const signInPageMotions: Record<string, Variants> = {
   },
 };
 
-export { generalPageMotions, signInPageMotions };
+// Motion Variants for lists.
+const containerVariants: Variants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
+  exit: {
+    opacity: 0,
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+};
+
+// Motion Variants for list items.
+const itemVariants: Variants = {
+  initial: { opacity: 0, y: 20 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 300, damping: 24 },
+  },
+  exit: { opacity: 0, y: -20 },
+};
+
+// Motion Variants used specifically on the leaderboards page for the current user's info footer.
+const footerVariants: Variants = {
+  initial: { y: 100 },
+  animate: {
+    y: 0,
+    transition: { type: 'spring', stiffness: 200, damping: 30, delay: 0.4 },
+  },
+  exit: { y: 100 },
+};
+
+export { generalPageMotions, signInPageMotions, containerVariants, itemVariants, footerVariants };

@@ -6,7 +6,7 @@ import { motion } from 'motion/react';
 import { IconTrophy } from '@tabler/icons-react';
 
 // Util Imports.
-import { generalPageMotions } from '@/lib/motions';
+import { containerVariants, itemVariants } from '@/lib/motions';
 
 // Component Imports.
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -110,7 +110,7 @@ export default function LeaderboardPage() {
 
   return (
     <motion.main
-      variants={generalPageMotions}
+      variants={containerVariants}
       initial="initial"
       animate="animate"
       exit="exit"
@@ -129,33 +129,37 @@ export default function LeaderboardPage() {
             onSubjectChange={setCurrentSubject}
           />
 
-          <Tabs defaultValue="daily" className="w-auto">
-            <TabsList className="bg-muted/50 border-border/50 border">
-              <TabsTrigger value="daily">Daily</TabsTrigger>
-              <TabsTrigger value="weekly">Weekly</TabsTrigger>
-              <TabsTrigger value="all-time">All-Time</TabsTrigger>
-            </TabsList>
-          </Tabs>
+          <motion.div variants={itemVariants}>
+            <Tabs defaultValue="daily" className="w-auto">
+              <TabsList className="bg-muted/50 border-border/50 border">
+                <TabsTrigger value="daily">Daily</TabsTrigger>
+                <TabsTrigger value="weekly">Weekly</TabsTrigger>
+                <TabsTrigger value="all-time">All-Time</TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </motion.div>
         </div>
       </section>
 
-      <Card className="overflow-hidden">
-        <CardHeader className="text-muted-foreground flex items-center gap-2">
-          <IconTrophy size={18} />
+      <motion.div variants={itemVariants}>
+        <Card className="overflow-hidden">
+          <CardHeader className="text-muted-foreground flex items-center gap-2">
+            <IconTrophy size={18} />
 
-          <CardTitle className="uppercase">{currentSubject} Rankings</CardTitle>
-        </CardHeader>
+            <CardTitle className="uppercase">{currentSubject} Rankings</CardTitle>
+          </CardHeader>
 
-        <CardContent className="p-0">
-          <div className="to-muted/20 flex items-end justify-center gap-4 border-b bg-linear-to-b from-transparent py-12 sm:gap-12">
-            <PodiumItem entry={TOP_THREE[0]} />
-            <PodiumItem entry={TOP_THREE[1]} isWinner />
-            <PodiumItem entry={TOP_THREE[2]} />
-          </div>
+          <CardContent className="p-0">
+            <div className="to-muted/20 flex items-end justify-center gap-4 border-b bg-linear-to-b from-transparent py-12 sm:gap-12">
+              <PodiumItem entry={TOP_THREE[0]} />
+              <PodiumItem entry={TOP_THREE[1]} isWinner />
+              <PodiumItem entry={TOP_THREE[2]} />
+            </div>
 
-          <RankList users={RANKED_LIST} />
-        </CardContent>
-      </Card>
+            <RankList users={RANKED_LIST} />
+          </CardContent>
+        </Card>
+      </motion.div>
 
       <CurrentUserRank
         rank={1}
