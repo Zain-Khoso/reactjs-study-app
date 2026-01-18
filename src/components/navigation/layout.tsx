@@ -11,7 +11,7 @@ import LegalSkeleton from '../skeletons/legal.skeleton';
 import ProfileSkeleton from '../skeletons/profile.skeleton';
 import LeaderboardsSkeleton from '../skeletons/leaderboards.skeleton';
 import ArenasSkeleton from '../skeletons/arenas.skeleton';
-import QuizSkeleton from '../skeletons/quiz.skeleton';
+import QuizSkeleton from '../skeletons/arena.skeleton';
 
 const Navbar = lazy(() => import('./index'));
 

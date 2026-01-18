@@ -14,7 +14,7 @@ const SignInPage = lazy(() => import('./components/pages/signin'));
 const ProfilePage = lazy(() => import('./components/pages/profile'));
 const LeaderboardsPage = lazy(() => import('./components/pages/leaderboards'));
 const ArenasPage = lazy(() => import('./components/pages/arenas'));
-const QuizPage = lazy(() => import('./components/pages/quiz'));
+const QuizPage = lazy(() => import('./components/pages/arena'));
 
 // Application Routes.
 export default function Router() {
