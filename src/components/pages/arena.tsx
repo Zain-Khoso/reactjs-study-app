@@ -8,12 +8,16 @@ import { IconChevronRight } from '@tabler/icons-react';
 // Util Imports.
 import { containerVariants, itemVariants } from '@/lib/motions';
 
+// Hook Imports.
+import { useDocTitle } from '@/hooks/useDocTitle';
+
 // Component Imports.
 import { Button } from '@/components/ui/button';
 import { Options, Question, RankPanel, Timer } from '../arena';
 
 // Live Arena Page.
 export default function ArenaPage() {
+  useDocTitle('Arena');
   const [selectedOption, setSelectedOption] = useState<string | null>('B');
 
   const options = [
