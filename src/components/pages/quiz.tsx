@@ -1,8 +1,12 @@
 // Lib Imports.
 import { useState } from 'react';
+import { motion } from 'motion/react';
 
 // Asset Imports.
 import { IconChevronRight, IconTrendingUp, IconTrophy, IconBulb } from '@tabler/icons-react';
+
+// Util Imports.
+import { containerVariants, itemVariants } from '@/lib/motions';
 
 // Component Imports.
 import LivePulse from '@/components/ui/live-pulse';
@@ -25,67 +29,82 @@ export default function QuizPage() {
   ];
 
   return (
-    <main className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 pb-8 md:px-8 lg:h-[calc(100dvh-118px)] lg:grid-cols-[1fr_380px] lg:overflow-hidden xl:px-0">
-      <section className="lg:no-scrollbar space-y-8 lg:overflow-auto">
-        <Card className="py-4">
-          <CardContent className="space-y-4 py-6!">
-            <Muted className="mb-0 text-center font-semibold tracking-wide uppercase">
-              Time Remaining
-            </Muted>
+    <motion.main
+      variants={containerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 pb-8 md:px-8 lg:h-[calc(100dvh-118px)] lg:grid-cols-[1fr_380px] lg:overflow-hidden xl:px-0"
+    >
+      <motion.section
+        variants={containerVariants}
+        className="lg:no-scrollbar space-y-8 lg:overflow-auto"
+      >
+        <motion.div variants={itemVariants}>
+          <Card className="py-4">
+            <CardContent className="space-y-4 py-6!">
+              <Muted className="mb-0 text-center font-semibold tracking-wide uppercase">
+                Time Remaining
+              </Muted>
 
-            <H1 className="text-center font-medium">00:28</H1>
+              <H1 className="text-center font-medium">00:28</H1>
 
-            <Progress value={45} className="bg-secondary" />
-          </CardContent>
-        </Card>
+              <Progress value={45} className="bg-secondary" />
+            </CardContent>
+          </Card>
+        </motion.div>
 
-        <Card>
-          <CardContent className="space-y-8">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Badge variant="default">Q15</Badge>
+        <motion.div variants={itemVariants}>
+          <Card>
+            <CardContent className="space-y-8">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Badge variant="default">Q15</Badge>
 
-                <Badge variant="outline">Medium</Badge>
-                <Badge variant="secondary">
-                  <IconBulb size={14} /> Data Structures
-                </Badge>
+                  <Badge variant="outline">Medium</Badge>
+                  <Badge variant="secondary">
+                    <IconBulb size={14} /> Data Structures
+                  </Badge>
+                </div>
+
+                <Muted className="text-muted-foreground font-medium">15/30 Questions</Muted>
               </div>
 
-              <Muted className="text-muted-foreground font-medium">15/30 Questions</Muted>
-            </div>
+              <H3 className="leading-loose font-medium">
+                What is the time complexity of searching for an element in a balanced Binary Search
+                Tree?
+              </H3>
+            </CardContent>
+          </Card>
+        </motion.div>
 
-            <H3 className="leading-loose font-medium">
-              What is the time complexity of searching for an element in a balanced Binary Search
-              Tree?
-            </H3>
-          </CardContent>
-        </Card>
+        <motion.div variants={itemVariants}>
+          <section className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
+            {options.map(({ id, text }) => {
+              const isSelected = selectedOption === id;
+              return (
+                <Button
+                  key={`question-option-${id}-${text}`}
+                  variant={isSelected ? 'default' : 'secondary'}
+                  className="py-8"
+                  onClick={() => setSelectedOption(id)}
+                >
+                  {text}
+                </Button>
+              );
+            })}
+          </section>
+        </motion.div>
 
-        <section className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
-          {options.map(({ id, text }) => {
-            const isSelected = selectedOption === id;
-            return (
-              <Button
-                key={`question-option-${id}-${text}`}
-                variant={isSelected ? 'default' : 'secondary'}
-                className="py-8"
-                onClick={() => setSelectedOption(id)}
-              >
-                {text}
-              </Button>
-            );
-          })}
-        </section>
-
-        <div>
+        <motion.div variants={itemVariants}>
           <Button variant="outline" className="ml-auto flex items-center px-10">
             Submit Answer
             <IconChevronRight size={20} stroke={3} />
           </Button>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
-      <aside className="lg:overflow-hidden">
+      <motion.aside variants={itemVariants} className="lg:overflow-hidden">
         <Card className="flex h-full flex-col">
           <CardHeader className="flex flex-row items-center justify-between border-b pb-4">
             <CardTitle className="flex items-center gap-2">
@@ -156,7 +175,7 @@ export default function QuizPage() {
             </Muted>
           </CardFooter>
         </Card>
-      </aside>
-    </main>
+      </motion.aside>
+    </motion.main>
   );
 }
