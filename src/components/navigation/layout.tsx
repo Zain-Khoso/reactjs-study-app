@@ -11,7 +11,7 @@ import LegalSkeleton from '../skeletons/legal.skeleton';
 import ProfileSkeleton from '../skeletons/profile.skeleton';
 import LeaderboardsSkeleton from '../skeletons/leaderboards.skeleton';
 import ArenasSkeleton from '../skeletons/arenas.skeleton';
-import QuizSkeleton from '../skeletons/arena.skeleton';
+import ArenaSkeleton from '../skeletons/arena.skeleton';
 
 const Navbar = lazy(() => import('./index'));
 
@@ -21,29 +21,23 @@ export default function NavigationLayout() {
   useScrollToTop();
 
   const getSkeleton = () => {
-    switch (pathname) {
-      case '/':
-        return <LandingSkeleton key="skeleton-landing" />;
-
-      case '/terms-and-conditions':
-      case '/privacy-policy':
-        return <LegalSkeleton key="skeleton-legal" />;
-
-      case '/profile':
-        return <ProfileSkeleton key="skeleton-profile" />;
-
-      case '/leaderboards':
-        return <LeaderboardsSkeleton key="skeleton-leaderboards" />;
-
-      case '/arenas':
-        return <ArenasSkeleton key="skeleton-arenas" />;
-
-      case '/quiz':
-        return <QuizSkeleton key="skeleton-quiz" />;
-
-      default:
-        return <LandingSkeleton key="skeleton-landing" />;
-    }
+    // Landing Page.
+    if (pathname === '/') return <LandingSkeleton key="skeleton-landing" />;
+    // Legal Pages.
+    else if (pathname === '/terms-and-conditions' || pathname === '/privacy-policy')
+      return <LegalSkeleton key="skeleton-legal" />;
+    // Profile Page.
+    else if (pathname === '/profile') return <ProfileSkeleton key="skeleton-profile" />;
+    // Leaderboard Page.
+    else if (pathname === '/leaderboards')
+      return <LeaderboardsSkeleton key="skeleton-leaderboards" />;
+    // Arena List Page.
+    else if (pathname === '/arenas') return <ArenasSkeleton key="skeleton-arenas" />;
+    // Arena Page
+    else if (pathname.startsWith('/arenas') && !pathname.endsWith('/arenas'))
+      return <ArenaSkeleton key="skeleton-arena" />;
+    // Default.
+    else return <LandingSkeleton key="skeleton-landing" />;
   };
 
   return (
