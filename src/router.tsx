@@ -14,7 +14,7 @@ const SignInPage = lazy(() => import('./components/pages/signin'));
 const ProfilePage = lazy(() => import('./components/pages/profile'));
 const LeaderboardsPage = lazy(() => import('./components/pages/leaderboards'));
 const ArenasPage = lazy(() => import('./components/pages/arenas'));
-const QuizPage = lazy(() => import('./components/pages/arena'));
+const ArenaPage = lazy(() => import('./components/pages/arena'));
 
 // Application Routes.
 export default function Router() {
@@ -34,8 +34,11 @@ export default function Router() {
           {/* Dashboard pages */}
           <Route path="profile" element={<ProfilePage />} />
           <Route path="leaderboards" element={<LeaderboardsPage />} />
-          <Route path="arenas" element={<ArenasPage />} />
-          <Route path="quiz" element={<QuizPage />} />
+          <Route path="arenas">
+            <Route index element={<ArenasPage />} />
+
+            <Route path=":arenaId" element={<ArenaPage />} />
+          </Route>
         </Route>
       </Routes>
     </AnimatePresence>
