@@ -59,12 +59,12 @@ export default function ArenaResultsPage() {
         variants={itemVariants}
         className="flex w-full max-w-md flex-col gap-4 sm:flex-row"
       >
-        <Button className="flex-1">
+        <Button className="flex min-h-10 flex-1">
           <IconShare size={20} />
           Share Proof of Knowledge
         </Button>
 
-        <Button variant="outline" className="flex-1" asChild>
+        <Button variant="outline" className="flex min-h-10 flex-1" asChild>
           <Link to="/arenas">Play Again</Link>
         </Button>
       </motion.div>
