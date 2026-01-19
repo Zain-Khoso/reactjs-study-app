@@ -15,6 +15,7 @@ const ProfilePage = lazy(() => import('./components/pages/profile'));
 const LeaderboardsPage = lazy(() => import('./components/pages/leaderboards'));
 const ArenasPage = lazy(() => import('./components/pages/arenas'));
 const ArenaPage = lazy(() => import('./components/pages/arena'));
+const ArenaResultsPage = lazy(() => import('./components/pages/arena-results'));
 
 // Application Routes.
 export default function Router() {
@@ -37,7 +38,11 @@ export default function Router() {
           <Route path="arenas">
             <Route index element={<ArenasPage />} />
 
-            <Route path=":arenaId" element={<ArenaPage />} />
+            <Route path=":arenaId">
+              <Route index element={<ArenaPage />} />
+
+              <Route path=":userId" element={<ArenaResultsPage />} />
+            </Route>
           </Route>
         </Route>
       </Routes>

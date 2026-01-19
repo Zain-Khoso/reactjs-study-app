@@ -1,5 +1,6 @@
 // Lib Imports.
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router';
 import { motion } from 'motion/react';
 
 // Asset Imports.
@@ -18,6 +19,8 @@ import { Options, Question, RankPanel, Timer } from '../arena';
 // Live Arena Page.
 export default function ArenaPage() {
   useDocTitle('Arena');
+  const { pathname } = useLocation();
+
   const [selectedOption, setSelectedOption] = useState<string | null>('B');
 
   const options = [
@@ -58,9 +61,11 @@ export default function ArenaPage() {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Button variant="outline" className="ml-auto flex items-center px-10">
-            Submit Answer
-            <IconChevronRight size={20} stroke={3} />
+          <Button asChild variant="outline" className="ml-auto flex w-fit items-center px-10">
+            <Link to={`${pathname}/@zainkhoso`}>
+              Submit Answer
+              <IconChevronRight size={20} stroke={3} />
+            </Link>
           </Button>
         </motion.div>
       </motion.section>
