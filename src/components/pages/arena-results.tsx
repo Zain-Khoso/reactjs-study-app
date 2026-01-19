@@ -4,6 +4,9 @@ import { Link } from 'react-router';
 // Asset Imports.
 import { IconTrophy, IconTarget, IconClock, IconShare } from '@tabler/icons-react';
 
+// Hook Imports.
+import { useDocTitle } from '@/hooks/useDocTitle';
+
 // Component Imports.
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -13,6 +16,8 @@ import { Badge } from '../ui/badge';
 
 // Arena Results Page.
 export default function ArenaResultsPage() {
+  useDocTitle('Arena Results');
+
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center space-y-8 px-4 pb-8 lg:px-0">
       <section className="flex w-full items-end justify-center gap-4 sm:gap-8">
