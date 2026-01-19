@@ -128,4 +128,51 @@ const footerVariants: Variants = {
   exit: { y: 100 },
 };
 
-export { generalPageMotions, signInPageMotions, containerVariants, itemVariants, footerVariants };
+// Motion Variants for Arena Results Page Podium.
+const arenaResultsPodium: Variants = {
+  initial: { scaleY: 0, opacity: 0 },
+  animate: {
+    scaleY: 1,
+    opacity: 1,
+    transition: {
+      duration: 1.1,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+  exit: {
+    scaleY: 0,
+    opacity: 0,
+    transition: { duration: 0.5, ease: [0.32, 0, 0.67, 0] },
+  },
+};
+
+// Motion Variants for Arena Results Page Avatars.
+const arenaResultsPodiumAvatars = (delay: number): Variants => ({
+  initial: { opacity: 0, y: 60, scale: 0.9 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: delay,
+      type: 'spring',
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 40,
+    transition: { duration: 0.3 },
+  },
+});
+
+export {
+  generalPageMotions,
+  signInPageMotions,
+  containerVariants,
+  itemVariants,
+  footerVariants,
+  arenaResultsPodium,
+  arenaResultsPodiumAvatars,
+};
