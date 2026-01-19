@@ -12,6 +12,7 @@ import ProfileSkeleton from '../skeletons/profile.skeleton';
 import LeaderboardsSkeleton from '../skeletons/leaderboards.skeleton';
 import ArenasSkeleton from '../skeletons/arenas.skeleton';
 import ArenaSkeleton from '../skeletons/arena.skeleton';
+import ArenaResultsSkeleton from '../skeletons/arena-results.skeleton';
 
 const Navbar = lazy(() => import('./index'));
 
@@ -21,23 +22,27 @@ export default function NavigationLayout() {
   useScrollToTop();
 
   const getSkeleton = () => {
-    // Landing Page.
-    if (pathname === '/') return <LandingSkeleton key="skeleton-landing" />;
-    // Legal Pages.
-    else if (pathname === '/terms-and-conditions' || pathname === '/privacy-policy')
+    const segments = pathname.split('/').filter(Boolean);
+
+    if (segments.length === 0) return <LandingSkeleton key="skeleton-landing" />;
+
+    if (pathname === '/terms-and-conditions' || pathname === '/privacy-policy') {
       return <LegalSkeleton key="skeleton-legal" />;
-    // Profile Page.
-    else if (pathname === '/profile') return <ProfileSkeleton key="skeleton-profile" />;
-    // Leaderboard Page.
-    else if (pathname === '/leaderboards')
-      return <LeaderboardsSkeleton key="skeleton-leaderboards" />;
-    // Arena List Page.
-    else if (pathname === '/arenas') return <ArenasSkeleton key="skeleton-arenas" />;
-    // Arena Page
-    else if (pathname.startsWith('/arenas') && !pathname.endsWith('/arenas'))
-      return <ArenaSkeleton key="skeleton-arena" />;
-    // Default.
-    else return <LandingSkeleton key="skeleton-landing" />;
+    }
+
+    if (pathname === '/profile') return <ProfileSkeleton key="skeleton-profile" />;
+
+    if (pathname === '/leaderboards') return <LeaderboardsSkeleton key="skeleton-leaderboards" />;
+
+    if (segments[0] === 'arenas') {
+      if (segments.length === 1) return <ArenasSkeleton key="skeleton-arenas" />;
+
+      if (segments.length === 2) return <ArenaSkeleton key="skeleton-arena" />;
+
+      if (segments.length === 3) return <ArenaResultsSkeleton key="skeleton-arena-results" />;
+    }
+
+    return <LandingSkeleton key="skeleton-landing" />;
   };
 
   return (
