@@ -8,18 +8,13 @@ import { IconTrophy, IconTarget, IconClock, IconShare } from '@tabler/icons-reac
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { H1, H2, Muted, Big, Small, H3 } from '@/components/ui/typography';
+import { Big, Small, H3 } from '@/components/ui/typography';
 import { Badge } from '../ui/badge';
 
 // Arena Results Page.
 export default function ArenaResultsPage() {
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center space-y-8 px-4 pb-8 lg:px-0">
-      <section className="space-y-2 text-center">
-        <H1 className="font-semibold">Victory!</H1>
-        <Muted>PrepPulse Knowledge Battle Complete</Muted>
-      </section>
-
       <section className="flex w-full items-end justify-center gap-4 sm:gap-8">
         <article className="flex flex-col items-center gap-3">
           <div className="relative">
@@ -33,7 +28,7 @@ export default function ArenaResultsPage() {
             </Badge>
           </div>
 
-          <div className="bg-muted/30 border-border flex h-24 w-24 items-center justify-center rounded-t-lg border p-4 text-center">
+          <div className="bg-muted/30 border-border flex h-16 w-24 items-center justify-center rounded-t-lg border p-4 text-center">
             <Small>Sarah M.</Small>
           </div>
         </article>
@@ -41,14 +36,14 @@ export default function ArenaResultsPage() {
         <article className="flex flex-col items-center gap-3">
           <div className="relative">
             <Avatar className="border-primary ring-primary/20 h-20 w-20 border-4 ring-4">
-              <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=You" />
+              <AvatarImage src="https://lh3.googleusercontent.com/-vMM9R2UlBpM/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkQSh6CEfa4PH8bRLDDUxvUhhTriQ/photo.jpg?sz=512" />
               <AvatarFallback>YOU</AvatarFallback>
             </Avatar>
 
             <Badge className="absolute -bottom-2 left-1/2 -translate-x-1/2">1st</Badge>
           </div>
 
-          <div className="bg-primary/10 border-primary flex h-40 w-32 items-center justify-center rounded-t-xl border-x-2 border-t-2 p-4 text-center shadow-[0_-20px_50px_-12px_rgba(var(--primary),0.2)]">
+          <div className="bg-primary/10 border-primary flex h-32 w-32 items-center justify-center rounded-t-xl border-x-2 border-t-2 p-4 text-center shadow-[0_-20px_50px_-12px_rgba(var(--primary),0.2)]">
             <Big className="font-semibold">You!</Big>
           </div>
         </article>
@@ -65,7 +60,7 @@ export default function ArenaResultsPage() {
             </Badge>
           </div>
 
-          <div className="bg-muted/20 border-border flex h-16 w-20 items-center justify-center rounded-t-lg border p-4 text-center">
+          <div className="bg-muted/20 border-border flex h-12 w-20 items-center justify-center rounded-t-lg border p-4 text-center">
             <Small>Mike K.</Small>
           </div>
         </article>
@@ -76,42 +71,51 @@ export default function ArenaResultsPage() {
           <H3 className="text-center font-semibold">Your Performance</H3>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Card>
+            <Card className="gap-4">
               <CardHeader>
-                <div className="bg-background mx-auto w-fit rounded-xl p-3">
+                <div className="bg-secondary mx-auto w-fit rounded-xl p-3">
                   <IconTrophy className="text-primary" size={28} />
                 </div>
               </CardHeader>
-              <CardContent className="space-y-2">
-                <H2 className="text-center font-semibold">1st</H2>
 
-                <Muted className="mt-1 text-center font-semibold uppercase">Final Rank</Muted>
+              <CardContent>
+                <H3 className="text-center font-semibold">1st</H3>
+
+                <Small className="text-muted-foreground mt-1 block text-center font-semibold uppercase">
+                  Final Rank
+                </Small>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="gap-4">
               <CardHeader>
-                <div className="bg-background mx-auto w-fit rounded-xl p-3">
+                <div className="bg-secondary mx-auto w-fit rounded-xl p-3">
                   <IconTarget className="text-primary" size={28} />
                 </div>
               </CardHeader>
-              <CardContent className="space-y-2">
-                <H2 className="text-center font-semibold">94%</H2>
 
-                <Muted className="mt-1 text-center font-semibold uppercase">Accuracy</Muted>
+              <CardContent>
+                <H3 className="text-center font-semibold">94%</H3>
+
+                <Small className="text-muted-foreground mt-1 block text-center font-semibold uppercase">
+                  Accuracy
+                </Small>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="gap-4">
               <CardHeader>
-                <div className="bg-background mx-auto w-fit rounded-xl p-3">
+                <div className="bg-secondary mx-auto w-fit rounded-xl p-3">
                   <IconClock className="text-primary" size={28} />
                 </div>
               </CardHeader>
-              <CardContent className="space-y-2">
-                <H2 className="text-center font-semibold">2.3s</H2>
 
-                <Muted className="mt-1 text-center font-semibold uppercase">Avg Speed</Muted>
+              <CardContent>
+                <H3 className="text-center font-semibold">2.3s</H3>
+
+                <Small className="text-muted-foreground mt-1 block text-center font-semibold uppercase">
+                  Avg Speed
+                </Small>
               </CardContent>
             </Card>
           </div>
