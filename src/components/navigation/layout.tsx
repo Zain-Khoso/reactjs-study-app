@@ -4,6 +4,7 @@ import { Outlet, useLocation } from 'react-router';
 
 // Hook Imports.
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { useSession } from '@/lib/auth-client';
 
 // Component Imports.
 import LandingSkeleton from '../skeletons/landing.skeleton';
@@ -18,8 +19,10 @@ const Navbar = lazy(() => import('./index'));
 
 // Layout for pages with navbar.
 export default function NavigationLayout() {
-  const { pathname } = useLocation();
   useScrollToTop();
+
+  const { pathname } = useLocation();
+  const { data } = useSession();
 
   const getSkeleton = () => {
     const segments = pathname.split('/').filter(Boolean);
@@ -47,13 +50,7 @@ export default function NavigationLayout() {
 
   return (
     <Suspense fallback={getSkeleton()}>
-      <Navbar
-        user={{
-          image:
-            'https://lh3.googleusercontent.com/-vMM9R2UlBpM/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkQSh6CEfa4PH8bRLDDUxvUhhTriQ/photo.jpg?sz=512',
-          name: 'Zain Khoso',
-        }}
-      />
+      <Navbar user={data?.user} />
 
       <Outlet />
     </Suspense>
