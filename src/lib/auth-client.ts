@@ -10,7 +10,8 @@ const authClient = createAuthClient({
 });
 
 // Social Sign On helper.
-const signIn = (provider: string) => authClient.signIn.social({ provider });
+const signIn = (provider: string) =>
+  authClient.signIn.social({ provider, callbackURL: import.meta.env.VITE_FRONTEND_URL });
 
 // Exports.
 export { signIn };

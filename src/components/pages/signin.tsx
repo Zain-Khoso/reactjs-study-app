@@ -15,6 +15,7 @@ import {
 
 // Util Imports.
 import { signInPageMotions as motionVariants } from '@/lib/motions';
+import { signIn } from '@/lib/auth-client';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
@@ -29,18 +30,22 @@ const SSOs = [
   {
     icon: IconBrandGoogleFilled,
     label: 'Google',
+    action: () => signIn('google'),
   },
   {
     icon: IconBrandDiscordFilled,
     label: 'Discord',
+    action: () => signIn('discord'),
   },
   {
     icon: IconBrandFacebookFilled,
     label: 'Facebook',
+    action: () => signIn('facebook'),
   },
   {
     icon: IconBrandXFilled,
     label: 'X',
+    action: () => signIn('x'),
   },
 ];
 
@@ -88,7 +93,7 @@ export default function SignInPage() {
           </CardHeader>
 
           <CardContent className="space-y-4">
-            {SSOs.map(({ icon: Icon, label }, i) => (
+            {SSOs.map(({ icon: Icon, label, action }, i) => (
               <motion.div
                 key={`sso-${label}`}
                 initial={{ opacity: 0, y: 8 }}
@@ -102,6 +107,7 @@ export default function SignInPage() {
                 <Button
                   variant={'secondary'}
                   className="group relative flex h-auto w-full gap-2 py-2"
+                  onClick={action}
                 >
                   <Icon />
                   Continue with {label}
