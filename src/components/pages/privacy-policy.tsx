@@ -2,7 +2,7 @@
 import { motion } from 'motion/react';
 
 // Util Imports.
-import { generalPageMotions } from '@/lib/motions';
+import { pageMotions } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <motion.main
-        variants={generalPageMotions}
+        variants={pageMotions}
         initial="initial"
         animate="animate"
         exit="exit"

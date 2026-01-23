@@ -2,7 +2,7 @@
 import type { Variants } from 'motion/react';
 
 // Motion Variants for general pages.
-const generalPageMotions: Variants = {
+const pageMotions: Variants = {
   initial: { opacity: 0, y: 10 },
   animate: {
     opacity: 1,
@@ -168,7 +168,7 @@ const arenaResultsPodiumAvatars = (delay: number): Variants => ({
 });
 
 export {
-  generalPageMotions,
+  pageMotions,
   signInPageMotions,
   containerVariants,
   itemVariants,

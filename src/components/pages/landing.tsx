@@ -15,7 +15,7 @@ import {
 } from '@tabler/icons-react';
 
 // Util Imports.
-import { generalPageMotions } from '@/lib/motions';
+import { pageMotions } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
@@ -66,7 +66,7 @@ export default function Landing() {
 
   return (
     <>
-      <motion.div variants={generalPageMotions} initial="initial" animate="animate" exit="exit">
+      <motion.div variants={pageMotions} initial="initial" animate="animate" exit="exit">
         <header className="mx-auto flex w-full max-w-7xl flex-col items-center gap-16 px-4 pb-4 md:flex-row md:justify-between md:py-12 lg:gap-36">
           <motion.article
             initial={{ opacity: 0, x: -50 }}
