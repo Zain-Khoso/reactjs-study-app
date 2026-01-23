@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import { IconTrendingUp } from '@tabler/icons-react';
 
 // Util Imports
-import { footerVariants } from '@/lib/motions';
+import { userRankVariants } from '@/lib/motions';
 
 // Component Imports
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -34,7 +34,7 @@ export default function CurrentUserRankBar({
 }: CurrentUserRankBarProps) {
   return (
     <motion.article
-      variants={footerVariants}
+      variants={userRankVariants}
       initial="initial"
       animate="animate"
       exit="exit"

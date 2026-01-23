@@ -94,7 +94,7 @@ const signInPageMotions: Record<string, Variants> = {
   },
 };
 
-// Motion Variants for lists.
+// Motion Variants for container elements.
 const containerVariants: Variants = {
   initial: { opacity: 0 },
   animate: {
@@ -107,7 +107,7 @@ const containerVariants: Variants = {
   },
 };
 
-// Motion Variants for list items.
+// Motion Variants for children of 'containerVariants'.
 const itemVariants: Variants = {
   initial: { opacity: 0, y: 20 },
   animate: {
@@ -119,7 +119,7 @@ const itemVariants: Variants = {
 };
 
 // Motion Variants used specifically on the leaderboards page for the current user's info footer.
-const footerVariants: Variants = {
+const userRankVariants: Variants = {
   initial: { y: 100 },
   animate: {
     y: 0,
@@ -172,7 +172,7 @@ export {
   signInPageMotions,
   containerVariants,
   itemVariants,
-  footerVariants,
+  userRankVariants,
   arenaResultsPodium,
   arenaResultsPodiumAvatars,
 };
