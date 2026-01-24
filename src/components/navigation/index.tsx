@@ -29,8 +29,13 @@ const publicLinks = [
   { label: 'Assessment', href: '/#assessment', hash: true, external: false },
 ];
 const authLinks = [
-  { label: 'Dashboard', href: '/dashboard', hash: false, external: false },
-  { label: 'Profile', href: '/profile', hash: false, external: false },
+  { label: 'Creator', href: 'https://linkedin.com/in/zain-khoso', hash: false, external: true },
+  {
+    label: 'Source Code',
+    href: 'https://github.com/zain-khoso/reactjs-study-app',
+    hash: false,
+    external: true,
+  },
   { label: 'Arenas', href: '/arenas', hash: false, external: false },
   { label: 'Leaderboards', href: '/leaderboards', hash: false, external: false },
 ];
