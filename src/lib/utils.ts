@@ -46,3 +46,15 @@ export function formatCategorySlug(slug: string): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 }
+
+// Helper to get a user's initials from the name.
+export function getInitials(name: string) {
+  const names = name.split(' ');
+  if (names.length === 0) return 'U';
+
+  const firstInitial = names.at(0)?.at(0)?.toUpperCase() ?? 'U';
+  if (names.length === 1) return firstInitial;
+
+  const lastInitial = names.at(-1)?.at(0)?.toUpperCase() ?? '';
+  return firstInitial + lastInitial;
+}
