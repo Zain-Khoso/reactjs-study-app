@@ -1,12 +1,16 @@
 // Lib Imports.
-import { lazy } from 'react';
-import { Routes, Route, useLocation } from 'react-router';
-
-// Layouts.
-import NavigationLayout from './components/navigation/layout';
+import { StrictMode, lazy } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router';
 import { AnimatePresence } from 'motion/react';
 
-// Pages.
+// Asset Imports.
+import './index.css';
+
+// Component Imports.
+import NavigationLayout from './components/navigation/layout';
+
+// Lazy Component Imports.
 const LandingPage = lazy(() => import('./components/pages/landing'));
 const TermsAndConditionsPage = lazy(() => import('./components/pages/terms-and-conditions'));
 const PrivacyPolicyPage = lazy(() => import('./components/pages/privacy-policy'));
@@ -17,8 +21,16 @@ const ArenasPage = lazy(() => import('./components/pages/arenas'));
 const ArenaPage = lazy(() => import('./components/pages/arena'));
 const ArenaResultsPage = lazy(() => import('./components/pages/arena-results'));
 
-// Application Routes.
-export default function Router() {
+// Render Application.
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  </StrictMode>
+);
+
+function Router() {
   const location = useLocation();
 
   return (
