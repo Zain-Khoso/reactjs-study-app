@@ -106,7 +106,7 @@ export default function Landing() {
               </Button>
 
               <Button variant="outline" className="flex-1" asChild>
-                <Link to="/leaderboard">
+                <Link to="/leaderboards">
                   Leaderboard <IconBadgesFilled className="ml-2" />
                 </Link>
               </Button>
