@@ -5,7 +5,6 @@ import { motion } from 'motion/react';
 import { pageMotions } from '@/lib/motions';
 
 // Hook Imports.
-import { useDocTitle } from '@/hooks/useDocTitle';
 import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
@@ -15,10 +14,11 @@ import Footer from '../footer';
 // Terms and Conditions of the application.
 export default function TermsAndConditionsPage() {
   useAuthRequired(null);
-  useDocTitle('Terms and Conditions');
 
   return (
     <>
+      <title>Terms and Conditions</title>
+
       <motion.main
         variants={pageMotions}
         initial="initial"

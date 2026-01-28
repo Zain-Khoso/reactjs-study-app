@@ -8,7 +8,6 @@ import { IconAtom, IconCalculator, IconFlask } from '@tabler/icons-react';
 import { containerVariants } from '@/lib/motions';
 
 // Hook Imports.
-import { useDocTitle } from '@/hooks/useDocTitle';
 import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
@@ -88,31 +87,34 @@ const stats = [
 // User/Profile Page.
 export default function UserPage() {
   useAuthRequired(null);
-  useDocTitle('User Profile');
 
   return (
-    <motion.main
-      variants={containerVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className="mx-auto max-w-7xl space-y-8 px-4 pb-8 xl:px-0"
-    >
-      <UserInfoCard {...user} />
+    <>
+      <title>User Profile</title>
 
-      <section className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        <article className="space-y-8 lg:col-span-2">
-          <StatsChart data={chartData} user={user} />
+      <motion.main
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="mx-auto max-w-7xl space-y-8 px-4 pb-8 xl:px-0"
+      >
+        <UserInfoCard {...user} />
 
-          <BattleHistory battles={battles} />
-        </article>
+        <section className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <article className="space-y-8 lg:col-span-2">
+            <StatsChart data={chartData} user={user} />
 
-        <article className="space-y-8">
-          <LevelProgrssion stats={levels} />
+            <BattleHistory battles={battles} />
+          </article>
 
-          <QuickStats stats={stats} />
-        </article>
-      </section>
-    </motion.main>
+          <article className="space-y-8">
+            <LevelProgrssion stats={levels} />
+
+            <QuickStats stats={stats} />
+          </article>
+        </section>
+      </motion.main>
+    </>
   );
 }

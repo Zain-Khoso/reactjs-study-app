@@ -5,7 +5,6 @@ import { motion } from 'motion/react';
 import { pageMotions } from '@/lib/motions';
 
 // Hook Imports.
-import { useDocTitle } from '@/hooks/useDocTitle';
 import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
@@ -15,10 +14,11 @@ import Footer from '../footer';
 // Privacy Policy of the application.
 export default function PrivacyPolicyPage() {
   useAuthRequired(null);
-  useDocTitle('Privacy Policy');
 
   return (
     <>
+      <title>Privacy Policy</title>
+
       <motion.main
         variants={pageMotions}
         initial="initial"

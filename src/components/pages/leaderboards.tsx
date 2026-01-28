@@ -9,7 +9,6 @@ import { IconTrophy } from '@tabler/icons-react';
 import { containerVariants, itemVariants } from '@/lib/motions';
 
 // Hook Imports.
-import { useDocTitle } from '@/hooks/useDocTitle';
 import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
@@ -111,71 +110,74 @@ const RANKED_LIST: LeaderboardEntry[] = [
 // Leaderboard page.
 export default function LeaderboardPage() {
   useAuthRequired(null);
-  useDocTitle('Leaderboards');
   const [currentSubject, setCurrentSubject] = useState('Global');
 
   return (
-    <motion.main
-      variants={containerVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className="mx-auto max-w-7xl space-y-8 px-4 pb-32"
-    >
-      <section className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <article className="space-y-1">
-          <H2>Leaderboards</H2>
-          <Muted>See how you rank against other users</Muted>
-        </article>
+    <>
+      <title>Leaderboards</title>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <LeaderboardToggle
-            subjects={subjects}
-            currentSubject={currentSubject}
-            onSubjectChange={setCurrentSubject}
-          />
+      <motion.main
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="mx-auto max-w-7xl space-y-8 px-4 pb-32"
+      >
+        <section className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <article className="space-y-1">
+            <H2>Leaderboards</H2>
+            <Muted>See how you rank against other users</Muted>
+          </article>
 
-          <motion.div variants={itemVariants}>
-            <Tabs defaultValue="daily" className="w-auto">
-              <TabsList className="bg-muted/50 border-border/50 border">
-                <TabsTrigger value="daily">Daily</TabsTrigger>
-                <TabsTrigger value="weekly">Weekly</TabsTrigger>
-                <TabsTrigger value="all-time">All-Time</TabsTrigger>
-              </TabsList>
-            </Tabs>
-          </motion.div>
-        </div>
-      </section>
+          <div className="flex flex-wrap items-center gap-3">
+            <LeaderboardToggle
+              subjects={subjects}
+              currentSubject={currentSubject}
+              onSubjectChange={setCurrentSubject}
+            />
 
-      <motion.div variants={itemVariants}>
-        <Card className="overflow-hidden">
-          <CardHeader className="text-muted-foreground flex items-center gap-2">
-            <IconTrophy size={18} />
+            <motion.div variants={itemVariants}>
+              <Tabs defaultValue="daily" className="w-auto">
+                <TabsList className="bg-muted/50 border-border/50 border">
+                  <TabsTrigger value="daily">Daily</TabsTrigger>
+                  <TabsTrigger value="weekly">Weekly</TabsTrigger>
+                  <TabsTrigger value="all-time">All-Time</TabsTrigger>
+                </TabsList>
+              </Tabs>
+            </motion.div>
+          </div>
+        </section>
 
-            <CardTitle className="uppercase">{currentSubject} Rankings</CardTitle>
-          </CardHeader>
+        <motion.div variants={itemVariants}>
+          <Card className="overflow-hidden">
+            <CardHeader className="text-muted-foreground flex items-center gap-2">
+              <IconTrophy size={18} />
 
-          <CardContent className="p-0">
-            <div className="to-muted/20 flex items-end justify-center gap-4 border-b bg-linear-to-b from-transparent py-12 sm:gap-12">
-              <PodiumItem entry={TOP_THREE[0]} />
-              <PodiumItem entry={TOP_THREE[1]} isWinner />
-              <PodiumItem entry={TOP_THREE[2]} />
-            </div>
+              <CardTitle className="uppercase">{currentSubject} Rankings</CardTitle>
+            </CardHeader>
 
-            <RankList users={RANKED_LIST} />
-          </CardContent>
-        </Card>
-      </motion.div>
+            <CardContent className="p-0">
+              <div className="to-muted/20 flex items-end justify-center gap-4 border-b bg-linear-to-b from-transparent py-12 sm:gap-12">
+                <PodiumItem entry={TOP_THREE[0]} />
+                <PodiumItem entry={TOP_THREE[1]} isWinner />
+                <PodiumItem entry={TOP_THREE[2]} />
+              </div>
 
-      <CurrentUserRank
-        rank={1}
-        name="Zain Khoso"
-        handle="@zainkhoso"
-        avatar="https://lh3.googleusercontent.com/-vMM9R2UlBpM/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkQSh6CEfa4PH8bRLDDUxvUhhTriQ/photo.jpg?sz=512"
-        points={3511}
-        pointsToday={78}
-        occupation="Fullstack Developer"
-      />
-    </motion.main>
+              <RankList users={RANKED_LIST} />
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <CurrentUserRank
+          rank={1}
+          name="Zain Khoso"
+          handle="@zainkhoso"
+          avatar="https://lh3.googleusercontent.com/-vMM9R2UlBpM/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkQSh6CEfa4PH8bRLDDUxvUhhTriQ/photo.jpg?sz=512"
+          points={3511}
+          pointsToday={78}
+          occupation="Fullstack Developer"
+        />
+      </motion.main>
+    </>
   );
 }

@@ -8,7 +8,6 @@ import { IconBooks, IconCode, IconHistory, IconFlask, IconCalculator } from '@ta
 import { containerVariants, itemVariants } from '@/lib/motions';
 
 // Hook Imports.
-import { useDocTitle } from '@/hooks/useDocTitle';
 import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
@@ -76,55 +75,58 @@ const UPCOMING_ARENAS = [
 // Page to browse Arenas to Participate in.
 export default function ArenasPage() {
   useAuthRequired(null);
-  useDocTitle('Arenas');
 
   return (
-    <motion.main
-      variants={containerVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className="mx-auto max-w-7xl space-y-12 px-6 pb-8 lg:pb-16 xl:px-0"
-    >
-      <motion.section variants={itemVariants} className="space-y-1">
-        <H2>Active Arenas</H2>
-        <Muted>Join live battles and compete with players worldwide</Muted>
-      </motion.section>
+    <>
+      <title>Arenas</title>
 
-      <section className="space-y-6">
-        <motion.div variants={itemVariants} className="flex items-center gap-3">
-          <div className="flex items-center gap-1">
-            <span className="bg-primary h-2 w-2 animate-pulse rounded-full" />
-            <P className="font-semibold">Live Now</P>
+      <motion.main
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="mx-auto max-w-7xl space-y-12 px-6 pb-8 lg:pb-16 xl:px-0"
+      >
+        <motion.section variants={itemVariants} className="space-y-1">
+          <H2>Active Arenas</H2>
+          <Muted>Join live battles and compete with players worldwide</Muted>
+        </motion.section>
+
+        <section className="space-y-6">
+          <motion.div variants={itemVariants} className="flex items-center gap-3">
+            <div className="flex items-center gap-1">
+              <span className="bg-primary h-2 w-2 animate-pulse rounded-full" />
+              <P className="font-semibold">Live Now</P>
+            </div>
+
+            <Badge variant="secondary" className="text-muted-foreground font-medium">
+              {LIVE_ARENAS.length} Active Battles
+            </Badge>
+          </motion.div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {LIVE_ARENAS.map((arena) => (
+              <motion.div key={arena.id} variants={itemVariants}>
+                <ArenaCard {...arena} />
+              </motion.div>
+            ))}
           </div>
+        </section>
 
-          <Badge variant="secondary" className="text-muted-foreground font-medium">
-            {LIVE_ARENAS.length} Active Battles
-          </Badge>
-        </motion.div>
+        <section className="space-y-6">
+          <motion.div variants={itemVariants}>
+            <P className="font-semibold">Upcoming Arenas</P>
+          </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {LIVE_ARENAS.map((arena) => (
-            <motion.div key={arena.id} variants={itemVariants}>
-              <ArenaCard {...arena} />
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <motion.div variants={itemVariants}>
-          <P className="font-semibold">Upcoming Arenas</P>
-        </motion.div>
-
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {UPCOMING_ARENAS.map((arena) => (
-            <motion.div key={arena.id} variants={itemVariants}>
-              <ArenaCard {...arena} />
-            </motion.div>
-          ))}
-        </div>
-      </section>
-    </motion.main>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {UPCOMING_ARENAS.map((arena) => (
+              <motion.div key={arena.id} variants={itemVariants}>
+                <ArenaCard {...arena} />
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      </motion.main>
+    </>
   );
 }
