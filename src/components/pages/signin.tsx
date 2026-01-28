@@ -43,7 +43,7 @@ const SSOs = [
   {
     icon: IconBrandXFilled,
     label: 'X',
-    action: () => signIn('x'),
+    action: () => signIn('twitter'),
   },
 ];
 
