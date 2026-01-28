@@ -8,9 +8,7 @@ import { IconChevronRight } from '@tabler/icons-react';
 
 // Util Imports.
 import { containerVariants, itemVariants } from '@/lib/motions';
-
-// Hook Imports.
-import { useAuthRequired } from '@/hooks/useAuthRequired';
+import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { Button } from '@/components/ui/button';

@@ -3,9 +3,7 @@ import { motion } from 'motion/react';
 
 // Util Imports.
 import { pageMotions } from '@/lib/motions';
-
-// Hook Imports.
-import { useAuthRequired } from '@/hooks/useAuthRequired';
+import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { H2, H3, P } from '@/components/ui/typography';

@@ -6,11 +6,9 @@ import { motion } from 'motion/react';
 // Asset Imports.
 import { IconSunFilled, IconMoonFilled } from '@tabler/icons-react';
 
-// Lib Imports.
+// Util Imports.
 import { cn } from '@/lib/utils';
-
-// Hook Imports.
-import { useTheme } from '@/hooks/useTheme';
+import { useTheme } from '@/lib/hooks';
 
 // Component Imports.
 import { Button } from '../ui/button';

@@ -16,9 +16,7 @@ import {
 
 // Util Imports.
 import { pageMotions } from '@/lib/motions';
-
-// Hook Imports.
-import { useAuthRequired } from '@/hooks/useAuthRequired';
+import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { H1, H2, Big, Muted, Small } from '@/components/ui/typography';

@@ -2,9 +2,9 @@
 import { lazy, Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router';
 
-// Hook Imports.
-import { useScrollToTop } from '@/hooks/useScrollToTop';
+// Util Imports.
 import { useSession } from '@/lib/auth-client';
+import { useScrollToTop } from '@/lib/hooks';
 
 // Component Imports.
 import LandingSkeleton from '../skeletons/landing.skeleton';

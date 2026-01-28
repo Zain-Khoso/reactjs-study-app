@@ -16,9 +16,7 @@ import {
 // Util Imports.
 import { signInPageMotions as motionVariants } from '@/lib/motions';
 import { signIn } from '@/lib/auth-client';
-
-// Hook Imports.
-import { useAuthRequired } from '@/hooks/useAuthRequired';
+import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';

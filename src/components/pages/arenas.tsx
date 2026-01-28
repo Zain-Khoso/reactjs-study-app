@@ -6,9 +6,7 @@ import { IconBooks, IconCode, IconHistory, IconFlask, IconCalculator } from '@ta
 
 // Util Imports.
 import { containerVariants, itemVariants } from '@/lib/motions';
-
-// Hook Imports.
-import { useAuthRequired } from '@/hooks/useAuthRequired';
+import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { H2, P, Muted } from '@/components/ui/typography';

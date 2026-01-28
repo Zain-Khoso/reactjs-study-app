@@ -7,9 +7,7 @@ import { IconTrophy } from '@tabler/icons-react';
 
 // Util Imports.
 import { containerVariants, itemVariants } from '@/lib/motions';
-
-// Hook Imports.
-import { useAuthRequired } from '@/hooks/useAuthRequired';
+import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';

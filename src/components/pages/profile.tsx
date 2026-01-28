@@ -6,9 +6,7 @@ import { IconAtom, IconCalculator, IconFlask } from '@tabler/icons-react';
 
 // Util Imports.
 import { containerVariants } from '@/lib/motions';
-
-// Hook Imports.
-import { useAuthRequired } from '@/hooks/useAuthRequired';
+import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { UserInfoCard, StatsChart, BattleHistory, LevelProgrssion, QuickStats } from '../profile';
