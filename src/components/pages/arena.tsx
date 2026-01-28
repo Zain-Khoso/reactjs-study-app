@@ -11,6 +11,7 @@ import { containerVariants, itemVariants } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
+import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,7 @@ import { Options, Question, RankPanel, Timer } from '../arena';
 
 // Live Arena Page.
 export default function ArenaPage() {
+  useAuthRequired(true);
   useDocTitle('Arena');
   const { pathname } = useLocation();
 

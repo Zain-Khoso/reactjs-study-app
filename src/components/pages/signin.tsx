@@ -24,6 +24,7 @@ import { useDocTitle } from '@/hooks/useDocTitle';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { H3, Muted } from '@/components/ui/typography';
 import { Button } from '@/components/ui/button';
+import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Data.
 const SSOs = [
@@ -51,6 +52,7 @@ const SSOs = [
 
 // User Authentication Page.
 export default function SignInPage() {
+  useAuthRequired(false);
   useDocTitle('Join Preplus | Competitive Assessment Platform');
 
   return (

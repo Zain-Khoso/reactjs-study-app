@@ -9,6 +9,7 @@ import { containerVariants } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
+import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
 import { UserInfoCard, StatsChart, BattleHistory, LevelProgrssion, QuickStats } from '../profile';
@@ -86,6 +87,7 @@ const stats = [
 
 // User/Profile Page.
 export default function UserPage() {
+  useAuthRequired(null);
   useDocTitle('User Profile');
 
   return (

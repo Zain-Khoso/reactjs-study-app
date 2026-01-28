@@ -9,6 +9,7 @@ import { containerVariants, itemVariants } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
+import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
 import { H2, P, Muted } from '@/components/ui/typography';
@@ -74,6 +75,7 @@ const UPCOMING_ARENAS = [
 
 // Page to browse Arenas to Participate in.
 export default function ArenasPage() {
+  useAuthRequired(null);
   useDocTitle('Arenas');
 
   return (

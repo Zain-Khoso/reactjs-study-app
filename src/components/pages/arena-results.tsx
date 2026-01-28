@@ -10,6 +10,7 @@ import { containerVariants, itemVariants } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
+import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
 import { Button } from '@/components/ui/button';
@@ -17,6 +18,7 @@ import { PodiumItem, StatsCard } from '../arena-results';
 
 // Arena Results Page.
 export default function ArenaResultsPage() {
+  useAuthRequired(null);
   useDocTitle('Arena Results');
 
   return (

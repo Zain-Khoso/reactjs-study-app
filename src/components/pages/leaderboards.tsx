@@ -10,6 +10,7 @@ import { containerVariants, itemVariants } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
+import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -109,8 +110,9 @@ const RANKED_LIST: LeaderboardEntry[] = [
 
 // Leaderboard page.
 export default function LeaderboardPage() {
-  const [currentSubject, setCurrentSubject] = useState('Global');
+  useAuthRequired(null);
   useDocTitle('Leaderboards');
+  const [currentSubject, setCurrentSubject] = useState('Global');
 
   return (
     <motion.main

@@ -6,6 +6,7 @@ import { pageMotions } from '@/lib/motions';
 
 // Hook Imports.
 import { useDocTitle } from '@/hooks/useDocTitle';
+import { useAuthRequired } from '@/hooks/useAuthRequired';
 
 // Component Imports.
 import { H2, H3, P } from '@/components/ui/typography';
@@ -13,6 +14,7 @@ import Footer from '../footer';
 
 // Terms and Conditions of the application.
 export default function TermsAndConditionsPage() {
+  useAuthRequired(null);
   useDocTitle('Terms and Conditions');
 
   return (
