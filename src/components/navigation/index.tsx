@@ -5,11 +5,14 @@ import { motion, type Variants } from 'motion/react';
 // Asset Imports.
 import { IconArrowBigRightLinesFilled } from '@tabler/icons-react';
 
+// Util Imports.
+import { getInitials } from '@/lib/utils';
+
 // Component Imports.
 import BrandLogo from '../ui/brand-logo';
 import { Button } from '../ui/button';
 import { NavLink, ThemeToggle } from './navlink-and-theme-toggle';
-import { NotificationsDropdown, UserDropdown } from './dropdowns';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 // Types.
 type Props = {
@@ -96,11 +99,13 @@ export default function Navbar({ user }: Props) {
         <ThemeToggle />
 
         {user ? (
-          <div className="flex items-center gap-4">
-            <NotificationsDropdown />
+          <Avatar asChild>
+            <Link to="/profile">
+              <AvatarImage src={user.image || undefined} alt={user.name} />
 
-            <UserDropdown user={user} />
-          </div>
+              <AvatarFallback>{getInitials(user.name)}</AvatarFallback>
+            </Link>
+          </Avatar>
         ) : (
           <Button asChild className="px-6">
             <Link to="/signin">
