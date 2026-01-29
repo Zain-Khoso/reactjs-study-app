@@ -9,7 +9,14 @@ import { containerVariants } from '@/lib/motions';
 import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
-import { UserInfoCard, StatsChart, BattleHistory, LevelProgrssion, QuickStats } from '../profile';
+import {
+  UserInfoCard,
+  StatsChart,
+  BattleHistory,
+  LevelProgrssion,
+  QuickStats,
+  AccountSettings,
+} from '../profile';
 
 // Data.
 const chartData = [
@@ -110,6 +117,8 @@ export default function UserPage() {
             <LevelProgrssion stats={levels} />
 
             <QuickStats stats={stats} />
+
+            <AccountSettings />
           </article>
         </section>
       </motion.main>
