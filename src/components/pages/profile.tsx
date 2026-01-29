@@ -84,7 +84,7 @@ const stats = [
 
 // User/Profile Page.
 export default function UserPage() {
-  useAuthRequired(null);
+  useAuthRequired(true);
 
   return (
     <>
