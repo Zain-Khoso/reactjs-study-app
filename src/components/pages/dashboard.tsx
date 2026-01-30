@@ -92,7 +92,15 @@ const stats = [
 export default function UserPage() {
   return (
     <>
-      <title>User Profile</title>
+      <title>Your Profile | Preplus Performance Analytics</title>
+      <meta
+        name="description"
+        content="Manage your Preplus identity. View your career statistics, track your global rank evolution, and review your performance across all active testing arenas."
+      />
+      <meta
+        name="keywords"
+        content="Preplus profile, user dashboard, testing statistics, career rank, performance analytics, player identity, Preplus account"
+      />
 
       <motion.main
         variants={containerVariants}
