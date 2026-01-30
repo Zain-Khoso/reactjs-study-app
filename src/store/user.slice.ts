@@ -1,13 +1,13 @@
 // Lib Imports.
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // Types.
 import type { User } from 'better-auth';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { getSession } from '@/lib/auth-client';
 
 type Slice = {
   isLoading: boolean;
-  error: Error | null;
+  error: string | null;
   data: User | null;
 };
 
@@ -22,23 +22,35 @@ const initialState: Slice = {
 const slice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-    setIsLoading(state) {
-      state.isLoading = true;
-      state.error = null;
-    },
-    setError(state, action: PayloadAction<Error>) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    setUser(state, action: PayloadAction<User>) {
-      state.isLoading = false;
-      state.error = null;
-      state.data = action.payload;
-    },
+  reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(fetchCurrentUser.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error?.message || null;
+      })
+      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+
+        if (action.payload.error) {
+          state.error = action.payload.error.message || null;
+        } else if (action.payload.data === null) {
+          state.error = null;
+          state.data = null;
+        } else {
+          state.error = null;
+          state.data = action.payload.data?.user;
+        }
+      });
   },
 });
 
+// Data-fetching logic.
+const fetchCurrentUser = createAsyncThunk('user/fetchCurrentUserData', () => getSession());
+
 // Exports.
 export default slice.reducer;
-export const { setIsLoading, setError, setUser } = slice.actions;
