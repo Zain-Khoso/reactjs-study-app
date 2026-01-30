@@ -12,7 +12,15 @@ import Footer from '../footer';
 export default function TermsAndConditionsPage() {
   return (
     <>
-      <title>Terms and Conditions</title>
+      <title>Terms and Conditions | Preplus Rules of Engagement</title>
+      <meta
+        name="description"
+        content="Read the official terms of service for Preplus. Understand our rules for fair play, account security, and the legal framework governing our real-time testing arena."
+      />
+      <meta
+        name="keywords"
+        content="Preplus terms and conditions, terms of service, legal, fair play policy, arena rules, user agreement, Preplus legal"
+      />
 
       <motion.main
         variants={pageMotions}
