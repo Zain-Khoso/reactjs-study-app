@@ -73,7 +73,15 @@ const UPCOMING_ARENAS = [
 export default function ArenasPage() {
   return (
     <>
-      <title>Arenas</title>
+      <title>Arenas | Choose Your Testing Grounds</title>
+      <meta
+        name="description"
+        content="Explore the Preplus Arena catalog. Select from live English, Physics, and Current Affairs lobbies to compete in real-time and prove your intellectual dominance."
+      />
+      <meta
+        name="keywords"
+        content="Preplus arenas, live testing lobbies, subject categories, English arena, Physics arena, competitive quizzes, academic battles"
+      />
 
       <motion.main
         variants={containerVariants}
