@@ -48,4 +48,4 @@ function useTheme() {
 }
 
 // Exports.
-export { useAuthRequired, useScrollToTop, useTheme };
+export { useAuthRequired, useScrollToTop, useTheme, useSession };
