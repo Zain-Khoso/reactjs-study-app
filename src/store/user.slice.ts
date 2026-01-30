@@ -1,9 +1,11 @@
 // Lib Imports.
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+// Util Imports.
+import { getSession } from '@/lib/auth-client';
+
 // Types.
 import type { User } from 'better-auth';
-import { getSession } from '@/lib/auth-client';
 
 type Slice = {
   isLoading: boolean;
