@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 // Component Imports.
 import BrandLogo from '../ui/brand-logo';
 import { Button } from '../ui/button';
-import { NavLink, ThemeToggle } from './navlink-and-theme-toggle';
+import { NavLink, ThemeToggle } from './components';
 
 // Data.
 const links = [
