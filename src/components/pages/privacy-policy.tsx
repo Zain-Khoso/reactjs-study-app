@@ -12,7 +12,15 @@ import Footer from '../footer';
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <title>Privacy Policy</title>
+      <title>Privacy Policy | Data Security & Privacy Standards</title>
+      <meta
+        name="description"
+        content="Learn how Preplus protects your personal information. Review our privacy standards regarding data collection, session security, and how we safeguard your testing analytics."
+      />
+      <meta
+        name="keywords"
+        content="Preplus privacy policy, data protection, user privacy, security standards, personal data, privacy agreement, secure testing"
+      />
 
       <motion.main
         variants={pageMotions}
