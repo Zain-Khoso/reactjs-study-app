@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // Types.
 import type { User } from 'better-auth';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 type Slice = {
   isLoading: boolean;
@@ -26,9 +27,13 @@ const slice = createSlice({
       state.isLoading = true;
       state.error = null;
     },
+    setError(state, action: PayloadAction<Error>) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
   },
 });
 
 // Exports.
 export default slice.reducer;
-export const { setIsLoading } = slice.actions;
+export const { setIsLoading, setError } = slice.actions;
