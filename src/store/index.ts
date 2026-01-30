@@ -1,9 +1,14 @@
 // Lib Imports.
 import { configureStore } from '@reduxjs/toolkit';
 
+// Util Imports.
+import userSlice from './user.slice';
+
 // Global state store of the application.
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    user: userSlice,
+  },
 });
 
 // Type Definitions.
