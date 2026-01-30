@@ -1,21 +1,9 @@
 // Lib Imports.
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 
 // Util Imports.
 import { useSession } from '@/lib/auth-client';
-
-// Custom hook to decide whether a page requires a user.
-function useAuthRequired(required: boolean | null) {
-  const navigate = useNavigate();
-  const { data } = useSession();
-
-  useEffect(() => {
-    if (required === false && data !== null) navigate('/dashboard/arenas');
-
-    if (required === true && data === null) navigate('/login');
-  }, [data, required]);
-}
 
 // This hook listens to page change and moves the scroll to the top.
 function useScrollToTop() {
@@ -48,4 +36,4 @@ function useTheme() {
 }
 
 // Exports.
-export { useAuthRequired, useScrollToTop, useTheme, useSession };
+export { useScrollToTop, useTheme, useSession };

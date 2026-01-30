@@ -7,7 +7,6 @@ import { IconTrophy } from '@tabler/icons-react';
 
 // Util Imports.
 import { containerVariants, itemVariants } from '@/lib/motions';
-import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -107,7 +106,6 @@ const RANKED_LIST: LeaderboardEntry[] = [
 
 // Leaderboard page.
 export default function LeaderboardPage() {
-  useAuthRequired(null);
   const [currentSubject, setCurrentSubject] = useState('Global');
 
   return (

@@ -6,7 +6,6 @@ import { IconAtom, IconCalculator, IconFlask } from '@tabler/icons-react';
 
 // Util Imports.
 import { containerVariants } from '@/lib/motions';
-import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import {
@@ -91,8 +90,6 @@ const stats = [
 
 // User/Profile Page.
 export default function UserPage() {
-  useAuthRequired(true);
-
   return (
     <>
       <title>User Profile</title>

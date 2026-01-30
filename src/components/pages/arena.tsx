@@ -8,7 +8,6 @@ import { IconChevronRight } from '@tabler/icons-react';
 
 // Util Imports.
 import { containerVariants, itemVariants } from '@/lib/motions';
-import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { Button } from '@/components/ui/button';
@@ -16,7 +15,6 @@ import { Options, Question, RankPanel, Timer } from '../arena';
 
 // Live Arena Page.
 export default function ArenaPage() {
-  useAuthRequired(true);
   const { pathname } = useLocation();
 
   const [selectedOption, setSelectedOption] = useState<string | null>('B');

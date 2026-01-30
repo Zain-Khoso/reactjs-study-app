@@ -16,7 +16,6 @@ import {
 
 // Util Imports.
 import { pageMotions } from '@/lib/motions';
-import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { H1, H2, Big, Muted, Small } from '@/components/ui/typography';
@@ -60,8 +59,6 @@ const arenas = [
 
 // Page.
 export default function Landing() {
-  useAuthRequired(null);
-
   return (
     <>
       <title>The Ultimate Real-Time Testing Arena</title>

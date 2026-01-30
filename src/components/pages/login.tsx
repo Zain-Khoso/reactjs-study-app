@@ -16,7 +16,6 @@ import {
 // Util Imports.
 import { logInPageMotions as motionVariants } from '@/lib/motions';
 import { signIn } from '@/lib/auth-client';
-import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
@@ -49,8 +48,6 @@ const SSOs = [
 
 // User Authentication Page.
 export default function LoginPage() {
-  useAuthRequired(false);
-
   return (
     <>
       <title>Join Preplus | Competitive Assessment Platform</title>

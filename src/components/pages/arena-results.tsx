@@ -7,7 +7,6 @@ import { IconShare } from '@tabler/icons-react';
 
 // Util Imports.
 import { containerVariants, itemVariants } from '@/lib/motions';
-import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { Button } from '@/components/ui/button';
@@ -15,8 +14,6 @@ import { PodiumItem, StatsCard } from '../arena-results';
 
 // Arena Results Page.
 export default function ArenaResultsPage() {
-  useAuthRequired(null);
-
   return (
     <>
       <title>Arena Results</title>

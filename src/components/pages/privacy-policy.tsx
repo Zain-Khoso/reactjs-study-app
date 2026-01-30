@@ -3,7 +3,6 @@ import { motion } from 'motion/react';
 
 // Util Imports.
 import { pageMotions } from '@/lib/motions';
-import { useAuthRequired } from '@/lib/hooks';
 
 // Component Imports.
 import { H2, H3, P } from '@/components/ui/typography';
@@ -11,8 +10,6 @@ import Footer from '../footer';
 
 // Privacy Policy of the application.
 export default function PrivacyPolicyPage() {
-  useAuthRequired(null);
-
   return (
     <>
       <title>Privacy Policy</title>
