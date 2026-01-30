@@ -2,9 +2,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router';
 
-// Util Imports.
-import { useSession } from '@/lib/auth-client';
-
 // This hook listens to page change and moves the scroll to the top.
 function useScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -36,4 +33,4 @@ function useTheme() {
 }
 
 // Exports.
-export { useScrollToTop, useTheme, useSession };
+export { useScrollToTop, useTheme };
