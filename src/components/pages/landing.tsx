@@ -61,8 +61,6 @@ const arenas = [
 export default function Landing() {
   return (
     <>
-      <title>The Ultimate Real-Time Testing Arena</title>
-
       <motion.div variants={pageMotions} initial="initial" animate="animate" exit="exit">
         <header className="mx-auto flex w-full max-w-7xl flex-col items-center gap-16 px-4 pb-4 md:flex-row md:justify-between md:py-12 lg:gap-36">
           <motion.article
