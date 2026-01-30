@@ -9,6 +9,19 @@ const store = configureStore({
   reducer: {
     user: userSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['user/fetchCurrentUserData/fulfilled'],
+        ignoredPaths: [
+          'user.session.expiresAt',
+          'user.session.createdAt',
+          'user.session.updatedAt',
+          'user.data.createdAt',
+          'user.data.updatedAt',
+        ],
+      },
+    }),
 });
 
 // Type Definitions.
