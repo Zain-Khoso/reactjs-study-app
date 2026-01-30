@@ -8,13 +8,10 @@ import { NavLink, ThemeToggle } from './navlink-and-theme-toggle';
 
 // Data.
 const links = [
-  { label: 'Creator', href: 'https://linkedin.com/in/zain-khoso' },
-  {
-    label: 'Source Code',
-    href: 'https://github.com/zain-khoso/reactjs-study-app',
-  },
-  { label: 'Live Arenas', href: '/#arenas' },
-  { label: 'Assessment', href: '/#assessment' },
+  { label: 'Arena', href: '/#arenas' },
+  { label: 'Topics', href: '/#subjects' },
+  { label: 'Leaderboard', href: '/#assessment' },
+  { label: 'Mission', href: '/#about' },
 ];
 
 // Navbar for static pages.
