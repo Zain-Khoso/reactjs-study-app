@@ -2,7 +2,7 @@
 import { createBrowserRouter } from 'react-router';
 
 // Util Imports.
-import { fetchCurrentUserState } from './lib/data-loaders';
+import { fetchCurrentUserState, authenticationRequired } from './lib/data-loaders';
 
 // Component Imports.
 import NavigationLayout from './components/navigation';
@@ -24,6 +24,7 @@ export default createBrowserRouter([
       {
         path: 'login',
         Component: SignInPage,
+        loader: () => authenticationRequired(false),
       },
       {
         Component: NavigationLayout,
