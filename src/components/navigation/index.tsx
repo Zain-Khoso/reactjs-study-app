@@ -1,120 +1,21 @@
-// Lib Imports.
-import { Link, useLocation } from 'react-router';
-import { motion, type Variants } from 'motion/react';
-
-// Asset Imports.
-import { IconArrowBigRightLinesFilled } from '@tabler/icons-react';
+// Lib Import.
+import { Outlet } from 'react-router';
 
 // Util Imports.
-import { getInitials } from '@/lib/utils';
+import { useScrollToTop } from '@/lib/hooks';
 
 // Component Imports.
-import BrandLogo from '../ui/brand-logo';
-import { Button } from '../ui/button';
-import { NavLink, ThemeToggle } from './navlink-and-theme-toggle';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import Navbar from './static-nav';
 
-// Types.
-type Props = {
-  user: any;
-};
-
-// Data.
-const publicLinks = [
-  { label: 'Creator', href: 'https://linkedin.com/in/zain-khoso', hash: false, external: true },
-  {
-    label: 'Source Code',
-    href: 'https://github.com/zain-khoso/reactjs-study-app',
-    hash: false,
-    external: true,
-  },
-  { label: 'Live Arenas', href: '/#arenas', hash: true, external: false },
-  { label: 'Assessment', href: '/#assessment', hash: true, external: false },
-];
-const authLinks = [
-  { label: 'Creator', href: 'https://linkedin.com/in/zain-khoso', hash: false, external: true },
-  {
-    label: 'Source Code',
-    href: 'https://github.com/zain-khoso/reactjs-study-app',
-    hash: false,
-    external: true,
-  },
-  { label: 'Arenas', href: '/arenas', hash: false, external: false },
-  { label: 'Leaderboards', href: '/leaderboards', hash: false, external: false },
-];
-const motionVariants: Variants = {
-  hidden: {
-    y: -20,
-    opacity: 0,
-    transition: { duration: 0.3, ease: 'easeIn', delayChildren: 0 },
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delayChildren: 0.1 },
-  },
-};
-
-// Navbar for the entire application.
-export default function Navbar({ user }: Props) {
-  const { pathname } = useLocation();
-
-  const links = user ? authLinks : publicLinks;
+// Layout for pages with navbar.
+export default function NavigationLayout() {
+  useScrollToTop();
 
   return (
-    <motion.nav
-      variants={motionVariants}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-      className="border-b-muted bg-background/80 sticky top-0 z-50 mx-auto mb-12 flex w-full max-w-7xl items-center justify-between border-b p-4 backdrop-blur-md"
-    >
-      <div className="flex items-center gap-8">
-        <motion.div
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-        >
-          <BrandLogo />
-        </motion.div>
+    <>
+      <Navbar />
 
-        <ul className="hidden items-center gap-6 md:flex">
-          {links.map((link, index) => (
-            <NavLink
-              key={`${link.label}-${link.href}`}
-              index={index}
-              isActive={link.href.endsWith(pathname)}
-              {...link}
-            />
-          ))}
-        </ul>
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, x: 10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-        className="flex items-center gap-2"
-      >
-        <ThemeToggle />
-
-        {user ? (
-          <Avatar asChild>
-            <Link to="/profile">
-              <AvatarImage src={user.image || undefined} alt={user.name} />
-
-              <AvatarFallback>{getInitials(user.name)}</AvatarFallback>
-            </Link>
-          </Avatar>
-        ) : (
-          <Button asChild className="px-6">
-            <Link to="/signin">
-              Sign In
-              <IconArrowBigRightLinesFilled size={18} />
-            </Link>
-          </Button>
-        )}
-      </motion.div>
-    </motion.nav>
+      <Outlet />
+    </>
   );
 }
