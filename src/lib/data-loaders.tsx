@@ -22,7 +22,7 @@ async function authenticationRequired(required: boolean) {
 
   if (required && !state.user.data) return redirect('/login');
 
-  if (!required && state.user.data) return redirect('/arenas');
+  if (!required && state.user.data) return redirect('/dashboard/arenas');
 }
 
 // Exports.

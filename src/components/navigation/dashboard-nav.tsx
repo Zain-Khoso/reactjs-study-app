@@ -14,10 +14,10 @@ import type { User } from 'better-auth';
 
 // Data.
 const links = [
-  { label: 'Arenas', href: '/arenas' },
+  { label: 'Arenas', href: '/dashboard/arenas' },
   { label: 'Practice', href: '/practice' },
-  { label: 'Rankings', href: '/leaderboard' },
-  { label: 'Achievements', href: '/profile' },
+  { label: 'Rankings', href: '/dashboard/leaderboard' },
+  { label: 'Achievements', href: '/dashboard' },
 ];
 
 // Navbar for dashboard pages.
@@ -38,7 +38,7 @@ export default function Navbar({ user }: { user: User }) {
         <ThemeToggle />
 
         <Avatar asChild>
-          <Link to="/profile">
+          <Link to="/dashboard">
             <AvatarImage alt={`${user.name}'s Avatar`} src={user.image || undefined} />
             <AvatarFallback>{getInitials(user.name)}</AvatarFallback>
           </Link>

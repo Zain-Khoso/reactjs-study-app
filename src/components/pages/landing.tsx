@@ -30,7 +30,7 @@ import Footer from '../footer';
 // Static Data.
 const arenas = [
   {
-    link: '/arena/1',
+    link: '/dashboard/arena/1',
     icon: IconSquareLetterEFilled,
     isLive: true,
     title: 'English',
@@ -39,7 +39,7 @@ const arenas = [
     startsAt: new Date(Date.now() - 1000 * 60 * 60 * 0.5),
   },
   {
-    link: '/arena/2',
+    link: '/dashboard/arena/2',
     icon: IconEngineFilled,
     isLive: false,
     title: 'Physics',
@@ -48,7 +48,7 @@ const arenas = [
     startsAt: new Date(Date.now() + 1000 * 60 * 60 * 5),
   },
   {
-    link: '/arena/3',
+    link: '/dashboard/arena/3',
     icon: IconGlobeFilled,
     isLive: true,
     title: 'World Current Affairs',
@@ -106,7 +106,7 @@ export default function Landing() {
               </Button>
 
               <Button variant="outline" className="flex-1" asChild>
-                <Link to="/leaderboards">
+                <Link to="/dashboard/leaderboard">
                   Leaderboard <IconBadgesFilled className="ml-2" />
                 </Link>
               </Button>

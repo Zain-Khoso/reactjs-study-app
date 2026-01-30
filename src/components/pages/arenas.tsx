@@ -23,7 +23,7 @@ const LIVE_ARENAS = [
     playersJoined: 247,
     startsAt: new Date(Date.now() - 1000 * 60 * 10),
     isLive: true,
-    link: '/arenas/medicine',
+    link: '/dashboard/arenas/medicine',
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const LIVE_ARENAS = [
     playersJoined: 189,
     startsAt: new Date(Date.now() - 1000 * 60 * 5),
     isLive: true,
-    link: '/arenas/javascript',
+    link: '/dashboard/arenas/javascript',
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const LIVE_ARENAS = [
     playersJoined: 156,
     startsAt: new Date(Date.now() - 1000 * 60 * 25),
     isLive: true,
-    link: '/arenas/history',
+    link: '/dashboard/arenas/history',
   },
 ];
 
@@ -56,7 +56,7 @@ const UPCOMING_ARENAS = [
     playersJoined: 180,
     startsAt: new Date(Date.now() + 1000 * 60 * 15),
     isLive: false,
-    link: '/arenas/chemistry',
+    link: '/dashboard/arenas/chemistry',
   },
   {
     id: 5,
@@ -66,7 +66,7 @@ const UPCOMING_ARENAS = [
     playersJoined: 150,
     startsAt: new Date(Date.now() + 1000 * 60 * 32),
     isLive: false,
-    link: '/arenas/mathematics',
+    link: '/dashboard/arenas/mathematics',
   },
 ];
 

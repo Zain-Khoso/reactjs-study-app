@@ -13,10 +13,10 @@ import { useAuthRequired } from '@/lib/hooks';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { H2, Muted } from '../ui/typography';
-import { PodiumItem, RankList, LeaderboardToggle, CurrentUserRank } from '../leaderboards';
+import { PodiumItem, RankList, LeaderboardToggle, CurrentUserRank } from '../leaderboard';
 
 // Types.
-import { type LeaderboardEntry } from '../leaderboards';
+import { type LeaderboardEntry } from '../leaderboard';
 
 // Data.
 const subjects = [

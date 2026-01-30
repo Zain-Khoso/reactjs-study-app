@@ -11,7 +11,7 @@ function useAuthRequired(required: boolean | null) {
   const { data } = useSession();
 
   useEffect(() => {
-    if (required === false && data !== null) navigate('/arenas');
+    if (required === false && data !== null) navigate('/dashboard/arenas');
 
     if (required === true && data === null) navigate('/login');
   }, [data, required]);

@@ -66,7 +66,7 @@ export default function ArenaResultsPage() {
           </Button>
 
           <Button variant="outline" className="flex min-h-10 flex-1" asChild>
-            <Link to="/arenas">Play Again</Link>
+            <Link to="/dashboard/arenas">Play Again</Link>
           </Button>
         </motion.div>
       </motion.main>

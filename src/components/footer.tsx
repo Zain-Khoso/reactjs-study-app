@@ -11,8 +11,8 @@ const links = [
   {
     title: 'Platform',
     links: [
-      { label: 'Live Arenas', to: '/arenas', external: false },
-      { label: 'Leaderboards', to: '/leaderboards', external: false },
+      { label: 'Live Arenas', to: '/dashboard/arenas', external: false },
+      { label: 'Leaderboards', to: '/dashboard/leaderboard', external: false },
     ],
   },
   {

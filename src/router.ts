@@ -22,7 +22,7 @@ export default createBrowserRouter([
     loader: fetchCurrentUserState,
     children: [
       {
-        path: 'loginPage',
+        path: 'login',
         loader: () => authenticationRequired(false),
         Component: LoginPage,
       },
