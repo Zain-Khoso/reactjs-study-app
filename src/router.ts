@@ -11,7 +11,7 @@ import TermsAndConditionsPage from './components/pages/terms-and-conditions';
 import PrivacyPolicyPage from './components/pages/privacy-policy';
 import SignInPage from './components/pages/login';
 import ProfilePage from './components/pages/profile';
-import LeaderboardsPage from './components/pages/leaderboards';
+import LeaderboardPage from './components/pages/leaderboard';
 import ArenasPage from './components/pages/arenas';
 import ArenaPage from './components/pages/arena';
 import ArenaResultsPage from './components/pages/arena-results';
@@ -41,30 +41,36 @@ export default createBrowserRouter([
             Component: PrivacyPolicyPage,
           },
           {
-            path: 'profile',
-            Component: ProfilePage,
-          },
-          {
-            path: 'leaderboards',
-            Component: LeaderboardsPage,
-          },
-          {
-            path: 'arenas',
+            path: 'dashboard',
+            loader: () => authenticationRequired(true),
             children: [
               {
                 index: true,
-                Component: ArenasPage,
+                Component: DashboardPage,
               },
               {
-                path: ':arenaId',
+                path: 'leaderboard',
+                Component: LeaderboardPage,
+              },
+              {
+                path: 'arenas',
                 children: [
                   {
                     index: true,
-                    Component: ArenaPage,
+                    Component: ArenasPage,
                   },
                   {
-                    path: ':userId',
-                    Component: ArenaResultsPage,
+                    path: ':arenaId',
+                    children: [
+                      {
+                        index: true,
+                        Component: ArenaPage,
+                      },
+                      {
+                        path: ':userId',
+                        Component: ArenaResultsPage,
+                      },
+                    ],
                   },
                 ],
               },
