@@ -50,7 +50,15 @@ const SSOs = [
 export default function LoginPage() {
   return (
     <>
-      <title>Join Preplus | Competitive Assessment Platform</title>
+      <title>Sign In | Join the Preplus Arena</title>
+      <meta
+        name="description"
+        content="Access your Preplus account to enter live testing arenas, track your global rank, and compete in the gold standard of real-time knowledge battles."
+      />
+      <meta
+        name="keywords"
+        content="Preplus login, join arena, sign in to Preplus, secure testing access, competitive knowledge account, enter testing grounds"
+      />
 
       <div className="relative grid min-h-screen w-full place-items-center overflow-hidden">
         <motion.div
