@@ -21,8 +21,14 @@ const initialState: Slice = {
 const slice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    setIsLoading(state) {
+      state.isLoading = true;
+      state.error = null;
+    },
+  },
 });
 
 // Exports.
 export default slice.reducer;
+export const { setIsLoading } = slice.actions;
