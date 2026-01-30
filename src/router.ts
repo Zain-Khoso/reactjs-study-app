@@ -1,7 +1,8 @@
 // Lib Imports.
 import { createBrowserRouter } from 'react-router';
 
-// Page component Imports.
+// Component Imports.
+import NavigationLayout from './components/navigation';
 import LandingPage from './components/pages/landing';
 import TermsAndConditionsPage from './components/pages/terms-and-conditions';
 import PrivacyPolicyPage from './components/pages/privacy-policy';
@@ -15,46 +16,51 @@ import ArenaResultsPage from './components/pages/arena-results';
 // Application Page Routes.
 export default createBrowserRouter([
   {
-    index: true,
-    Component: LandingPage,
-  },
-  {
     path: 'signin',
     Component: SignInPage,
   },
   {
-    path: 'terms-and-conditions',
-    Component: TermsAndConditionsPage,
-  },
-  {
-    path: 'privacy-policy',
-    Component: PrivacyPolicyPage,
-  },
-  {
-    path: 'profile',
-    Component: ProfilePage,
-  },
-  {
-    path: 'leaderboards',
-    Component: LeaderboardsPage,
-  },
-  {
-    path: 'arenas',
+    Component: NavigationLayout,
     children: [
       {
         index: true,
-        Component: ArenasPage,
+        Component: LandingPage,
       },
       {
-        path: ':arenaId',
+        path: 'terms-and-conditions',
+        Component: TermsAndConditionsPage,
+      },
+      {
+        path: 'privacy-policy',
+        Component: PrivacyPolicyPage,
+      },
+      {
+        path: 'profile',
+        Component: ProfilePage,
+      },
+      {
+        path: 'leaderboards',
+        Component: LeaderboardsPage,
+      },
+      {
+        path: 'arenas',
         children: [
           {
             index: true,
-            Component: ArenaPage,
+            Component: ArenasPage,
           },
           {
-            path: ':userId',
-            Component: ArenaResultsPage,
+            path: ':arenaId',
+            children: [
+              {
+                index: true,
+                Component: ArenaPage,
+              },
+              {
+                path: ':userId',
+                Component: ArenaResultsPage,
+              },
+            ],
           },
         ],
       },
