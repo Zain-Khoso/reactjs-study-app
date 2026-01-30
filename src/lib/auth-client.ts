@@ -15,4 +15,4 @@ const signIn = (provider: string) =>
 
 // Exports.
 export { signIn };
-export const { useSession, signOut } = authClient;
+export const { useSession, signOut, getSession } = authClient;
