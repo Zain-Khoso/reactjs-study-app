@@ -110,7 +110,15 @@ export default function LeaderboardPage() {
 
   return (
     <>
-      <title>Leaderboards</title>
+      <title>Leaderboards | Global Rank & XP Rankings</title>
+      <meta
+        name="description"
+        content="View the global Preplus standings. Track top performers across all arenas, compare XP gains, and see who dominates the gold standard of real-time testing."
+      />
+      <meta
+        name="keywords"
+        content="Preplus leaderboards, global rankings, top players, XP ranking, arena standings, competitive testing ranks, world rank"
+      />
 
       <motion.main
         variants={containerVariants}
