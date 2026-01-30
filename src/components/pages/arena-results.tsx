@@ -16,7 +16,15 @@ import { PodiumItem, StatsCard } from '../arena-results';
 export default function ArenaResultsPage() {
   return (
     <>
-      <title>Arena Results</title>
+      <title>Arena Results | Performance Breakdown & Rank Impact</title>
+      <meta
+        name="description"
+        content="Review your performance in the Preplus Arena. Analyze your speed, accuracy, and streak multipliers to see your final placement and impact on the global leaderboard."
+      />
+      <meta
+        name="keywords"
+        content="Preplus results, arena summary, testing analytics, rank impact, performance breakdown, quiz score, competitive ranking"
+      />
 
       <motion.main
         variants={containerVariants}
