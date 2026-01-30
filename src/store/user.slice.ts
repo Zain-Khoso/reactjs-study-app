@@ -31,9 +31,14 @@ const slice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    setUser(state, action: PayloadAction<User>) {
+      state.isLoading = false;
+      state.error = null;
+      state.data = action.payload;
+    },
   },
 });
 
 // Exports.
 export default slice.reducer;
-export const { setIsLoading, setError } = slice.actions;
+export const { setIsLoading, setError, setUser } = slice.actions;
