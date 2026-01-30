@@ -54,3 +54,4 @@ const fetchCurrentUser = createAsyncThunk('user/fetchCurrentUserData', () => get
 
 // Exports.
 export default slice.reducer;
+export { fetchCurrentUser };
