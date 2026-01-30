@@ -9,8 +9,8 @@ import NavigationLayout from './components/navigation';
 import LandingPage from './components/pages/landing';
 import TermsAndConditionsPage from './components/pages/terms-and-conditions';
 import PrivacyPolicyPage from './components/pages/privacy-policy';
-import SignInPage from './components/pages/login';
-import ProfilePage from './components/pages/profile';
+import LoginPage from './components/pages/login';
+import DashboardPage from './components/pages/dashboard';
 import LeaderboardPage from './components/pages/leaderboard';
 import ArenasPage from './components/pages/arenas';
 import ArenaPage from './components/pages/arena';
@@ -22,9 +22,9 @@ export default createBrowserRouter([
     loader: fetchCurrentUserState,
     children: [
       {
-        path: 'login',
-        Component: SignInPage,
+        path: 'loginPage',
         loader: () => authenticationRequired(false),
+        Component: LoginPage,
       },
       {
         Component: NavigationLayout,
