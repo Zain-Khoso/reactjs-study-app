@@ -6,6 +6,9 @@ import BrandLogo from '../ui/brand-logo';
 import { Button } from '../ui/button';
 import { NavLink, ThemeToggle } from './components';
 
+// Types.
+import type { User } from 'better-auth';
+
 // Data.
 const links = [
   { label: 'Arena', href: '/#arenas' },
@@ -15,7 +18,7 @@ const links = [
 ];
 
 // Navbar for static pages.
-export default function Navbar() {
+export default function Navbar({ user }: { user?: User }) {
   return (
     <nav className="border-b-muted bg-background/80 sticky top-0 z-50 mx-auto mb-12 flex w-full max-w-7xl items-center justify-between border-b p-4 backdrop-blur-md">
       <section className="flex items-center gap-8">
@@ -33,11 +36,11 @@ export default function Navbar() {
 
         <div className="space-x-2">
           <Button asChild variant="link">
-            <Link to="/login">Login</Link>
+            {user ? <Link to="/dashboard">Dashboard</Link> : <Link to="/login">Login</Link>}
           </Button>
 
           <Button asChild>
-            <Link to="/arenas">Take a Quiz</Link>
+            <Link to="/practice">Take a Quiz</Link>
           </Button>
         </div>
       </section>
