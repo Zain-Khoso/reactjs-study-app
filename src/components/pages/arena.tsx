@@ -28,7 +28,15 @@ export default function ArenaPage() {
 
   return (
     <>
-      <title>Arena</title>
+      <title>Live Arena | Real-Time Battle Ground</title>
+      <meta
+        name="description"
+        content="Enter the live Preplus Arena. Compete in high-intensity, real-time testing where speed, consistency, and precision determine your global rank in the heat of battle."
+      />
+      <meta
+        name="keywords"
+        content="Preplus battle ground, live arena, real-time competition, active test, competitive scoring, knowledge arena, live leaderboard battle"
+      />
 
       <motion.main
         variants={containerVariants}
