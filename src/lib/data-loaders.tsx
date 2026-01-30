@@ -9,7 +9,9 @@ import { fetchCurrentUser } from '@/store/user.slice';
 async function fetchCurrentUserState() {
   const state = store.getState();
 
-  if (!state.user.isLoading && !state.user.data) await store.dispatch(fetchCurrentUser());
+  if (state.user.isLoading || state.user.data) return null;
+
+  await store.dispatch(fetchCurrentUser());
 
   return null;
 }
