@@ -33,7 +33,7 @@ export default function Navbar() {
 
         <div className="space-x-2">
           <Button asChild variant="link">
-            <Link to="/signin">Sign In</Link>
+            <Link to="/login">Login</Link>
           </Button>
 
           <Button asChild>

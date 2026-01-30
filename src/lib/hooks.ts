@@ -13,7 +13,7 @@ function useAuthRequired(required: boolean | null) {
   useEffect(() => {
     if (required === false && data !== null) navigate('/arenas');
 
-    if (required === true && data === null) navigate('/signin');
+    if (required === true && data === null) navigate('/login');
   }, [data, required]);
 }
 

@@ -94,7 +94,7 @@ export default function Landing() {
               transition={{ delay: 0.6, duration: 0.5 }}
             >
               <Button className="flex-1" asChild>
-                <Link to="/signin" className="group">
+                <Link to="/login" className="group">
                   Get Started
                   <motion.span
                     animate={{ x: [0, 5, 0] }}

@@ -14,7 +14,7 @@ import {
 } from '@tabler/icons-react';
 
 // Util Imports.
-import { signInPageMotions as motionVariants } from '@/lib/motions';
+import { logInPageMotions as motionVariants } from '@/lib/motions';
 import { signIn } from '@/lib/auth-client';
 import { useAuthRequired } from '@/lib/hooks';
 
@@ -48,7 +48,7 @@ const SSOs = [
 ];
 
 // User Authentication Page.
-export default function SignInPage() {
+export default function LoginPage() {
   useAuthRequired(false);
 
   return (

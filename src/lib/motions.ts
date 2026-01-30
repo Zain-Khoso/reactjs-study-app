@@ -13,7 +13,7 @@ const pageMotions: Variants = {
 };
 
 // Motion Variants for sigin page specifically.
-const signInPageMotions: Record<string, Variants> = {
+const logInPageMotions: Record<string, Variants> = {
   upperCircle: {
     hidden: {
       opacity: 0,
@@ -169,7 +169,7 @@ const arenaResultsPodiumAvatars = (delay: number): Variants => ({
 
 export {
   pageMotions,
-  signInPageMotions,
+  logInPageMotions,
   containerVariants,
   itemVariants,
   userRankVariants,

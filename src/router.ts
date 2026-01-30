@@ -6,7 +6,7 @@ import NavigationLayout from './components/navigation';
 import LandingPage from './components/pages/landing';
 import TermsAndConditionsPage from './components/pages/terms-and-conditions';
 import PrivacyPolicyPage from './components/pages/privacy-policy';
-import SignInPage from './components/pages/signin';
+import SignInPage from './components/pages/login';
 import ProfilePage from './components/pages/profile';
 import LeaderboardsPage from './components/pages/leaderboards';
 import ArenasPage from './components/pages/arenas';
@@ -16,7 +16,7 @@ import ArenaResultsPage from './components/pages/arena-results';
 // Application Page Routes.
 export default createBrowserRouter([
   {
-    path: 'signin',
+    path: 'login',
     Component: SignInPage,
   },
   {
