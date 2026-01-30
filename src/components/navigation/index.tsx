@@ -1,5 +1,5 @@
 // Lib Import.
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 import { useSelector } from 'react-redux';
 
 // Util Imports.
@@ -16,11 +16,16 @@ import type { StoreT } from '@/store';
 export default function NavigationLayout() {
   useScrollToTop();
 
+  const { pathname } = useLocation();
   const user = useSelector((store: StoreT) => store.user.data);
 
   return (
     <>
-      {user ? <DashboardNavbar user={user} /> : <StaticNavbar />}
+      {pathname.startsWith('/dashboard') ? (
+        <DashboardNavbar user={user!} />
+      ) : (
+        <StaticNavbar user={user} />
+      )}
 
       <Outlet />
     </>
