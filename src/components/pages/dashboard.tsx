@@ -28,6 +28,7 @@ const user = {
     'https://lh3.googleusercontent.com/-vMM9R2UlBpM/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkQSh6CEfa4PH8bRLDDUxvUhhTriQ/photo.jpg?sz=512',
   name: 'Zain Khoso',
   level: 14,
+  createdAt: new Date('2 Jan, 2026'),
   memberSince: new Date('2 Jan, 2026'),
   headline: 'Full stack Developer',
   points: 3471,
@@ -88,7 +89,7 @@ const stats = [
   { label: 'Total XP', val: '124.5k' },
 ];
 
-// Dashboard Page.
+// Dashboard Page.createdAt
 export default function DashboardPage() {
   return (
     <>
