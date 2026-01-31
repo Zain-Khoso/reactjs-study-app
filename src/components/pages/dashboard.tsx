@@ -88,8 +88,8 @@ const stats = [
   { label: 'Total XP', val: '124.5k' },
 ];
 
-// User/Profile Page.
-export default function UserPage() {
+// Dashboard Page.
+export default function DashboardPage() {
   return (
     <>
       <title>Your Profile | Preplus Performance Analytics</title>
