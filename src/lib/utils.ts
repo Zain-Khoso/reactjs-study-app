@@ -58,3 +58,15 @@ export function getInitials(name: string) {
   const lastInitial = names.at(-1)?.at(0)?.toUpperCase() ?? '';
   return firstInitial + lastInitial;
 }
+
+// Helper to normalize dates into readable strings.
+export function normalizeDate(date?: Date | string): string {
+  const d = new Date(date || Date.now());
+
+  return d.toLocaleDateString('pk', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+
