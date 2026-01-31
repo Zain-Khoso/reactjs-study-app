@@ -70,3 +70,7 @@ export function normalizeDate(date?: Date | string): string {
   });
 }
 
+// Helper to numbers/amounts into readable strings.
+export function normalizeNumber(num: number) {
+  return num.toLocaleString('en-uk');
+}
