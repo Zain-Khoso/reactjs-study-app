@@ -1,9 +1,6 @@
 // Lib Imports.
 import { createBrowserRouter } from 'react-router';
 
-// Util Imports.
-// import { fetchCurrentUserState, authenticationRequired } from './lib/data-loaders';
-
 // Component Imports.
 import NavigationLayout from './components/navigation';
 import LandingPage from './components/pages/landing';
@@ -19,61 +16,43 @@ import ArenaResultsPage from './components/pages/arena-results';
 // Application Page Routes.
 export default createBrowserRouter([
   {
-    // loader: fetchCurrentUserState,
+    path: 'login',
+    Component: LoginPage,
+  },
+  {
+    Component: NavigationLayout,
     children: [
       {
-        path: 'login',
-        // loader: () => authenticationRequired(false),
-        Component: LoginPage,
+        index: true,
+        Component: LandingPage,
       },
       {
-        Component: NavigationLayout,
+        path: 'terms-and-conditions',
+        Component: TermsAndConditionsPage,
+      },
+      {
+        path: 'privacy-policy',
+        Component: PrivacyPolicyPage,
+      },
+      {
+        path: 'dashboard',
+        Component: DashboardPage,
+      },
+      {
+        path: 'leaderboard',
+        Component: LeaderboardPage,
+      },
+      {
+        path: 'arenas',
+        Component: ArenasPage,
         children: [
           {
-            index: true,
-            Component: LandingPage,
-          },
-          {
-            path: 'terms-and-conditions',
-            Component: TermsAndConditionsPage,
-          },
-          {
-            path: 'privacy-policy',
-            Component: PrivacyPolicyPage,
-          },
-          {
-            path: 'dashboard',
-            // loader: () => authenticationRequired(true),
+            path: ':arenaId',
+            Component: ArenaPage,
             children: [
               {
-                index: true,
-                Component: DashboardPage,
-              },
-              {
-                path: 'leaderboard',
-                Component: LeaderboardPage,
-              },
-              {
-                path: 'arenas',
-                children: [
-                  {
-                    index: true,
-                    Component: ArenasPage,
-                  },
-                  {
-                    path: ':arenaId',
-                    children: [
-                      {
-                        index: true,
-                        Component: ArenaPage,
-                      },
-                      {
-                        path: ':userId',
-                        Component: ArenaResultsPage,
-                      },
-                    ],
-                  },
-                ],
+                path: ':userId',
+                Component: ArenaResultsPage,
               },
             ],
           },
