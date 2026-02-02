@@ -2,7 +2,7 @@
 import { createBrowserRouter } from 'react-router';
 
 // Util Imports.
-import { fetchCurrentUserState, authenticationRequired } from './lib/data-loaders';
+// import { fetchCurrentUserState, authenticationRequired } from './lib/data-loaders';
 
 // Component Imports.
 import NavigationLayout from './components/navigation';
@@ -19,11 +19,11 @@ import ArenaResultsPage from './components/pages/arena-results';
 // Application Page Routes.
 export default createBrowserRouter([
   {
-    loader: fetchCurrentUserState,
+    // loader: fetchCurrentUserState,
     children: [
       {
         path: 'login',
-        loader: () => authenticationRequired(false),
+        // loader: () => authenticationRequired(false),
         Component: LoginPage,
       },
       {
@@ -43,7 +43,7 @@ export default createBrowserRouter([
           },
           {
             path: 'dashboard',
-            loader: () => authenticationRequired(true),
+            // loader: () => authenticationRequired(true),
             children: [
               {
                 index: true,
